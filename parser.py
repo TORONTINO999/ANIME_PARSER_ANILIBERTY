@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AniLiberty API Parser v8 — DEBUG EDITION
-- Подробное логирование каждой ошибки
-- Проверка что реально происходит при обработке
-- Увеличены таймауты
+AniLiberty HTML Parser — Простой парсер без API
+Парсит HTML страницы через requests + BeautifulSoup
 """
 
 import os
@@ -15,42 +13,32 @@ import requests
 from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
+from bs4 import BeautifulSoup
 
 # ══════════════════════════════════════════════════════════════
 #  НАСТРОЙКИ
 # ══════════════════════════════════════════════════════════════
-BASE_URL = "https://anilibria.top"
-API_BASE = f"{BASE_URL}/api/v1"
+BASE_URL = "https://aniliberty.top"
+CATALOG_URL = f"{BASE_URL}/anime/catalog/"
 MIRRORS_DIR = "mirrors"
 GLOBAL_M3U = "aniliberty_all.m3u"
 PROGRESS_FILE = "parser_progress.json"
-DEBUG_LOG = "parser_debug.log"
 
-PAGE_LIMIT = 50
-MAX_WORKERS = 10           # Уменьшил потоки (было 20)
-REQUEST_DELAY = 0.2        # Увеличил задержку
-MAX_RETRIES = 3            # Увеличил retry
-TIMEOUT = 15               # Увеличил таймаут (было 8)
+MAX_WORKERS = 10          # 10 параллельных потоков
+REQUEST_DELAY = 0.5       # Задержка между запросами к каталогу
+TIMEOUT = 20              # Таймаут запросов
 
 # HTTP сессия
 session = requests.Session()
 session.headers.update({
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'application/json',
-    'Referer': 'https://anilibria.top/',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
 })
 
+# Потокобезопасные счетчики
 lock = Lock()
-stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0, 'errors': 0}
-
-# ══════════════════════════════════════════════════════════════
-#  ЛОГИРОВАНИЕ
-# ══════════════════════════════════════════════════════════════
-def log_debug(msg: str):
-    """Записываем в лог-файл"""
-    timestamp = time.strftime('%H:%M:%S')
-    with open(DEBUG_LOG, 'a', encoding='utf-8') as f:
-        f.write(f"[{timestamp}] {msg}\n")
+stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0}
 
 # ══════════════════════════════════════════════════════════════
 #  УТИЛИТЫ
@@ -62,32 +50,17 @@ def safe_filename(name: str) -> str:
     name = re.sub(r'\s+', ' ', name).strip()
     return name[:120]
 
-def make_absolute_url(path: str) -> str:
-    if not path:
-        return ""
-    if path.startswith('http'):
-        return path
-    return urljoin(BASE_URL, path)
-
-def get_best_hls(episode: dict) -> str:
-    for quality in ['hls_1080', 'hls_720', 'hls_480']:
-        url = episode.get(quality)
-        if url and isinstance(url, str) and url.startswith('http'):
-            return url
-    return None
-
-def retry_request(url: str, params: dict = None):
-    for attempt in range(MAX_RETRIES):
+def retry_request(url: str, max_retries: int = 3):
+    for attempt in range(max_retries):
         try:
-            resp = session.get(url, params=params, timeout=TIMEOUT)
+            resp = session.get(url, timeout=TIMEOUT)
             resp.raise_for_status()
-            return resp.json()
+            return resp
         except Exception as e:
-            error_msg = f"Запрос {url} - попытка {attempt+1}/{MAX_RETRIES} - Ошибка: {str(e)[:100]}"
-            log_debug(error_msg)
-            if attempt < MAX_RETRIES - 1:
+            if attempt < max_retries - 1:
                 time.sleep(1)
             else:
+                print(f"  ✗ Ошибка запроса {url}: {e}")
                 return None
 
 # ══════════════════════════════════════════════════════════════
@@ -98,194 +71,220 @@ def load_progress() -> set:
         try:
             with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                return set(data.get('done_ids', []))
+                return set(data.get('done_urls', []))
         except:
             pass
     return set()
 
-def save_progress(done_ids: set):
+def save_progress(done_urls: set):
     try:
         with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
-            json.dump({'done_ids': list(done_ids), 'updated': time.time()}, f)
+            json.dump({'done_urls': list(done_urls), 'updated': time.time()}, f)
     except:
         pass
 
 # ══════════════════════════════════════════════════════════════
-#  API
+#  ПАРСИНГ КАТАЛОГА
 # ══════════════════════════════════════════════════════════════
-def fetch_all_releases() -> list:
+def get_total_pages() -> int:
+    """Определение количества страниц в каталоге"""
+    resp = retry_request(CATALOG_URL)
+    if not resp:
+        return 1
+    
+    soup = BeautifulSoup(resp.content, 'html.parser')
+    
+    # Поиск пагинации
+    max_page = 1
+    for link in soup.select('a[href*="page="], .pagination a, ul.pagination li a'):
+        text = link.get_text(strip=True)
+        if text.isdigit():
+            max_page = max(max_page, int(text))
+    
+    if max_page == 1:
+        text = soup.get_text()
+        match = re.search(r'Страница\s+\d+\s+из\s+(\d+)', text)
+        if match:
+            max_page = int(match.group(1))
+    
+    return max_page
+
+def fetch_catalog_urls() -> list:
+    """Получение всех ссылок на релизы из каталога"""
     print("=" * 60)
-    print("📡  ПОЛУЧАЮ СПИСОК ВСЕХ РЕЛИЗОВ")
+    print("📡  Сканирую каталог...")
     print("=" * 60)
     
-    url = f"{API_BASE}/anime/catalog/releases"
-    test_params = {'page': 1, 'limit': PAGE_LIMIT}
+    total_pages = get_total_pages()
+    print(f"  📊 Всего страниц: {total_pages}")
     
-    test_data = retry_request(url, test_params)
-    if not test_data:
-        print("❌ Не удалось подключиться к API")
-        return []
+    all_urls = []
     
-    pagination = test_data.get('meta', {}).get('pagination', {})
-    total_releases = pagination.get('total', 0)
-    total_pages = pagination.get('total_pages', 0)
-    
-    print(f"\n📊  Всего релизов: {total_releases}")
-    print(f"    Всего страниц: {total_pages}")
-    
-    all_releases = []
-    page = 1
-    
-    while page <= total_pages:
-        params = {
-            'page': page,
-            'limit': PAGE_LIMIT,
-            'sorting': 'fresh_at',
-            'sort_direction': 'desc'
-        }
-        
-        data = retry_request(url, params)
-        if not data:
-            print(f"  ⚠️  Ошибка на стр. {page}")
-            page += 1
+    for page in range(1, total_pages + 1):
+        url = f"{CATALOG_URL}?page={page}" if page > 1 else CATALOG_URL
+        resp = retry_request(url)
+        if not resp:
             continue
         
-        releases = data.get('data', [])
-        if not releases:
-            break
+        soup = BeautifulSoup(resp.content, 'html.parser')
         
-        all_releases.extend(releases)
+        # Ищем ссылки на релизы
+        page_urls = []
+        
+        # Вариант 1: Ссылки с /anime/ в href (но не каталог)
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            if '/anime/' in href and '/catalog' not in href and href != '/anime/':
+                full_url = urljoin(BASE_URL, href)
+                if full_url not in page_urls:
+                    page_urls.append(full_url)
+        
+        # Вариант 2: Карточки релизов
+        if not page_urls:
+            for card in soup.select('.release-card, .anime-card, .card'):
+                link = card.find('a', href=True)
+                if link:
+                    full_url = urljoin(BASE_URL, link['href'])
+                    if full_url not in page_urls:
+                        page_urls.append(full_url)
+        
+        all_urls.extend(page_urls)
         
         percent = (page / total_pages * 100) if total_pages else 0
-        print(f"  📄 {percent:5.1f}% | Стр. {page}/{total_pages} | Всего: {len(all_releases)}/{total_releases}")
+        print(f"  📄 Стр. {page}/{total_pages} | Найдено: {len(page_urls)} | Всего: {len(all_urls)}")
         
-        page += 1
         time.sleep(REQUEST_DELAY)
     
-    print(f"\n✅ Получено релизов: {len(all_releases)}")
-    return all_releases
+    # Уникальные ссылки
+    all_urls = list(set(all_urls))
+    print(f"\n✅ Всего уникальных релизов: {len(all_urls)}")
+    return all_urls
 
 # ══════════════════════════════════════════════════════════════
-#  ОБРАБОТКА РЕЛИЗА — С ДЕТАЛЬНЫМ ЛОГИРОВАНИЕМ
+#  ПАРСИНГ РЕЛИЗА
 # ══════════════════════════════════════════════════════════════
-def process_and_save(release: dict, done_ids: set) -> dict:
-    rid = release.get('id')
-    title_ru = release.get('name', {}).get('main', 'Unknown')
-    
-    if not rid:
-        log_debug(f"ID={rid} - Нет ID, пропускаю")
+def parse_release_page(url: str) -> dict:
+    """Парсинг страницы одного релиза"""
+    resp = retry_request(url)
+    if not resp:
         return None
     
-    if rid in done_ids:
-        with lock:
-            stats['skipped'] += 1
-        return {'skipped': True, 'title': title_ru}
+    soup = BeautifulSoup(resp.content, 'html.parser')
     
-    # Получаем детали
-    url = f"{API_BASE}/anime/releases/{rid}"
-    log_debug(f"ID={rid} - Запрашиваю детали: {url}")
+    data = {
+        'url': url,
+        'title': '',
+        'year': None,
+        'poster_url': '',
+        'episodes': []
+    }
     
-    details = retry_request(url)
-    if not details:
-        log_debug(f"ID={rid} - Не удалось получить детали (после {MAX_RETRIES} попыток)")
-        with lock:
-            stats['errors'] += 1
-            stats['processed'] += 1
-        return None
+    # Название
+    title_elem = soup.select_one('h1, .title, .anime-title')
+    if title_elem:
+        data['title'] = title_elem.get_text(strip=True)
     
-    # Проверяем эпизоды
-    episodes_raw = details.get('episodes', [])
-    if not episodes_raw:
-        log_debug(f"ID={rid} - Нет эпизодов (в производстве?)")
-        with lock:
-            stats['processed'] += 1
-        return None
-    
-    # Извлекаем HLS
-    episodes = []
-    for ep in episodes_raw:
-        hls_url = get_best_hls(ep)
-        if not hls_url:
-            continue
-        episodes.append({
-            'number': ep.get('ordinal', '?'),
-            'name': ep.get('name', '') or f"Серия {ep.get('ordinal', '?')}",
-            'url': hls_url,
-            'duration': ep.get('duration', -1),
-        })
-    
-    if not episodes:
-        log_debug(f"ID={rid} - Нет HLS-ссылок в эпизодах")
-        with lock:
-            stats['processed'] += 1
-        return None
+    # Год
+    text = soup.get_text()
+    year_match = re.search(r'(20\d{2})', text)
+    if year_match:
+        data['year'] = int(year_match.group(1))
     
     # Постер
-    poster_obj = details.get('poster', {})
-    poster_url = make_absolute_url(
-        poster_obj.get('src') or 
-        poster_obj.get('preview') or 
-        (poster_obj.get('optimized', {}) or {}).get('src') or ''
-    )
+    poster = soup.select_one('img.poster, .poster img, img.anime-poster, img[src*="poster"]')
+    if poster:
+        data['poster_url'] = urljoin(BASE_URL, poster.get('src', ''))
     
-    # Сохраняем
-    folder_name = safe_filename(f"{rid}_{title_ru}")
+    # Эпизоды и m3u8 ссылки
+    # Ищем m3u8 в скриптах
+    scripts = soup.find_all('script')
+    m3u8_urls = []
+    for script in scripts:
+        if script.string and '.m3u8' in script.string:
+            urls = re.findall(r'https?://[^\s"\']+\.m3u8', script.string)
+            m3u8_urls.extend(urls)
+    
+    # Ищем ссылки на m3u8 в тегах
+    for link in soup.find_all('a', href=True):
+        if '.m3u8' in link['href']:
+            m3u8_urls.append(urljoin(BASE_URL, link['href']))
+    
+    # Уникальные m3u8
+    m3u8_urls = list(set(m3u8_urls))
+    
+    # Создаем список эпизодов
+    for idx, m3u8_url in enumerate(m3u8_urls, 1):
+        data['episodes'].append({
+            'number': idx,
+            'name': f"Серия {idx}",
+            'url': m3u8_url
+        })
+    
+    return data
+
+# ══════════════════════════════════════════════════════════════
+#  ОБРАБОТКА И СОХРАНЕНИЕ
+# ══════════════════════════════════════════════════════════════
+def process_and_save(url: str, done_urls: set) -> dict:
+    """Обработка одного релиза: парсинг → сохранение"""
+    if url in done_urls:
+        with lock:
+            stats['skipped'] += 1
+        return {'skipped': True}
+    
+    data = parse_release_page(url)
+    if not data or not data['episodes']:
+        with lock:
+            stats['processed'] += 1
+        return None
+    
+    title = data['title'] or 'Unknown'
+    
+    # Папка
+    folder_name = safe_filename(f"{title}_{data.get('year', '')}")
     folder_path = os.path.join(MIRRORS_DIR, folder_name)
     os.makedirs(folder_path, exist_ok=True)
     
     # Постер
     poster_filename = None
-    if poster_url:
+    if data['poster_url']:
         ext = '.jpg'
-        if '.png' in poster_url.lower(): ext = '.png'
-        elif '.webp' in poster_url.lower(): ext = '.webp'
+        if '.png' in data['poster_url'].lower(): ext = '.png'
+        elif '.webp' in data['poster_url'].lower(): ext = '.webp'
         poster_filename = f"poster{ext}"
         try:
-            resp = session.get(poster_url, timeout=TIMEOUT)
+            resp = session.get(data['poster_url'], timeout=TIMEOUT)
             resp.raise_for_status()
             with open(os.path.join(folder_path, poster_filename), 'wb') as f:
                 f.write(resp.content)
-        except Exception as e:
-            log_debug(f"ID={rid} - Ошибка скачивания постера: {str(e)[:80]}")
+        except:
             poster_filename = None
     
     # M3U
     with open(os.path.join(folder_path, 'playlist.m3u'), 'w', encoding='utf-8') as f:
         f.write("#EXTM3U\n")
-        f.write(f"#PLAYLIST:{title_ru}\n\n")
-        for ep in episodes:
-            duration = ep.get('duration', -1)
-            ep_title = f"S{ep['number']:02d} — {ep['name']}" if isinstance(ep['number'], int) else ep['name']
-            f.write(f"#EXTINF:{duration} tvg-logo=\"{poster_url}\",{title_ru} - {ep_title}\n")
+        f.write(f"#PLAYLIST:{title}\n\n")
+        for ep in data['episodes']:
+            f.write(f"#EXTINF:-1 tvg-logo=\"{data['poster_url']}\",{title} - {ep['name']}\n")
             f.write(f"{ep['url']}\n")
     
     # JSON
     metadata = {
-        'id': rid,
-        'title_ru': title_ru,
-        'title_en': details.get('name', {}).get('english', ''),
-        'alias': details.get('alias', ''),
-        'year': details.get('year', ''),
+        'title': title,
+        'year': data.get('year'),
         'poster': poster_filename,
-        'poster_url': poster_url,
-        'episodes_count': len(episodes),
+        'poster_url': data['poster_url'],
+        'episodes_count': len(data['episodes']),
+        'url': url
     }
     with open(os.path.join(folder_path, 'info.json'), 'w', encoding='utf-8') as f:
         json.dump(metadata, f, ensure_ascii=False, indent=2)
-    
-    log_debug(f"ID={rid} - ✅ УСПЕШНО СОХРАНЕНО: {len(episodes)} эпизодов")
     
     with lock:
         stats['processed'] += 1
         stats['saved'] += 1
     
-    return {
-        'id': rid,
-        'title': title_ru,
-        'episodes': len(episodes),
-        'poster': poster_filename is not None,
-        'skipped': False
-    }
+    return {'url': url, 'title': title, 'episodes': len(data['episodes']), 'skipped': False}
 
 # ══════════════════════════════════════════════════════════════
 #  ГЛОБАЛЬНЫЙ M3U
@@ -304,7 +303,7 @@ def generate_global_m3u():
         folders = []
     
     with open(GLOBAL_M3U, 'w', encoding='utf-8') as f:
-        f.write("#EXTM3U x-tvg-url=\"\"\n")
+        f.write("#EXTM3U\n")
         f.write("#PLAYLIST:AniLiberty — Все релизы\n\n")
         
         for folder_name in folders:
@@ -318,19 +317,17 @@ def generate_global_m3u():
                 with open(info_path, 'r', encoding='utf-8') as jf:
                     info = json.load(jf)
                 
-                group = f"{info.get('year', '?')} | {info.get('title_ru', 'Unknown')}"
+                group = f"{info.get('year', '?')} | {info.get('title', 'Unknown')}"
                 logo = info.get('poster_url', '')
-                title_ru = info.get('title_ru', 'Unknown')
-                rid = info.get('id', '?')
+                title = info.get('title', 'Unknown')
                 
                 with open(m3u_path, 'r', encoding='utf-8') as mf:
                     lines = mf.readlines()
                 
                 for line in lines:
                     if line.startswith('#EXTINF:'):
-                        duration_part = line.split(',')[0]
                         title_part = line.split(',', 1)[1].strip()
-                        f.write(f"{duration_part} tvg-id=\"{rid}\" tvg-name=\"{title_ru}\" tvg-logo=\"{logo}\" group-title=\"{group}\",{title_part}\n")
+                        f.write(f"#EXTINF:-1 tvg-name=\"{title}\" tvg-logo=\"{logo}\" group-title=\"{group}\",{title_part}\n")
                     elif line.startswith('http'):
                         f.write(line)
                         total_eps += 1
@@ -348,50 +345,48 @@ def generate_global_m3u():
 def main():
     start_time = time.time()
     
-    # Очищаем лог
-    if os.path.exists(DEBUG_LOG):
-        os.remove(DEBUG_LOG)
-    
     print("╔" + "═" * 58 + "╗")
-    print("║" + "  AniLiberty API Parser v8 — DEBUG".center(58) + "║")
+    print("║" + "  AniLiberty HTML Parser".center(58) + "║")
     print("║" + f"  Потоков: {MAX_WORKERS} | Таймаут: {TIMEOUT}с".center(58) + "║")
     print("╚" + "═" * 58 + "╝")
     print()
     
     os.makedirs(MIRRORS_DIR, exist_ok=True)
     
-    done_ids = load_progress()
-    if done_ids:
-        print(f"🔄  Найдено сохранение: {len(done_ids)} уже обработано")
+    # Прогресс
+    done_urls = load_progress()
+    if done_urls:
+        print(f"🔄  Найдено сохранение прогресса: {len(done_urls)} уже обработано")
     
-    catalog = fetch_all_releases()
-    if not catalog:
+    # 1. Каталог
+    catalog_urls = fetch_catalog_urls()
+    if not catalog_urls:
         print("❌ Не удалось получить каталог")
         return
     
-    stats['total'] = len(catalog)
+    stats['total'] = len(catalog_urls)
     
+    # 2. Обработка
     print(f"\n{'=' * 60}")
-    print(f"🚀  Обрабатываю {len(catalog)} релизов...")
-    print(f"    Детальный лог: {DEBUG_LOG}")
+    print(f"🚀  Обрабатываю {len(catalog_urls)} релизов в {MAX_WORKERS} потоков...")
     print(f"{'=' * 60}")
     
     last_print = time.time()
     last_save = time.time()
     
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = {executor.submit(process_and_save, r, done_ids): r for r in catalog}
+        futures = {executor.submit(process_and_save, url, done_urls): url for url in catalog_urls}
         
         for future in as_completed(futures):
             try:
                 result = future.result()
                 
-                if result and not result.get('skipped') and result.get('id'):
-                    done_ids.add(result['id'])
+                if result and not result.get('skipped') and result.get('url'):
+                    done_urls.add(result['url'])
                     
                     now = time.time()
                     if now - last_save >= 10:
-                        save_progress(done_ids)
+                        save_progress(done_urls)
                         last_save = now
                 
                 now = time.time()
@@ -401,19 +396,28 @@ def main():
                         p = stats['processed']
                         s = stats['saved']
                         k = stats['skipped']
-                        e = stats['errors']
                         t = stats['total']
                     
                     percent = (p / t * 100) if t else 0
-                    print(f"  {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} ❌{e}")
+                    bar_len = 30
+                    filled = int(bar_len * p / t) if t else 0
+                    bar = '█' * filled + '░' * (bar_len - filled)
+                    
+                    elapsed = time.time() - start_time
+                    speed = p / elapsed if elapsed > 0 else 0
+                    eta = (t - p) / speed if speed > 0 else 0
+                    
+                    print(f"  [{bar}] {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} | {speed:.1f} р/с | ETA: {eta:.0f}с")
                     
             except Exception as e:
-                log_debug(f"Исключение в потоке: {str(e)[:100]}")
+                pass
     
-    save_progress(done_ids)
+    save_progress(done_urls)
     
+    # 3. M3U
     total_eps = generate_global_m3u()
     
+    # 4. Итоги
     elapsed = time.time() - start_time
     
     print(f"\n╔" + "═" * 58 + "╗")
@@ -422,11 +426,11 @@ def main():
     print(f"║  Релизов в каталоге: {stats['total']:<37}║")
     print(f"║  Сохранено: {stats['saved']:<46}║")
     print(f"║  Пропущено (уже есть): {stats['skipped']:<35}║")
-    print(f"║  Ошибок: {stats['errors']:<49}║")
     print(f"║  Всего эпизодов: {total_eps:<41}║")
     print(f"║  Время: {elapsed:.1f} сек ({elapsed/60:.1f} мин)".ljust(59) + "║")
+    print(f"║  Папка: {MIRRORS_DIR}/".ljust(59) + "║")
+    print(f"║  Общий M3U: {GLOBAL_M3U}".ljust(59) + "║")
     print("╚" + "═" * 58 + "╝")
-    print(f"\n📋  Детальный лог: {DEBUG_LOG}")
 
 if __name__ == '__main__':
     main()
