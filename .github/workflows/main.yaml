@@ -17,18 +17,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 1. СНАЧАЛА устанавливаем библиотеки (включая playwright)
+      # 1. СНАЧАЛА устанавливаем саму библиотеку Playwright через pip
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install playwright
-          # Если у вас есть другие зависимости, лучше использовать requirements.txt:
-          # pip install -r requirements.txt
 
-      # 2. ТОЛЬКО ПОТОМ устанавливаем браузеры
+      # 2. ТОЛЬКО ПОТОМ скачиваем браузеры (теперь модуль уже найден)
       - name: Install Playwright Browsers
         run: python -m playwright install --with-deps chromium
 
-      # 3. Запускаем ваш скрипт
+      # 3. Запускаем твой скрипт
       - name: Run Script
         run: python main.py
