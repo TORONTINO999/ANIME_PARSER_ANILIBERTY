@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a22dbbdf-dd9c-4b1b-b1ee-5d1c40c6bfa2",
+    "name": "Добро пожаловать в семью Нарита",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": 1400,
+      "start": 1310
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc.jpg",
+      "preview": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc__153c4861ce058f71087c034240cc3bc0.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc__63135a75d6cc2e4b3b7250a869b43a69.webp",
+        "preview": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc__63135a75d6cc2e4b3b7250a869b43a69.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10272/1/7JuqWIytsYESzPpc__622ddee2dac760f0c4b4e76f947296b1.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10272/1/480/af10e83baa170762a45a7a101dd2e44f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10272/1/720/3a0eaa909ed4b2a37ba5f1a4a5c920bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10272/1/1080/eed9a58cb4750052d81cbabb55d33f6b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1431,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-04T14:27:14+00:00",
+    "sort_order": 1,
+    "release_id": 10272,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10272/1/1080/eed9a58cb4750052d81cbabb55d33f6b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10272/1/720/3a0eaa909ed4b2a37ba5f1a4a5c920bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10272/1/480/af10e83baa170762a45a7a101dd2e44f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

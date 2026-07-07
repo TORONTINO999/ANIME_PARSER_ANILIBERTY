@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a23207cb-0edc-4cc0-b969-4c174dd2e4cd",
+    "name": "Эпизод 1: Безупречная леди",
+    "ordinal": 1,
+    "opening": {
+      "stop": 1420,
+      "start": 1330
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8.jpg",
+      "preview": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8__cbea930d1b312408e2baaa4eb355cc1a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8__5330c89d04d5eca76d1cca790434bf86.webp",
+        "preview": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8__5330c89d04d5eca76d1cca790434bf86.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10278/1/mCwVDhkwcflGeyA8__5c0f438b2543e5d68e003d7d6f3a96de.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10278/1/480/b30afe16b099eb503fe31a67f0dfb6b5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10278/1/720/7b70351c5e67fb2255327fb305e89fb8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10278/1/1080/b4e23d61127b8c48841ed1742519057f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-06T17:23:41+00:00",
+    "sort_order": 1,
+    "release_id": 10278,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10278/1/1080/b4e23d61127b8c48841ed1742519057f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10278/1/720/7b70351c5e67fb2255327fb305e89fb8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10278/1/480/b30afe16b099eb503fe31a67f0dfb6b5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

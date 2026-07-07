@@ -1,0 +1,496 @@
+[
+  {
+    "id": "9e9c5647-aa5d-435e-9ce9-c36f0855e65b",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": 307,
+      "start": 188
+    },
+    "ending": {
+      "stop": 1419,
+      "start": 1300
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ__644bb6ddb37eade75dcf32aaaebaae61.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ__36c6fdf1535de3d7d260e4acd20e6c0b.webp",
+        "preview": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ__36c6fdf1535de3d7d260e4acd20e6c0b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/1/XXyDuwGnLE5Gi8wJ__02e5688e7eec5b7e3a85fd5d7875e2d5.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/1/480/a4fc2db9bc4f28742d8ab08e1b7b33fc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/1/720/70fc7660b4200b7ed98a0ee75dbdb61b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/1/1080/2cd0cb84e9e3b359ae5f6ccf58771c0e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-04-06T15:01:50+00:00",
+    "sort_order": 1,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/1/1080/2cd0cb84e9e3b359ae5f6ccf58771c0e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/1/720/70fc7660b4200b7ed98a0ee75dbdb61b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/1/480/a4fc2db9bc4f28742d8ab08e1b7b33fc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9eaa7640-7e43-4667-a65d-3e7687ef78fc",
+    "name": "Дворецкий чует неладное",
+    "ordinal": 2,
+    "opening": {
+      "stop": 127,
+      "start": 7
+    },
+    "ending": {
+      "stop": 1414,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU__db30d4d509bf9e0b22c134440a695f81.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU__33245e739953a17d3ece3ce499eb0aac.webp",
+        "preview": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU__33245e739953a17d3ece3ce499eb0aac.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/2/Q2GGFLpkx1xsTRVU__5bb446297449fc9d050274c83b4eb4e9.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/2/480/8f1fa3d26b038e7894a0f96c357ee0c0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/2/720/c104ad16f272cd7fe7967a85f28093b0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/2/1080/3e564d3ae3c606b5ba83dd3bdcfd29a2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-04-13T13:26:10+00:00",
+    "sort_order": 2,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/2/1080/3e564d3ae3c606b5ba83dd3bdcfd29a2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/2/720/c104ad16f272cd7fe7967a85f28093b0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/2/480/8f1fa3d26b038e7894a0f96c357ee0c0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9eb8e563-1db4-4571-849a-5b3ec80f11f4",
+    "name": "Дворецкий в аренде",
+    "ordinal": 3,
+    "opening": {
+      "stop": 353,
+      "start": 234
+    },
+    "ending": {
+      "stop": 1414,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM__d81b15417f1a9d3b1e3acbfd35640594.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM__ad3321a85ad9aff9f44d721c2d19fe90.webp",
+        "preview": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM__ad3321a85ad9aff9f44d721c2d19fe90.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/3/5D6ICDeF9Gcz0JsM__c7495cf7558c0b45b90f32cc958fe2f9.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/3/480/117924dd0c89242232546a9f0b6a73bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/3/720/8f3f585d315ff18763396cfdb1fd98f4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/3/1080/07f9c07868695b4070ad11193e213b90.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-04-20T17:49:17+00:00",
+    "sort_order": 3,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/3/1080/07f9c07868695b4070ad11193e213b90.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/3/720/8f3f585d315ff18763396cfdb1fd98f4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/3/480/117924dd0c89242232546a9f0b6a73bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9ec6b8aa-7e8b-4c55-95fd-1d1c013d42e3",
+    "name": "Дворецкий в услужении",
+    "ordinal": 4,
+    "opening": {
+      "stop": 350,
+      "start": 232
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt__864d6a46d84e7019585a14ec4fb203ca.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt__8b34e74475d65723fc637e88030260a8.webp",
+        "preview": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt__8b34e74475d65723fc637e88030260a8.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/4/kWMZCaeYdJ5dqiCt__fe5233e0e03ed4d7bdd9b54ffd400eba.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/4/480/11837b46cfda1fa7cf242717bd8782e4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/4/720/7787545f5f97719a0173f223b86965d5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/4/1080/932774638f5bc6d6ecabd7845ad42724.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-04-27T14:39:35+00:00",
+    "sort_order": 4,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/4/1080/932774638f5bc6d6ecabd7845ad42724.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/4/720/7787545f5f97719a0173f223b86965d5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/4/480/11837b46cfda1fa7cf242717bd8782e4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9ed64591-0df5-4a19-9d64-f865dc2b73bc",
+    "name": "Дворецкий спускается",
+    "ordinal": 5,
+    "opening": {
+      "stop": 344,
+      "start": 224
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3__8af3bafd5a0b3b5255649d5ea1ef9fa3.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3__dd3169432803b4f18a0466e1fd92eb25.webp",
+        "preview": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3__dd3169432803b4f18a0466e1fd92eb25.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/5/NukHGvu2EKpLfbC3__ad53164803509ebecea6fd3c789441b8.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/5/480/fffa402a3ab6c90fed2723884c500a4f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/5/720/c44e748d7adaec1423a524e2b9f4cf14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/5/1080/c5c26cc7bde14e78d5c06dc82739900e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-05-05T08:29:20+00:00",
+    "sort_order": 5,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/5/1080/c5c26cc7bde14e78d5c06dc82739900e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/5/720/c44e748d7adaec1423a524e2b9f4cf14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/5/480/fffa402a3ab6c90fed2723884c500a4f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9ee345b6-7ecd-4049-a297-ad7724ef6f1d",
+    "name": "Дворецкий отчаивается",
+    "ordinal": 6,
+    "opening": {
+      "stop": 279,
+      "start": 160
+    },
+    "ending": {
+      "stop": 1414,
+      "start": 1293
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB__14d3c6343392100b2582bf98f4721a51.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB__25158362e500a259adeddf9ba57e263d.webp",
+        "preview": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB__25158362e500a259adeddf9ba57e263d.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/6/SqMLWlKiLypAPBeB__9e5bdf1a7c480c70a9d927c8c393f4fc.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/6/480/b245a8f0a9f74c5d5a4473f8f4acde46.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/6/720/816e1042128d2ed22f9fc8c556a7cf15.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/6/1080/c29a22280230855a2da24da174522038.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-05-11T19:13:08+00:00",
+    "sort_order": 6,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/6/1080/c29a22280230855a2da24da174522038.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/6/720/816e1042128d2ed22f9fc8c556a7cf15.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/6/480/b245a8f0a9f74c5d5a4473f8f4acde46.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9ef3595f-2c07-435e-8542-855d23713e8e",
+    "name": "Дворецкий воодушевляет",
+    "ordinal": 7,
+    "opening": {
+      "stop": 277,
+      "start": 157
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z__4623f56f4fa2a2c0b8958652d0f8c0c7.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z__cff82ac31da227eee0742d93081c02c2.webp",
+        "preview": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z__cff82ac31da227eee0742d93081c02c2.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/7/fF2mm04lkJ1SF59Z__698389a0f5c14cb3065abef928732133.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/7/480/13042967b5ecdc309c80e55d5ef195d4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/7/720/f5a50279cfb22d0ab98eb61264a2164f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/7/1080/10489af2515d0363b1960202f6a86a1c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-05-19T19:17:33+00:00",
+    "sort_order": 7,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/7/1080/10489af2515d0363b1960202f6a86a1c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/7/720/f5a50279cfb22d0ab98eb61264a2164f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/7/480/13042967b5ecdc309c80e55d5ef195d4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f014262-211c-452a-9884-971f144b975b",
+    "name": "Дворецкий гневается",
+    "ordinal": 8,
+    "opening": {
+      "stop": 256,
+      "start": 136
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1293
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00__54108fd743335286c99131ea27f85de1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00__056f52e098e976eb535bacb0c42223e5.webp",
+        "preview": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00__056f52e098e976eb535bacb0c42223e5.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/8/ndbQZ9t3Qj5Oxs00__60d48bb6089fb54a7c603c8c088e3310.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/8/480/4ab89b084036c2ac7957b0e84a2064be.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/8/720/a6bd30a680788a7af3c316694fb79139.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/8/1080/ac7a2ab5511df72f5f56eb10335b623c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-05-26T17:02:50+00:00",
+    "sort_order": 8,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/8/1080/ac7a2ab5511df72f5f56eb10335b623c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/8/720/a6bd30a680788a7af3c316694fb79139.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/8/480/4ab89b084036c2ac7957b0e84a2064be.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f0fc066-7246-40d1-a763-9f99d3d3a0b5",
+    "name": "Дворецкий натыкается",
+    "ordinal": 9,
+    "opening": {
+      "stop": 450,
+      "start": 300
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1293
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz__b072549f9089ae89452b6978c80dc3de.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz__b4e2436aefbff7057ea206a7221da154.webp",
+        "preview": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz__b4e2436aefbff7057ea206a7221da154.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/9/vSo66UAoKZSJVnIz__d10043d643ff7e9976c50ee72cb606fe.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/9/480/f86a2669a5699fb3804e5f6bd197876e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/9/720/41978c8ed986c7e06673573bd1e60bfc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/9/1080/b3d6fda72d5cfb98c752183072b343ca.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-02T22:03:29+00:00",
+    "sort_order": 9,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/9/1080/b3d6fda72d5cfb98c752183072b343ca.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/9/720/41978c8ed986c7e06673573bd1e60bfc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/9/480/f86a2669a5699fb3804e5f6bd197876e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f1f3a36-64f8-4860-8967-1fbe83ec228d",
+    "name": "Дворецкий подметает мусор",
+    "ordinal": 10,
+    "opening": {
+      "stop": 596,
+      "start": 474
+    },
+    "ending": {
+      "stop": 1349,
+      "start": 1229
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe__a3273f79143c8d7d9c53c19c1258c6f1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe__e215374071fc9eadfc4f3b137c5e663f.webp",
+        "preview": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe__e215374071fc9eadfc4f3b137c5e663f.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/10/oWcfmi6sNuxE2Dfe__ffc89b2af3d907947205167a90dd1b06.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/10/480/5f6f2f2341aa742df65e811e67924dea.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/10/720/be53d8751e0942c512ef723e141c13b6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/10/1080/4f4b5c8600377bb7ecdc9a3d16e7c859.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-10T14:34:47+00:00",
+    "sort_order": 10,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/10/1080/4f4b5c8600377bb7ecdc9a3d16e7c859.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/10/720/be53d8751e0942c512ef723e141c13b6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/10/480/5f6f2f2341aa742df65e811e67924dea.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f2d87c3-22b7-4d10-9312-3d9bef5c298a",
+    "name": "Дворецкий неведомый",
+    "ordinal": 11,
+    "opening": {
+      "stop": 305,
+      "start": 185
+    },
+    "ending": {
+      "stop": 1415,
+      "start": 1295
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o__7c5500035034a54d694d4b00e6da589d.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o__616ab4ea4b8b6c9c239e767944e360f7.webp",
+        "preview": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o__616ab4ea4b8b6c9c239e767944e360f7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/11/28Ya01vMIj2H5c4o__7164cd37d60b0f74408b1e16caf40307.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/11/480/07e357d886fb4b4ed8fbf8e4522c1781.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/11/720/6095e2a95aa3757212c8f652e5cea32c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/11/1080/4589911e6e0a7df7a848212d055c4da0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-17T17:11:28+00:00",
+    "sort_order": 11,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/11/1080/4589911e6e0a7df7a848212d055c4da0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/11/720/6095e2a95aa3757212c8f652e5cea32c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/11/480/07e357d886fb4b4ed8fbf8e4522c1781.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f39c56f-0645-4016-b4ae-79fb6d7fc7b8",
+    "name": "Дворецкий ищет",
+    "ordinal": 12,
+    "opening": {
+      "stop": 267,
+      "start": 147
+    },
+    "ending": {
+      "stop": 1402,
+      "start": 1281
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp__76b82c369db27e9a8d5fa5fe48e3b24f.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp__06a30bc7a917c1c2f26c4d60d41b11e8.webp",
+        "preview": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp__06a30bc7a917c1c2f26c4d60d41b11e8.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/12/S8jz0ewj5GKEdbzp__c165da0a4e507f6ccf109d1e5b347d64.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/12/480/845742eb820683b8aa45c5ee1d058ee0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/12/720/533571487f0a6f4fdc60419ea3897a48.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/12/1080/4fa0fa7096a94f09f9351893861ac53c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-23T19:10:53+00:00",
+    "sort_order": 12,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/12/1080/4fa0fa7096a94f09f9351893861ac53c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/12/720/533571487f0a6f4fdc60419ea3897a48.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/12/480/845742eb820683b8aa45c5ee1d058ee0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f49c804-7e49-45dd-b25d-7bfbffbaef85",
+    "name": "Дворецкий погружается",
+    "ordinal": 13,
+    "opening": {
+      "stop": 120,
+      "start": 1
+    },
+    "ending": {
+      "stop": 1380,
+      "start": 1260
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp.jpg",
+      "preview": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp__d57be6319f3fb87b901eedc1b957311c.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp__58eb3cebd88b8131e699f010cfe62ff0.webp",
+        "preview": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp__58eb3cebd88b8131e699f010cfe62ff0.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9922/13/xw6zgn7423VYR6Rp__5fcfb8d59a3a621e28e797c0534745b9.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9922/13/480/17eb504f9c9507dbdd75977b738d2963.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9922/13/720/f491d994588fd6e742bf54eb536841d3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/13/1080/085c252173fd1a3f487a17f93a781280.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-07-01T18:19:15+00:00",
+    "sort_order": 13,
+    "release_id": 9922,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9922/13/1080/085c252173fd1a3f487a17f93a781280.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9922/13/720/f491d994588fd6e742bf54eb536841d3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9922/13/480/17eb504f9c9507dbdd75977b738d2963.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

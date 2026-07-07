@@ -1,0 +1,458 @@
+[
+  {
+    "id": "95ddb00b-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": 302,
+      "start": 213
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy__38ea840e4372abe32a6968d1c0b37d58.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy__0fb63507f7f851c75223dba9d1ee3777.webp",
+        "preview": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy__0fb63507f7f851c75223dba9d1ee3777.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/1/ig9d6HwUfXkxwfRy__9c7b3b547aa2c0b47de2336bb1df5181.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/1/480/3df5beb7f234e4184721ecea67556cb0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/1/720/191ed873e516ff89e184af7e11f8910a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/1/1080/9153d9d73210f3661ca9026086493eb5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-02-09T17:04:23+00:00",
+    "sort_order": 1,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/1/1080/9153d9d73210f3661ca9026086493eb5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/1/720/191ed873e516ff89e184af7e11f8910a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/1/480/3df5beb7f234e4184721ecea67556cb0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95ddb113-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 2,
+    "opening": {
+      "stop": 165,
+      "start": 78
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/2/480/f02b3ff0d5c053a8aae94bc8bb1361ce.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/2/720/f19246ca2316a8a9e30b843ec683dea7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/2/1080/6a3f6eaa07d4ccd7117c11f50501c06d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-01-16T17:03:15+00:00",
+    "sort_order": 2,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/2/1080/6a3f6eaa07d4ccd7117c11f50501c06d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/2/720/f19246ca2316a8a9e30b843ec683dea7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/2/480/f02b3ff0d5c053a8aae94bc8bb1361ce.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "062703e5-f0ec-42ec-9174-4f295cdb2c53",
+    "name": null,
+    "ordinal": 3,
+    "opening": {
+      "stop": 160,
+      "start": 70
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a__fa622a7c38fbf87b7fa7d4c5a9654946.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a__4a05030f64c0e8c968981e8bbb5613ac.webp",
+        "preview": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a__4a05030f64c0e8c968981e8bbb5613ac.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/3/uP5vPPca2KVRSh7a__36152dd32be615a8c36310cd107dd36f.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/3/480/2f5d2f54b447d31f0dea9c1300eeabd0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/3/720/fbf785713eee5c18ace070461e979123.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/3/1080/5fca48ce1ab834302ffe170167109461.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-01-31T17:21:56+00:00",
+    "sort_order": 3,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/3/1080/5fca48ce1ab834302ffe170167109461.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/3/720/fbf785713eee5c18ace070461e979123.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/3/480/2f5d2f54b447d31f0dea9c1300eeabd0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "a00928e0-6afa-4053-858b-bca5ad2168bd",
+    "name": null,
+    "ordinal": 4,
+    "opening": {
+      "stop": 172,
+      "start": 82
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo__52c049814abc6ce49c4c42b38c803754.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo__8db4aa1b3783266e698098cb87bb6a88.webp",
+        "preview": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo__8db4aa1b3783266e698098cb87bb6a88.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/4/pULrulpWNSO2SaNo__7f5b6d77b94c5c2ad8c86e69f773fef5.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/4/480/f3d0aef81cae8238016fcb166742a742.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/4/720/80de854391a6fe31ca144ff857a93573.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/4/1080/c0e293b47dc36ee305cc743639d6d077.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-02-09T17:40:48+00:00",
+    "sort_order": 4,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/4/1080/c0e293b47dc36ee305cc743639d6d077.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/4/720/80de854391a6fe31ca144ff857a93573.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/4/480/f3d0aef81cae8238016fcb166742a742.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "1f68d197-ee69-439f-8472-eec099ab3cf9",
+    "name": null,
+    "ordinal": 5,
+    "opening": {
+      "stop": 138,
+      "start": 48
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq__15e19b302cb6264d6d4451d355d17cb2.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq__216ea220f1406716fb3542e96a1caaa8.webp",
+        "preview": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq__216ea220f1406716fb3542e96a1caaa8.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/5/qj42wPYePJW0zawq__14a7408586886bb358b60acf26041761.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/5/480/a3238663219fa2fef3311a85c512bc5a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/5/720/1be1d4bff387edfc0af4fe4997f71c7d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/5/1080/9557f8f31c47df32364585c91f56c516.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1413,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-02-16T19:24:37+00:00",
+    "sort_order": 5,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/5/1080/9557f8f31c47df32364585c91f56c516.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/5/720/1be1d4bff387edfc0af4fe4997f71c7d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/5/480/a3238663219fa2fef3311a85c512bc5a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "60aa901e-5203-4a3a-8fc6-3b025bc2cb5a",
+    "name": null,
+    "ordinal": 6,
+    "opening": {
+      "stop": 199,
+      "start": 110
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do__b82e6e20691f71263865a96e855e50a6.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do__4e5208272aa65f580ea86937881b8198.webp",
+        "preview": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do__4e5208272aa65f580ea86937881b8198.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/6/2DJJLvhk4dBNM5do__ffa0f97de397637350400ec50d2f73db.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/6/480/451a8830afaa547caf5c5509fe442c62.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/6/720/2f94739c7b7b1b23cea9519ac7dc7ed6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/6/1080/8ad8e00b997ac143efec564596957ebd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-02-23T21:58:40+00:00",
+    "sort_order": 6,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/6/1080/8ad8e00b997ac143efec564596957ebd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/6/720/2f94739c7b7b1b23cea9519ac7dc7ed6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/6/480/451a8830afaa547caf5c5509fe442c62.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "176602aa-95cd-4960-99cf-c252eb12debf",
+    "name": null,
+    "ordinal": 7,
+    "opening": {
+      "stop": 180,
+      "start": 90
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms__0de18e609e9208dc11f1b30da208c990.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms__9dd2501fa7e3668528f34affdacc856f.webp",
+        "preview": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms__9dd2501fa7e3668528f34affdacc856f.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/7/rm5hXiLw3zaI4Bms__74ff0f477dc4f7f40bffa64b127dd454.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/7/480/67116195b76c095141b7946e1a300049.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/7/720/3dac5331c8a9aa6f39330afcd5a361fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/7/1080/08a99e5316b746411d5fc5328c575169.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-03-04T19:49:20+00:00",
+    "sort_order": 7,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/7/1080/08a99e5316b746411d5fc5328c575169.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/7/720/3dac5331c8a9aa6f39330afcd5a361fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/7/480/67116195b76c095141b7946e1a300049.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "62774a0f-442a-4090-86ce-077f4781ae06",
+    "name": null,
+    "ordinal": 8,
+    "opening": {
+      "stop": 139,
+      "start": 49
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7__90295b395c13a4ad0262309ccb93620f.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7__3055624f9e5dac2fd21837326f62f84d.webp",
+        "preview": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7__3055624f9e5dac2fd21837326f62f84d.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/8/GiCmUg7IgPm9F1R7__f34dc7533252a7f6083c6190e6ad1683.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/8/480/47c62796d6ea537a20a7c28261878c53.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/8/720/0c444ab75aac80c70ccf0b97f09a642b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/8/1080/b0b2d21cda4ece58aa25a5717e069d62.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-03-09T16:21:21+00:00",
+    "sort_order": 8,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/8/1080/b0b2d21cda4ece58aa25a5717e069d62.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/8/720/0c444ab75aac80c70ccf0b97f09a642b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/8/480/47c62796d6ea537a20a7c28261878c53.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "ec0d500a-53b5-4624-bf22-d67401562eba",
+    "name": null,
+    "ordinal": 9,
+    "opening": {
+      "stop": 111,
+      "start": 21
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN__e21f968c3fd87505ab45349248e4247e.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN__7b15c9a79c1342a01d1e0834fdcd54a2.webp",
+        "preview": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN__7b15c9a79c1342a01d1e0834fdcd54a2.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/9/xygjub9hhe17e1lN__a5c5af5cc106203e6173e1ece520468c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/9/480/6b369b2d511fb816e4c04589a5de781d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/9/720/2e72f3a6890f3ff70189bd2445f9437b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/9/1080/eb1c7b74b24790c2549d14341e81246b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-03-16T17:02:26+00:00",
+    "sort_order": 9,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/9/1080/eb1c7b74b24790c2549d14341e81246b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/9/720/2e72f3a6890f3ff70189bd2445f9437b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/9/480/6b369b2d511fb816e4c04589a5de781d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "1874b455-9c81-4429-a284-1ab46bd352c6",
+    "name": null,
+    "ordinal": 10,
+    "opening": {
+      "stop": 275,
+      "start": 185
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF__a293649cbb6acbd7d8d1dcd63065187a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF__45b0f5f1ad1d1a5222bcb857bbff63e9.webp",
+        "preview": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF__45b0f5f1ad1d1a5222bcb857bbff63e9.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/10/mBnrCODWZQlMm3gF__e1bd3fe6db1c2aff765906309de4235c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/10/480/66f5b57f6caad6898ca26529dbbaa54e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/10/720/a05362c961ccb6e30ad0079e2eb4fd97.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/10/1080/d18bde7681b1d13b73a75d9600a9dad3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-03-23T16:49:23+00:00",
+    "sort_order": 10,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/10/1080/d18bde7681b1d13b73a75d9600a9dad3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/10/720/a05362c961ccb6e30ad0079e2eb4fd97.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/10/480/66f5b57f6caad6898ca26529dbbaa54e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "b4747f53-3b05-45af-9713-df5a9e726047",
+    "name": null,
+    "ordinal": 11,
+    "opening": {
+      "stop": 99,
+      "start": 39
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt__ebaffcf4936a9c00decaf104ebb6c652.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt__41cc10041051467cde30ea70582439ad.webp",
+        "preview": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt__41cc10041051467cde30ea70582439ad.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/11/KB7cjjsi9NtKXngt__892792bf7cdf3756b90200f0f03669d1.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/11/480/beda2bb8505aef997522a0b94e3b8ea3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/11/720/dc2d1c52229ad4c75e89264e62cf4b31.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/11/1080/c711a88124366edab1b2c9654d2d1e9c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-03-30T20:39:32+00:00",
+    "sort_order": 11,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/11/1080/c711a88124366edab1b2c9654d2d1e9c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/11/720/dc2d1c52229ad4c75e89264e62cf4b31.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/11/480/beda2bb8505aef997522a0b94e3b8ea3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "211d33fd-7bfd-4889-b43c-a00951dbff5c",
+    "name": null,
+    "ordinal": 12,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f.jpg",
+      "preview": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f__d1ee20676c03ff4a5e901587f4c522a7.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f__c06b334ffd85fd94b2e136387b3e79e6.webp",
+        "preview": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f__c06b334ffd85fd94b2e136387b3e79e6.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9129/12/fpEQwG6jxCduki7f__870971dfedd18b1751b37121e7608520.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9129/12/480/df2c8feb638c3b605dc01f6d3ae2c721.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9129/12/720/108bfa2592014de8cbc847344e01416b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/12/1080/2ddf10c18678a30b25004a33d93c5a91.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1412,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-04-07T18:52:51+00:00",
+    "sort_order": 12,
+    "release_id": 9129,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9129/12/1080/2ddf10c18678a30b25004a33d93c5a91.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9129/12/720/108bfa2592014de8cbc847344e01416b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9129/12/480/df2c8feb638c3b605dc01f6d3ae2c721.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

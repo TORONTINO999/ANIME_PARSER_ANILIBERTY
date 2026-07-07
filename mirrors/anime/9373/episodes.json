@@ -1,0 +1,40 @@
+[
+  {
+    "id": "76dfd4eb-0e7e-4e48-ad41-7f1f9bc10656",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC.jpg",
+      "preview": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC__b9bab23b7c6d3c2743cb0858f6047c9b.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC__9c937c33b6851e356f3a0a756ada2f7a.webp",
+        "preview": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC__9c937c33b6851e356f3a0a756ada2f7a.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9373/1/9nPdJnciK4EjyEdC__97a77e125b63d5771b9df39cfdc81a36.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9373/1/480/4d0d6ed15c54da6c794abfbcdd0fea60.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9373/1/720/7b44a527c8ba7f42ead080d57280d0b0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9373/1/1080/25f63d58a97b2abc250c1d67b46c41d5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 5276,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-11-26T15:52:35+00:00",
+    "sort_order": 1,
+    "release_id": 9373,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9373/1/1080/25f63d58a97b2abc250c1d67b46c41d5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9373/1/720/7b44a527c8ba7f42ead080d57280d0b0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9373/1/480/4d0d6ed15c54da6c794abfbcdd0fea60.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

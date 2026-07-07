@@ -1,0 +1,40 @@
+[
+  {
+    "id": "9e08e42a-92fd-4238-a6ec-87bd402f148d",
+    "name": "Будни школьного оркестра",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ.jpg",
+      "preview": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ__95aa38cb543cb5209091303875b9673a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ__7c082cf7b1a0d6f9bb12e71f0b75835d.webp",
+        "preview": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ__7c082cf7b1a0d6f9bb12e71f0b75835d.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9896/1/MfrIlIHWclwVpkUJ__846efb5b5ada3a11dcd50a6397171238.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9896/1/480/b140de40dcb4f8459044fcca1f28883c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9896/1/720/73fd2855380b18a61f0b367d2651a493.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9896/1/1080/c8a103f51eb26a6b6c350dbd1460d05e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 926,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-01-23T05:47:29+00:00",
+    "sort_order": 1,
+    "release_id": 9896,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9896/1/1080/c8a103f51eb26a6b6c350dbd1460d05e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9896/1/720/73fd2855380b18a61f0b367d2651a493.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9896/1/480/b140de40dcb4f8459044fcca1f28883c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a22c3470-63c2-415d-bdbc-be0719202fde",
+    "name": "Девушка-монстр в Токио",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": 1450,
+      "start": 1360
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ.jpg",
+      "preview": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ__0334b6ce809010f81d26fc8800f88268.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ__7e95e7f936af7943cd89b7af8efdee92.webp",
+        "preview": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ__7e95e7f936af7943cd89b7af8efdee92.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10255/1/cVHlAjBA3BEA5PvZ__dd3a068fc4aafce59c46f4e4d9d4d472.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10255/1/480/891b490e4bdcdcbbe1151294fc048339.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10255/1/720/0cd253bdc36eaad2f50e5cab794126e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10255/1/1080/89a9422503f15581c1c637f4b0441440.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1457,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-03T20:03:34+00:00",
+    "sort_order": 1,
+    "release_id": 10255,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10255/1/1080/89a9422503f15581c1c637f4b0441440.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10255/1/720/0cd253bdc36eaad2f50e5cab794126e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10255/1/480/891b490e4bdcdcbbe1151294fc048339.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

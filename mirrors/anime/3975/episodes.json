@@ -1,0 +1,890 @@
+[
+  {
+    "id": "95b4a082-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/1/480/0f92d05ceb0a2d29f3fd2708a2a3b1a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/1/720/4b470f816380fde0f1c97e1fa0946821.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:52:35+00:00",
+    "sort_order": 1,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/1/720/4b470f816380fde0f1c97e1fa0946821.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/1/480/0f92d05ceb0a2d29f3fd2708a2a3b1a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a0ed-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 2,
+    "opening": {
+      "stop": 264,
+      "start": 168
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/2/480/3aacc0255371550c1d150a0befc40985.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/2/720/090fd156e1310d4fb5c45b25939fa4b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:51:02+00:00",
+    "sort_order": 2,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/2/720/090fd156e1310d4fb5c45b25939fa4b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/2/480/3aacc0255371550c1d150a0befc40985.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a154-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 3,
+    "opening": {
+      "stop": 254,
+      "start": 158
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/3/480/9af092582eb589e2835c756e4fe63d08.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/3/720/fd74d0efc57961e8ad3db8a42c635a81.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:52:47+00:00",
+    "sort_order": 3,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/3/720/fd74d0efc57961e8ad3db8a42c635a81.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/3/480/9af092582eb589e2835c756e4fe63d08.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a1be-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 4,
+    "opening": {
+      "stop": 195,
+      "start": 99
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/4/480/c75a2c443284e6e67f5d2b2050b1267f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/4/720/356ff4d4dbef33cb6100acff78036747.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:51:44+00:00",
+    "sort_order": 4,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/4/720/356ff4d4dbef33cb6100acff78036747.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/4/480/c75a2c443284e6e67f5d2b2050b1267f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a224-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 5,
+    "opening": {
+      "stop": 198,
+      "start": 102
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/5/480/97a9d6ea24e1d8eb6f06c7466a38bfb6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/5/720/44488a95ebd5eece6c7a85623d9c769b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:08+00:00",
+    "sort_order": 5,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/5/720/44488a95ebd5eece6c7a85623d9c769b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/5/480/97a9d6ea24e1d8eb6f06c7466a38bfb6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a288-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 6,
+    "opening": {
+      "stop": 250,
+      "start": 154
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/6/480/c0917a03b781230187a89c2c98f56978.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/6/720/85791705cfddff382e53f8337f71feac.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:51:19+00:00",
+    "sort_order": 6,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/6/720/85791705cfddff382e53f8337f71feac.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/6/480/c0917a03b781230187a89c2c98f56978.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a2ee-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 7,
+    "opening": {
+      "stop": 153,
+      "start": 57
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/7/480/8af1969ec317108a5a67099853f0401e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/7/720/d17564f140ecef9544f5cbd08118cf23.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:52:23+00:00",
+    "sort_order": 7,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/7/720/d17564f140ecef9544f5cbd08118cf23.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/7/480/8af1969ec317108a5a67099853f0401e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a356-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 8,
+    "opening": {
+      "stop": 255,
+      "start": 159
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/8/480/1504b47e2e4cda84f1f173e9f9bf7ff8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/8/720/6ebce89da627a3df273991a3567b5c27.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:55:35+00:00",
+    "sort_order": 8,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/8/720/6ebce89da627a3df273991a3567b5c27.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/8/480/1504b47e2e4cda84f1f173e9f9bf7ff8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a3bb-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 9,
+    "opening": {
+      "stop": 237,
+      "start": 141
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/9/480/1251456d8a506b3bda5d01414a46287e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/9/720/53c75a04248d54a79d9d4466cc2f1f57.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:11+00:00",
+    "sort_order": 9,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/9/720/53c75a04248d54a79d9d4466cc2f1f57.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/9/480/1251456d8a506b3bda5d01414a46287e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a421-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 10,
+    "opening": {
+      "stop": 161,
+      "start": 65
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/10/480/00ddf94564449248f56418ec81d5345e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/10/720/54f931458a1f4164efe5c144cc2c66b6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:51:24+00:00",
+    "sort_order": 10,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/10/720/54f931458a1f4164efe5c144cc2c66b6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/10/480/00ddf94564449248f56418ec81d5345e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a487-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 11,
+    "opening": {
+      "stop": 224,
+      "start": 128
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/11/480/47fea68ecdfb26b61370bf2559f71fa3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/11/720/32cce8fe9bc805b52751a1e5d6e729da.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:50:58+00:00",
+    "sort_order": 11,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/11/720/32cce8fe9bc805b52751a1e5d6e729da.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/11/480/47fea68ecdfb26b61370bf2559f71fa3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a4ed-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 12,
+    "opening": {
+      "stop": 159,
+      "start": 63
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/12/480/c62789cff8d5ed5682f74c60cdd437bc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/12/720/2569b01fb8490bbde8eabb3173bb2441.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:51:15+00:00",
+    "sort_order": 12,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/12/720/2569b01fb8490bbde8eabb3173bb2441.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/12/480/c62789cff8d5ed5682f74c60cdd437bc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a554-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 13,
+    "opening": {
+      "stop": 212,
+      "start": 116
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/13/480/a74e1319f81cf29f35cde6501a0a9131.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/13/720/de960d16bee885d14ff85eb328cc991f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:52:11+00:00",
+    "sort_order": 13,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/13/720/de960d16bee885d14ff85eb328cc991f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/13/480/a74e1319f81cf29f35cde6501a0a9131.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a5b9-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 14,
+    "opening": {
+      "stop": 224,
+      "start": 128
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/14/480/9e74e157e3f5df5a98a25e751dcb0dbf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/14/720/eb9acad31b0f9204f66be9d09c02893a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1466,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:04+00:00",
+    "sort_order": 14,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/14/720/eb9acad31b0f9204f66be9d09c02893a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/14/480/9e74e157e3f5df5a98a25e751dcb0dbf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a61e-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 15,
+    "opening": {
+      "stop": 308,
+      "start": 212
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/15/480/2d277f971ef28011bf212d060a9de60e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/15/720/83922a33c2c9475f8ccad3649fa5cc92.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:50:54+00:00",
+    "sort_order": 15,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/15/720/83922a33c2c9475f8ccad3649fa5cc92.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/15/480/2d277f971ef28011bf212d060a9de60e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a685-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 16,
+    "opening": {
+      "stop": 337,
+      "start": 241
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/16/480/e1f933e6a58f97fb2127e0d67926cbf7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/16/720/d76c784c41d5283b778c025c77cc38bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1467,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:39+00:00",
+    "sort_order": 16,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/16/720/d76c784c41d5283b778c025c77cc38bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/16/480/e1f933e6a58f97fb2127e0d67926cbf7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a6ea-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 17,
+    "opening": {
+      "stop": 276,
+      "start": 180
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/17/480/aff20c1c3b1fd7870c6b4a23edeebe05.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/17/720/04674549ef2d0c166cd25889d5fc083b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:54:42+00:00",
+    "sort_order": 17,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/17/720/04674549ef2d0c166cd25889d5fc083b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/17/480/aff20c1c3b1fd7870c6b4a23edeebe05.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a74e-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 18,
+    "opening": {
+      "stop": 306,
+      "start": 210
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/18/480/2ec5094bf2ee9b9bb7e24acd60980526.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/18/720/30ec4fa99baaaf825a358a3f466f0832.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:55:23+00:00",
+    "sort_order": 18,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/18/720/30ec4fa99baaaf825a358a3f466f0832.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/18/480/2ec5094bf2ee9b9bb7e24acd60980526.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a7b4-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 19,
+    "opening": {
+      "stop": 276,
+      "start": 180
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/19/480/e36cbd28fe04ee7860e9a6be1532611f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/19/720/2a02633d895f031435ec490870c6769f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:19+00:00",
+    "sort_order": 19,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/19/720/2a02633d895f031435ec490870c6769f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/19/480/e36cbd28fe04ee7860e9a6be1532611f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a819-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 20,
+    "opening": {
+      "stop": 201,
+      "start": 105
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/20/480/bcfac7ad31a1cd38b554ed406d58b6d6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/20/720/0d1962c1a571d55c0ba64182e9631e21.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:52+00:00",
+    "sort_order": 20,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/20/720/0d1962c1a571d55c0ba64182e9631e21.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/20/480/bcfac7ad31a1cd38b554ed406d58b6d6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a87f-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 21,
+    "opening": {
+      "stop": 186,
+      "start": 90
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/21/480/84f668c75456d07004082cefe8fda9ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/21/720/f62ebdbc5f72e7facda0aae307ced52c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:53:15+00:00",
+    "sort_order": 21,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/21/720/f62ebdbc5f72e7facda0aae307ced52c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/21/480/84f668c75456d07004082cefe8fda9ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a8e3-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 22,
+    "opening": {
+      "stop": 238,
+      "start": 142
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/22/480/7b7847b9f0e9345b5a1a0ccb170c2f4f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/22/720/d9633262f5cbd05f2aab1cfaca8adbdb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:52:51+00:00",
+    "sort_order": 22,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/22/720/d9633262f5cbd05f2aab1cfaca8adbdb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/22/480/7b7847b9f0e9345b5a1a0ccb170c2f4f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a947-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 23,
+    "opening": {
+      "stop": 270,
+      "start": 174
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/23/480/cd2b91eacc57c5f2fcd533f948d7b855.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/23/720/4097dab5578d819e1e0c9170799ad229.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:55:09+00:00",
+    "sort_order": 23,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/23/720/4097dab5578d819e1e0c9170799ad229.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/23/480/cd2b91eacc57c5f2fcd533f948d7b855.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95b4a9ab-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 24,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/3975/24/480/7428daf4905fff5193b3bccbb0dd1ac4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/3975/24/720/dad774c827da664eb0749406c1dccda8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2019-01-16T02:54:04+00:00",
+    "sort_order": 24,
+    "release_id": 3975,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/3975/24/720/dad774c827da664eb0749406c1dccda8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/3975/24/480/7428daf4905fff5193b3bccbb0dd1ac4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

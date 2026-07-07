@@ -1,0 +1,914 @@
+[
+  {
+    "id": "c2a1fa2c-7784-4e3a-aae6-e1eb5c205bbf",
+    "name": "Рай, где ты утонешь в своей мечте",
+    "ordinal": 1,
+    "opening": {
+      "stop": 164,
+      "start": 74
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB__2017edebede3587b3404accd10329cb2.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB__120011950427aa95d17ca79e52ed6217.webp",
+        "preview": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB__120011950427aa95d17ca79e52ed6217.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/1/qQQRDIDL1viSm2mB__359d4905de4c9cd25a74eb6f6b7d6474.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/1/480/9ba722921b6bcc285d447fb8a2c3adf3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/1/720/fef0b136205e783e3844d31e4f1d3a8b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/1/1080/f8b92221e2e52df988f3ca5af4a326b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1423,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-01-22T14:32:49+00:00",
+    "sort_order": 1,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/1/1080/f8b92221e2e52df988f3ca5af4a326b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/1/720/fef0b136205e783e3844d31e4f1d3a8b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/1/480/9ba722921b6bcc285d447fb8a2c3adf3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "6b0c6793-68c0-436c-8264-4bfcf2e44c71",
+    "name": "Призраки лобного места",
+    "ordinal": 2,
+    "opening": {
+      "stop": 129,
+      "start": 39
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13__b531fda3eec51a52b08276a801139094.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13__b759aacf94870c3c2e4eb1c02d84b3b7.webp",
+        "preview": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13__b759aacf94870c3c2e4eb1c02d84b3b7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/2/zMykRqUb3vlP1e13__5f6e9502fdfe3106649b46a32e0f4890.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/2/480/c5fb10d5cf87bac9543e73af5d904315.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/2/720/38b9ddab01b134911d1dd95b9f857cf9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/2/1080/1763df2b3e241367e69f00ae6bca4b9f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-01-30T19:45:36+00:00",
+    "sort_order": 2,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/2/1080/1763df2b3e241367e69f00ae6bca4b9f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/2/720/38b9ddab01b134911d1dd95b9f857cf9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/2/480/c5fb10d5cf87bac9543e73af5d904315.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "856b41b5-17dc-4c30-960d-69747895cf74",
+    "name": "Веди меня, волшебный меч",
+    "ordinal": 3,
+    "opening": {
+      "stop": 229,
+      "start": 139
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p__c2771114391d15f631a6aa426832571f.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p__0d217ae80170a7ee37890d1b5d63918b.webp",
+        "preview": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p__0d217ae80170a7ee37890d1b5d63918b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/3/WC1OAKO9gPvdVX5p__2f3c4fe5eac463d76f5bbcc316ab3fb7.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/3/480/2d103bd1aadf52034559096555a18734.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/3/720/2c5e8e6e62d2da7c9d070bc7922c94fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/3/1080/5d80f627c9eba31847e73e47e7dc4e42.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-02-05T10:14:00+00:00",
+    "sort_order": 3,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/3/1080/5d80f627c9eba31847e73e47e7dc4e42.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/3/720/2c5e8e6e62d2da7c9d070bc7922c94fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/3/480/2d103bd1aadf52034559096555a18734.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "a72bf2bd-222b-4e76-85cd-fd344815d12a",
+    "name": "Нашуотер и принцесса меча",
+    "ordinal": 4,
+    "opening": {
+      "stop": 177,
+      "start": 87
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3__ba91cb66b111aa9f5fbe7a4c27213936.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3__dbffaaccdaea2dc85240ebc43feaa2ce.webp",
+        "preview": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3__dbffaaccdaea2dc85240ebc43feaa2ce.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/4/y3XxYzRfoyECU5V3__b5d7f60a1226ad76c876afe29777a992.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/4/480/c2e3e540a7ab0b150c8e5b952f1a1f24.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/4/720/a5c3bb79e0df43374828584f03d5b44f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/4/1080/e226d10a4d41999883a4da33fb404a21.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-02-09T20:37:53+00:00",
+    "sort_order": 4,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/4/1080/e226d10a4d41999883a4da33fb404a21.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/4/720/a5c3bb79e0df43374828584f03d5b44f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/4/480/c2e3e540a7ab0b150c8e5b952f1a1f24.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "b62d7dcc-c923-444a-add3-d4c2c573bd53",
+    "name": "Меч печати насекомых",
+    "ordinal": 5,
+    "opening": {
+      "stop": 116,
+      "start": 26
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB__b39f09dc844509779fe234c8d7e98010.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB__7a8a6e4c35c01ac8a36c003de32712bb.webp",
+        "preview": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB__7a8a6e4c35c01ac8a36c003de32712bb.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/5/vjlvyoevUAVLVHFB__98ac6a67a68a0dd1223b64b4cd20ac77.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/5/480/848f235a19db7c57975662249c3226ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/5/720/fb435119aba7593653e77cbd8488a6bc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/5/1080/23e6da133378eac3f0e41403c078fe2a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-02-19T20:00:52+00:00",
+    "sort_order": 5,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/5/1080/23e6da133378eac3f0e41403c078fe2a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/5/720/fb435119aba7593653e77cbd8488a6bc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/5/480/848f235a19db7c57975662249c3226ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "931eeb52-ebd1-4a41-81db-5c2851e9f187",
+    "name": "Заяви право на моё сердце, демон",
+    "ordinal": 6,
+    "opening": {
+      "stop": 167,
+      "start": 77
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7__f9762183e24a5e83d12666ae91ac36f1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7__2f27520c8922a4758a0cfc1f4d346192.webp",
+        "preview": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7__2f27520c8922a4758a0cfc1f4d346192.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/6/suXksEWBYGvH3bO7__e254514e7c111420d4c9ed6cc9a0806f.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/6/480/75ec2be03521213e69ff8cafb40edc7e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/6/720/556e4f5797902abf189cdc9621068d26.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/6/1080/49262100de2709b1796f65571c73abe3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-02-24T19:44:16+00:00",
+    "sort_order": 6,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/6/1080/49262100de2709b1796f65571c73abe3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/6/720/556e4f5797902abf189cdc9621068d26.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/6/480/75ec2be03521213e69ff8cafb40edc7e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "2dad1f97-14bf-4a8e-9ddc-17d5f221953e",
+    "name": "Я нападу при свете Луны",
+    "ordinal": 7,
+    "opening": {
+      "stop": 104,
+      "start": 14
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC__f228d801d0855c8e961441843c8c8fe7.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC__deba7f72b1358291e7c968e3440f340b.webp",
+        "preview": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC__deba7f72b1358291e7c968e3440f340b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/7/B3CBEKFXNkJFSTUC__d6f60f68cea056fdc2aa4510b1275fab.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/7/480/08e4e366ea1ac944395f57cc5aa669e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/7/720/d1ce7be056492f4f8c38300bd1f47663.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/7/1080/017090aa9c690d9afdf74627f1ff99af.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-03-05T06:24:19+00:00",
+    "sort_order": 7,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/7/1080/017090aa9c690d9afdf74627f1ff99af.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/7/720/d1ce7be056492f4f8c38300bd1f47663.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/7/480/08e4e366ea1ac944395f57cc5aa669e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98ab4f51-92b3-46e4-90e1-3c9d9e9e5e2e",
+    "name": "Броня из зелёного камня",
+    "ordinal": 8,
+    "opening": {
+      "stop": 119,
+      "start": 29
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY__aac435808680da961a3b6f139d0cd668.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY__3e9fde3e318159af1a65b5d670636436.webp",
+        "preview": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY__3e9fde3e318159af1a65b5d670636436.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/8/COe4MHTSXh4PzSDY__84160962c506327278a082a593d7f142.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/8/480/28e5801352d2da9cf648f38e102530a5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/8/720/337f9834cae325e9a1647e4e0ef31b20.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/8/1080/97a20cd08a32fb049ed849ee58fde813.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-03-12T10:28:21+00:00",
+    "sort_order": 8,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/8/1080/97a20cd08a32fb049ed849ee58fde813.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/8/720/337f9834cae325e9a1647e4e0ef31b20.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/8/480/28e5801352d2da9cf648f38e102530a5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98b9560b-8191-4c59-874c-31e35c3fb210",
+    "name": "Посланник Ближнего удела",
+    "ordinal": 9,
+    "opening": {
+      "stop": 152,
+      "start": 62
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9__615f69029a48c25fabe6843abf14a85d.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9__3faa2430c9800916432a4b2c8496a7d3.webp",
+        "preview": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9__3faa2430c9800916432a4b2c8496a7d3.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/9/LlAqChGZJ4zzD7L9__2f7c5923e3188726571b096891fd1304.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/9/480/bd19752f869ef4d01c86ba8eb32b61cb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/9/720/370db9c58d3a540c8a006c01176fa8cd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/9/1080/df5a92a6201a5c347f974c4e60aceb0f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-03-19T09:53:06+00:00",
+    "sort_order": 9,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/9/1080/df5a92a6201a5c347f974c4e60aceb0f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/9/720/370db9c58d3a540c8a006c01176fa8cd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/9/480/bd19752f869ef4d01c86ba8eb32b61cb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98c42d17-dd1f-49d0-94ac-4d5bf45fd603",
+    "name": "Печаль красного дракона",
+    "ordinal": 10,
+    "opening": {
+      "stop": 138,
+      "start": 48
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy__5aeceaea2e8b02a0ea6ab75c4b30d4b4.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy__bd997e669168429c1b311df9892becff.webp",
+        "preview": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy__bd997e669168429c1b311df9892becff.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/10/cigr3wHtTvpxyVRy__7354460b6a7a9f753901350fac0f55e0.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/10/480/dcb45bb6d4c4bdab3cc98aa9837ed933.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/10/720/c0aeef3242761c58e93d6cd4a37865de.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/10/1080/d37e5b84790c5ced76b28547c9085ec3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1422,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-15T17:47:59+00:00",
+    "sort_order": 10,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/10/1080/d37e5b84790c5ced76b28547c9085ec3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/10/720/c0aeef3242761c58e93d6cd4a37865de.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/10/480/dcb45bb6d4c4bdab3cc98aa9837ed933.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98d7edb7-388c-4488-be05-d2c10310c807",
+    "name": "Великий белый колдун",
+    "ordinal": 11,
+    "opening": {
+      "stop": 83,
+      "start": 3
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF__cca91fae5d2f7a7cf0dfea915544437b.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF__47390a233e8b542fb4ef0f71a0b22a9b.webp",
+        "preview": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF__47390a233e8b542fb4ef0f71a0b22a9b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/11/rpB4bbYEKzCX9xqF__0b31e33b6364eac1d0589c1124eced85.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/11/480/f18bf9a346b1c80bef02322b669cd0e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/11/720/1819c7b550719f682eb262fd51e36fd8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/11/1080/9d3931d093aec2025e06650e8b573393.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-03T14:48:55+00:00",
+    "sort_order": 11,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/11/1080/9d3931d093aec2025e06650e8b573393.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/11/720/1819c7b550719f682eb262fd51e36fd8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/11/480/f18bf9a346b1c80bef02322b669cd0e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98e173ca-5a67-47d2-8026-4a4ac4a0147a",
+    "name": "Лоза, опутай моё отчаяние",
+    "ordinal": 12,
+    "opening": {
+      "stop": 152,
+      "start": 62
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ__49fada8c67b00e68ebdd39d34774d7dc.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ__195ca892ad38772010e0a4258c53632d.webp",
+        "preview": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ__195ca892ad38772010e0a4258c53632d.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/12/GyOasPazzI3nFXzZ__28701728d2681df26dbb1c3177d7ae06.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/12/480/875757a32bba15275fbf8cf5b21b9dc6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/12/720/69f09e84c20a4bf0f40381f1bb196815.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/12/1080/37c89a8e5a2fc30c576e699d5489a1e4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-08T08:30:02+00:00",
+    "sort_order": 12,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/12/1080/37c89a8e5a2fc30c576e699d5489a1e4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/12/720/69f09e84c20a4bf0f40381f1bb196815.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/12/480/875757a32bba15275fbf8cf5b21b9dc6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98f04a94-f97c-4ae4-8a88-d04b36d390e4",
+    "name": "Танцуйте на моём поле боя, пришельцы",
+    "ordinal": 13,
+    "opening": {
+      "stop": 154,
+      "start": 64
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y__f87ec067b71de7210d36901337b30d8a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y__61da833d8586528ce5653fd1959c9ea5.webp",
+        "preview": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y__61da833d8586528ce5653fd1959c9ea5.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/13/rCnaneng37AjbD6y__3abd9dff89cf363787fb1b8c94d203c3.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/13/480/258f97e14f22c9e210e3063645b12c41.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/13/720/1a0c2588017c700adb72a244ef9351c7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/13/1080/9bc6d5e5c8fb7cc800c7bf3e42c7d95c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-15T17:30:13+00:00",
+    "sort_order": 13,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/13/1080/9bc6d5e5c8fb7cc800c7bf3e42c7d95c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/13/720/1a0c2588017c700adb72a244ef9351c7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/13/480/258f97e14f22c9e210e3063645b12c41.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9904773e-1ddc-4d3f-8cbb-0dbd90924828",
+    "name": "Сеть Чайлдмана",
+    "ordinal": 14,
+    "opening": {
+      "stop": 112,
+      "start": 22
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5__773fc17a0c24392a65ff31502215316d.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5__e983b6649685e3ebbaad1cc431a07f55.webp",
+        "preview": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5__e983b6649685e3ebbaad1cc431a07f55.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/14/JUvpPLs1l9UQaJm5__9161506498f50e8e8174e2255696c624.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/14/480/ba995a30e06d0db74dabef9405640089.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/14/720/48e940cae27bb349f0323e0883ca2696.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/14/1080/1c965cc7ee3baf93929e53c551e386cd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-25T18:08:39+00:00",
+    "sort_order": 14,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/14/1080/1c965cc7ee3baf93929e53c551e386cd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/14/720/48e940cae27bb349f0323e0883ca2696.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/14/480/ba995a30e06d0db74dabef9405640089.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "990c23ff-ad49-470d-af6c-962d000c7b34",
+    "name": "Эхо выстрелов в моём саду",
+    "ordinal": 15,
+    "opening": {
+      "stop": 126,
+      "start": 36
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N__3fa82bdbf5251b55cbb588b12327cf10.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N__773f0a9759b6654aca96076d8b11fb4b.webp",
+        "preview": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N__773f0a9759b6654aca96076d8b11fb4b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/15/pSz486dPTKO7qC5N__58f226a49da484641ca54daf977c37dc.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/15/480/1c93700c6cfd64c562ef1e31b7010032.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/15/720/673c046d6dc1b0ced38493e68a54533b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/15/1080/9042512c1414b4a5eab378e72755e641.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-04-29T14:23:31+00:00",
+    "sort_order": 15,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/15/1080/9042512c1414b4a5eab378e72755e641.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/15/720/673c046d6dc1b0ced38493e68a54533b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/15/480/1c93700c6cfd64c562ef1e31b7010032.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "991aa90b-f1f8-4a84-ac27-be5ff58a7ee6",
+    "name": "Убийца в монашеской рясе",
+    "ordinal": 16,
+    "opening": {
+      "stop": 153,
+      "start": 63
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz__f54ad12be4db6009535f5300c281cc93.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz__95808995d4d207970cce920bf7aed773.webp",
+        "preview": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz__95808995d4d207970cce920bf7aed773.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/16/LDrA00eCheZt0gnz__e92958f8912a626c935caee116425c79.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/16/480/a3cd40c27b245e4e524fae315d12e131.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/16/720/8cb2fa1a3c679c52630fd5a849ad5ecb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/16/1080/430103f08084804a86634020d9c6ca92.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-05-06T18:53:41+00:00",
+    "sort_order": 16,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/16/1080/430103f08084804a86634020d9c6ca92.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/16/720/8cb2fa1a3c679c52630fd5a849ad5ecb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/16/480/a3cd40c27b245e4e524fae315d12e131.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9929da15-9e1a-4c2d-9631-e79e8a11d3a4",
+    "name": "Лорд Альмагест",
+    "ordinal": 17,
+    "opening": {
+      "stop": 108,
+      "start": 18
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI__f1a44cf3384700c67ea1ce556cc2beb8.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI__6894eea3a141619c16246661780e15b3.webp",
+        "preview": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI__6894eea3a141619c16246661780e15b3.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/17/6s3ZPpUqefMqvEbI__27dfcccfdeec499e15608aafbefe46c8.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/17/480/6404e2bcb77f1da23c75b8e3d7347b98.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/17/720/91612f86791eb12e22c8547a2fe8de80.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/17/1080/43a19a1c142e7bc734032981efe033c7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-05-14T08:11:27+00:00",
+    "sort_order": 17,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/17/1080/43a19a1c142e7bc734032981efe033c7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/17/720/91612f86791eb12e22c8547a2fe8de80.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/17/480/6404e2bcb77f1da23c75b8e3d7347b98.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9938f2b8-ceba-4018-bf44-b8632d1775d9",
+    "name": "Ложь, проникшая в мой дом",
+    "ordinal": 18,
+    "opening": {
+      "stop": 139,
+      "start": 49
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil__e806b2413aba12a6af142ee784320752.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil__3815a35ad9916eab19d718215f12198b.webp",
+        "preview": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil__3815a35ad9916eab19d718215f12198b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/18/XBX0nkYIcK2iHzil__56b4e1d37216e001fb45843f14065573.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/18/480/72bd2efb9780987af149f15615bbeca5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/18/720/2cd03563dfeb55981855a07dbdc7e885.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/18/1080/fddda10e0fd4293bd5716116ffd92cc4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-05-21T20:28:09+00:00",
+    "sort_order": 18,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/18/1080/fddda10e0fd4293bd5716116ffd92cc4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/18/720/2cd03563dfeb55981855a07dbdc7e885.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/18/480/72bd2efb9780987af149f15615bbeca5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9946d472-054f-4b3a-b7f4-0acb847c80d1",
+    "name": "Демон столицы и Тринадцать апостолов",
+    "ordinal": 19,
+    "opening": {
+      "stop": 183,
+      "start": 93
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S__b4307aa5035a91ed590940c077d9b9b2.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S__c8fb6d84bc172ff95fe4120bc83e0bc7.webp",
+        "preview": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S__c8fb6d84bc172ff95fe4120bc83e0bc7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/19/Kre1RWDjwRBgW48S__574388e9c10a9652a7bf4884e0b83501.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/19/480/58a2a2c4d78e3956451b998b7d8a03b2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/19/720/07bd0d17b4e75b0970aa22e92b2991a5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/19/1080/fa4d72fe0680a8e58296add18f4404f8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-05-28T17:52:39+00:00",
+    "sort_order": 19,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/19/1080/fa4d72fe0680a8e58296add18f4404f8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/19/720/07bd0d17b4e75b0970aa22e92b2991a5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/19/480/58a2a2c4d78e3956451b998b7d8a03b2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9956ae4a-0c94-4659-8a1b-4cc89e11c632",
+    "name": "Барьер Айрманкар",
+    "ordinal": 20,
+    "opening": {
+      "stop": 102,
+      "start": 12
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy__5897be48bee5d6c74f6dff4570e60e84.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy__ca8af5232111e8ffcecbef376307e289.webp",
+        "preview": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy__ca8af5232111e8ffcecbef376307e289.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/20/ITEwci0xoWknfaLy__8a117614be9326da866b360876b396bc.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/20/480/76bc79e78ef54fd835879677d4c9a39b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/20/720/4d76e32350aab421733db1cf05edbf20.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/20/1080/894616f29cade8efa5a5025dd25c8263.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-06-05T15:14:50+00:00",
+    "sort_order": 20,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/20/1080/894616f29cade8efa5a5025dd25c8263.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/20/720/4d76e32350aab421733db1cf05edbf20.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/20/480/76bc79e78ef54fd835879677d4c9a39b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9960ecf9-78c9-4241-a211-525b01c5e0b9",
+    "name": "Вторая Башня Мира",
+    "ordinal": 21,
+    "opening": {
+      "stop": 113,
+      "start": 23
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l__1e04111cd028131b5b14abaf984471a9.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l__86098b424e2250013f6b7a5e932b4417.webp",
+        "preview": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l__86098b424e2250013f6b7a5e932b4417.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/21/JqW7EbD8fGfTyI7l__df3cd76a6a623943005a340e07d3941e.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/21/480/fd91a9ecc5a9d19351af3d3972fe89bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/21/720/fa9838c651e6707bd6c9798186db2a3a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/21/1080/51fce45c9e5f2dd8807b839f293e733d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-06-10T17:21:32+00:00",
+    "sort_order": 21,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/21/1080/51fce45c9e5f2dd8807b839f293e733d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/21/720/fa9838c651e6707bd6c9798186db2a3a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/21/480/fd91a9ecc5a9d19351af3d3972fe89bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "996f00fc-d6fc-4e2f-a9fb-026760a9c7b5",
+    "name": "Честолюбие ночного стража",
+    "ordinal": 22,
+    "opening": {
+      "stop": 165,
+      "start": 75
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw__31086a213da4710c275dd36e1c4fec98.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw__bf240cee2a47044d0bd7fe3b1d98461c.webp",
+        "preview": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw__bf240cee2a47044d0bd7fe3b1d98461c.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/22/uFUVP1cBzS4yroWw__a84f07423e0577797f948198af20a90b.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/22/480/826d2540f6e33aee29ca01e67fae3fe4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/22/720/1f04593f025422999ae1816b25cc72ee.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/22/1080/573f587ebbbb6f60793e4d89754d4c72.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-06-17T17:12:39+00:00",
+    "sort_order": 22,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/22/1080/573f587ebbbb6f60793e4d89754d4c72.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/22/720/1f04593f025422999ae1816b25cc72ee.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/22/480/826d2540f6e33aee29ca01e67fae3fe4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9981484c-f081-4f94-bb05-507fa43a06d5",
+    "name": "Распахнитесь, врата во Святилище!",
+    "ordinal": 23,
+    "opening": {
+      "stop": 123,
+      "start": 33
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX__9b8100914f12789d1db66a168c42b28b.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX__4de31e3008f38b27c544755306d2365a.webp",
+        "preview": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX__4de31e3008f38b27c544755306d2365a.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/23/zt5HWgNnRzqc7MfX__2ec5fb00c6c30bf2f3e4fa4c54fb7de7.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/23/480/f97e9a27bf622ac07832fb2094676826.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/23/720/e4aac59095bc0483616fc1786cc1351a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/23/1080/0c49e7cdf98af55a9818da5d12db9f56.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1420,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-06-26T19:18:03+00:00",
+    "sort_order": 23,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/23/1080/0c49e7cdf98af55a9818da5d12db9f56.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/23/720/e4aac59095bc0483616fc1786cc1351a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/23/480/f97e9a27bf622ac07832fb2094676826.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "998ac9c8-b9a6-49ef-bfbd-b0393c307c57",
+    "name": "Конец Киесалхимы",
+    "ordinal": 24,
+    "opening": {
+      "stop": 90,
+      "start": 1
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW.jpg",
+      "preview": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW__f6fbc58e70684af995642d41194bcd15.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW__88244d42eed393d437c9ecbaeca3d13f.webp",
+        "preview": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW__88244d42eed393d437c9ecbaeca3d13f.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9362/24/iQE5eQzx4Lib02rW__88a0a92b2a4b8aabb7d56936ef75a74c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9362/24/480/a551a60ab710f21661ae179b0b81b576.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9362/24/720/721eb5bc6a4c13b71d70ec10fff99370.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/24/1080/b9b1b83add2e43f4da4d602010a98cb9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1410,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-01T12:37:59+00:00",
+    "sort_order": 24,
+    "release_id": 9362,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9362/24/1080/b9b1b83add2e43f4da4d602010a98cb9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9362/24/720/721eb5bc6a4c13b71d70ec10fff99370.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9362/24/480/a551a60ab710f21661ae179b0b81b576.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

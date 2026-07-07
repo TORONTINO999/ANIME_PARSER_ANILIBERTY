@@ -1,0 +1,914 @@
+[
+  {
+    "id": "95c89c4a-789e-11ec-ae92-0242ac120002",
+    "name": "Каменный мир",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/1/480/4321c862f4ae7f8d750ea70f547fc80e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/1/720/cdd452f04705ec04e81e2d666693327e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/1/1080/9bed74764033e70d07153c0a728be26b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:04:17+00:00",
+    "sort_order": 1,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/1/1080/9bed74764033e70d07153c0a728be26b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/1/720/cdd452f04705ec04e81e2d666693327e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/1/480/4321c862f4ae7f8d750ea70f547fc80e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89cb1-789e-11ec-ae92-0242ac120002",
+    "name": "Король каменного мира",
+    "ordinal": 2,
+    "opening": {
+      "stop": 231,
+      "start": 141
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/2/480/2488f887add7dc9bd534240c43e6f50a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/2/720/3c16825d2b7b1530520d9bb968ff1720.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/2/1080/ebf7a5a51edd836e0317cfd124385451.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:07:05+00:00",
+    "sort_order": 2,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/2/1080/ebf7a5a51edd836e0317cfd124385451.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/2/720/3c16825d2b7b1530520d9bb968ff1720.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/2/480/2488f887add7dc9bd534240c43e6f50a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89d1b-789e-11ec-ae92-0242ac120002",
+    "name": "Оружие науки",
+    "ordinal": 3,
+    "opening": {
+      "stop": 212,
+      "start": 122
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/3/480/eb19ed77697e1c3d3a0eab13b9987ad5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/3/720/5953f8ede28f2ec0b4a40b166c915760.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/3/1080/23a17f56d950ec660a55a9378d1876ae.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:08:20+00:00",
+    "sort_order": 3,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/3/1080/23a17f56d950ec660a55a9378d1876ae.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/3/720/5953f8ede28f2ec0b4a40b166c915760.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/3/480/eb19ed77697e1c3d3a0eab13b9987ad5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89d89-789e-11ec-ae92-0242ac120002",
+    "name": "Дымовой сигнал",
+    "ordinal": 4,
+    "opening": {
+      "stop": 234,
+      "start": 144
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/4/480/3fb2428132d70a0c6a745580ebc24c07.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/4/720/dd94d0f616dedc2d7c9b2d2a03777ca6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/4/1080/b2afac6fa84d6472e2f80d84ddc16598.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:09:57+00:00",
+    "sort_order": 4,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/4/1080/b2afac6fa84d6472e2f80d84ddc16598.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/4/720/dd94d0f616dedc2d7c9b2d2a03777ca6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/4/480/3fb2428132d70a0c6a745580ebc24c07.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89df2-789e-11ec-ae92-0242ac120002",
+    "name": "Начало Каменного Мира",
+    "ordinal": 5,
+    "opening": {
+      "stop": 238,
+      "start": 148
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/5/480/3a97ba67f4159bc7c7cb96c5d93edfa5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/5/720/c0eecedeed04d2208255d1446e1ce38d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/5/1080/1356c5204121b90d2b7de0cd4e775a6c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:12:06+00:00",
+    "sort_order": 5,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/5/1080/1356c5204121b90d2b7de0cd4e775a6c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/5/720/c0eecedeed04d2208255d1446e1ce38d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/5/480/3a97ba67f4159bc7c7cb96c5d93edfa5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89f1c-789e-11ec-ae92-0242ac120002",
+    "name": "Два народа каменного мира",
+    "ordinal": 6,
+    "opening": {
+      "stop": 627,
+      "start": 537
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/6/480/65bf543fdc739488e8cf28b606c4265b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/6/720/d822b09188518404f5b0392e7bda7502.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/6/1080/042ecb1de7992f2ff3ae3d14e5313312.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1439,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:14:02+00:00",
+    "sort_order": 6,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/6/1080/042ecb1de7992f2ff3ae3d14e5313312.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/6/720/d822b09188518404f5b0392e7bda7502.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/6/480/65bf543fdc739488e8cf28b606c4265b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89f8a-789e-11ec-ae92-0242ac120002",
+    "name": "Куда ушли два миллиона лет",
+    "ordinal": 7,
+    "opening": {
+      "stop": 219,
+      "start": 129
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/7/480/fdc1a782dc07aeec21ed2bd48f7f1c11.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/7/720/ce887151adb1f2e09721ed19f95210e6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/7/1080/47589d28800d8c424f93649d1bdf51a6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1439,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:16:19+00:00",
+    "sort_order": 7,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/7/1080/47589d28800d8c424f93649d1bdf51a6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/7/720/ce887151adb1f2e09721ed19f95210e6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/7/480/fdc1a782dc07aeec21ed2bd48f7f1c11.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c89ff1-789e-11ec-ae92-0242ac120002",
+    "name": "Каменный путь",
+    "ordinal": 8,
+    "opening": {
+      "stop": 304,
+      "start": 214
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/8/480/dc3b22854c1fdd848e0821e96a448017.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/8/720/a73c5e26b26c44d67cd654261766abf9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/8/1080/1fa6b57489ea05407fb2dc79a3a0767d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:18:31+00:00",
+    "sort_order": 8,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/8/1080/1fa6b57489ea05407fb2dc79a3a0767d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/8/720/a73c5e26b26c44d67cd654261766abf9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/8/480/dc3b22854c1fdd848e0821e96a448017.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a057-789e-11ec-ae92-0242ac120002",
+    "name": "Да будет свет науки",
+    "ordinal": 9,
+    "opening": {
+      "stop": 291,
+      "start": 201
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/9/480/d29c75c0a69a3ed91d53bdc330cd0428.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/9/720/362410933a363cd08586912add6e76ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/9/1080/55ffd543b282ce0f4a4560b3e77d4815.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:19:53+00:00",
+    "sort_order": 9,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/9/1080/55ffd543b282ce0f4a4560b3e77d4815.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/9/720/362410933a363cd08586912add6e76ef.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/9/480/d29c75c0a69a3ed91d53bdc330cd0428.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a0bf-789e-11ec-ae92-0242ac120002",
+    "name": "Хрупкий союз",
+    "ordinal": 10,
+    "opening": {
+      "stop": 210,
+      "start": 119
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7.jpg",
+      "preview": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7__42367f2e57afcb15f90d08256cf812b1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7__f46418fa437ff3c029655c45d6b0e9fe.webp",
+        "preview": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7__f46418fa437ff3c029655c45d6b0e9fe.webp",
+        "thumbnail": "/storage/releases/episodes/previews/8398/10/xB6BjF8Qhe6pycy7__71ae49a40d07d154e1dea9b7d6a40a36.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/10/480/cd9d7b4c627d8170c4860fa7f1fbb34d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/10/720/09d72073f24688b4d037279d5d82c3f3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/10/1080/42b4ac8e94f73911e2677f7607a24ceb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-12-28T12:45:58+00:00",
+    "sort_order": 10,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/10/1080/42b4ac8e94f73911e2677f7607a24ceb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/10/720/09d72073f24688b4d037279d5d82c3f3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/10/480/cd9d7b4c627d8170c4860fa7f1fbb34d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a1e0-789e-11ec-ae92-0242ac120002",
+    "name": "Ясный мир",
+    "ordinal": 11,
+    "opening": {
+      "stop": 201,
+      "start": 111
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/11/480/1aac6cb8b9ab2fd479a6da3c9b451239.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/11/720/490fb9ea4f563444e216a7ed5431abfc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/11/1080/17fe647b9e3154121e7c33ecf4d430d3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:26:12+00:00",
+    "sort_order": 11,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/11/1080/17fe647b9e3154121e7c33ecf4d430d3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/11/720/490fb9ea4f563444e216a7ed5431abfc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/11/480/1aac6cb8b9ab2fd479a6da3c9b451239.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a24d-789e-11ec-ae92-0242ac120002",
+    "name": "Спина к спине",
+    "ordinal": 12,
+    "opening": {
+      "stop": 231,
+      "start": 141
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/12/480/0a3b776e7ce8f9a1aac8d27c9e049122.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/12/720/dcecb593b1861fbde506acd851132bbd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/12/1080/f2d120c36332df0c58f10556a861e6e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-04T19:27:23+00:00",
+    "sort_order": 12,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/12/1080/f2d120c36332df0c58f10556a861e6e7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/12/720/dcecb593b1861fbde506acd851132bbd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/12/480/0a3b776e7ce8f9a1aac8d27c9e049122.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a2b3-789e-11ec-ae92-0242ac120002",
+    "name": "Воин в маске",
+    "ordinal": 13,
+    "opening": {
+      "stop": 149,
+      "start": 59
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/13/480/3d1e25753e24fe2cc003d6fbb4da41a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/13/720/6a7d0a621e339aedfd5f892ec9e93c72.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/13/1080/b82dc3a19ca30fffec10cfa1a32b1aff.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:21:48+00:00",
+    "sort_order": 13,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/13/1080/b82dc3a19ca30fffec10cfa1a32b1aff.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/13/720/6a7d0a621e339aedfd5f892ec9e93c72.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/13/480/3d1e25753e24fe2cc003d6fbb4da41a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a319-789e-11ec-ae92-0242ac120002",
+    "name": "Повелитель пламени",
+    "ordinal": 14,
+    "opening": {
+      "stop": 228,
+      "start": 137
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/14/480/2c565ee24d48e7ab2c082d288590e541.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/14/720/548cd46d38dc96d52efa1190af365f78.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/14/1080/a4c2fe950f8c72fa0b771c4134a7479c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:23:58+00:00",
+    "sort_order": 14,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/14/1080/a4c2fe950f8c72fa0b771c4134a7479c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/14/720/548cd46d38dc96d52efa1190af365f78.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/14/480/2c565ee24d48e7ab2c082d288590e541.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a440-789e-11ec-ae92-0242ac120002",
+    "name": "Итог двух миллионов лет",
+    "ordinal": 15,
+    "opening": {
+      "stop": 372,
+      "start": 282
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/15/480/e3c2e8025b1336befd79693239d6f277.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/15/720/edabcdaf41a420561f54ed6dd1b3df8c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/15/1080/4cac7bb107c7c07bf7f5c2a6e12058cb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:26:07+00:00",
+    "sort_order": 15,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/15/1080/4cac7bb107c7c07bf7f5c2a6e12058cb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/15/720/edabcdaf41a420561f54ed6dd1b3df8c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/15/480/e3c2e8025b1336befd79693239d6f277.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a4ad-789e-11ec-ae92-0242ac120002",
+    "name": "История на века",
+    "ordinal": 16,
+    "opening": {
+      "stop": 231,
+      "start": 141
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/16/480/42a7b5456f00e96e1f43d385fef11546.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/16/720/d418592cbfba428dd56a020370565ac2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/16/1080/66dece3caccda8e6b9638575c70c6cb2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:33:11+00:00",
+    "sort_order": 16,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/16/1080/66dece3caccda8e6b9638575c70c6cb2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/16/720/d418592cbfba428dd56a020370565ac2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/16/480/42a7b5456f00e96e1f43d385fef11546.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a514-789e-11ec-ae92-0242ac120002",
+    "name": "Сотня ночей и тысяча небес",
+    "ordinal": 17,
+    "opening": {
+      "stop": 185,
+      "start": 95
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/17/480/7af8c3ddf210c42b380f9338c0d7602a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/17/720/14682aafb632cc4090215518ab0f1e88.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/17/1080/303dea779c34120fa5a026d5de52384d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:35:03+00:00",
+    "sort_order": 17,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/17/1080/303dea779c34120fa5a026d5de52384d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/17/720/14682aafb632cc4090215518ab0f1e88.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/17/480/7af8c3ddf210c42b380f9338c0d7602a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a639-789e-11ec-ae92-0242ac120002",
+    "name": "Каменные войны",
+    "ordinal": 18,
+    "opening": {
+      "stop": 249,
+      "start": 159
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/18/480/d84e03af79e166ef9832cb880f7b8af4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/18/720/73afe6175441fc64c4f1ce5db2531202.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/18/1080/beda66996ebb8eb5a73bd518019740b7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:37:28+00:00",
+    "sort_order": 18,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/18/1080/beda66996ebb8eb5a73bd518019740b7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/18/720/73afe6175441fc64c4f1ce5db2531202.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/18/480/d84e03af79e166ef9832cb880f7b8af4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a6a8-789e-11ec-ae92-0242ac120002",
+    "name": "К современности!",
+    "ordinal": 19,
+    "opening": {
+      "stop": 459,
+      "start": 368
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/19/480/d64f8863c7a56348cb039e3f67217af8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/19/720/975f8fd4e7d7197e795427a13fd8aab0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/19/1080/62506982396034ca0eb9c0844a92df58.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:39:12+00:00",
+    "sort_order": 19,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/19/1080/62506982396034ca0eb9c0844a92df58.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/19/720/975f8fd4e7d7197e795427a13fd8aab0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/19/480/d64f8863c7a56348cb039e3f67217af8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a743-789e-11ec-ae92-0242ac120002",
+    "name": "Эпоха энергии",
+    "ordinal": 20,
+    "opening": {
+      "stop": 295,
+      "start": 204
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/20/480/91cfaa617c9a926bdc2fbdb25dcbc9ee.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/20/720/5c259931255b0ccedba568333bb30af5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/20/1080/3af75f2c22285e7b1aeb4d702738b004.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:41:46+00:00",
+    "sort_order": 20,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/20/1080/3af75f2c22285e7b1aeb4d702738b004.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/20/720/5c259931255b0ccedba568333bb30af5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/20/480/91cfaa617c9a926bdc2fbdb25dcbc9ee.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a8a3-789e-11ec-ae92-0242ac120002",
+    "name": "Клуб спартанского ремесла",
+    "ordinal": 21,
+    "opening": {
+      "stop": 188,
+      "start": 98
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/21/480/9042e2cdbe4659859e5c3859f8ce59a9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/21/720/fdc69b1305631968ac4a68dc8f2f84bd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/21/1080/acc4ea7dee9907e954329bb0a739fa88.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:43:41+00:00",
+    "sort_order": 21,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/21/1080/acc4ea7dee9907e954329bb0a739fa88.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/21/720/fdc69b1305631968ac4a68dc8f2f84bd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/21/480/9042e2cdbe4659859e5c3859f8ce59a9.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8a93a-789e-11ec-ae92-0242ac120002",
+    "name": "Сокровища",
+    "ordinal": 22,
+    "opening": {
+      "stop": 208,
+      "start": 118
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/22/480/450b7af90245e87de978a3872ecd7e39.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/22/720/7016a3f95a92c44649d97e01c6b3f924.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/22/1080/eaac055f5c8e3dc3480142b482f7c13a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:46:23+00:00",
+    "sort_order": 22,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/22/1080/eaac055f5c8e3dc3480142b482f7c13a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/22/720/7016a3f95a92c44649d97e01c6b3f924.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/22/480/450b7af90245e87de978a3872ecd7e39.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8aaa3-789e-11ec-ae92-0242ac120002",
+    "name": "Научная Волна",
+    "ordinal": 23,
+    "opening": {
+      "stop": 208,
+      "start": 117
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/23/480/0b2328110f85e027228b2424b75c3e85.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/23/720/0c74e0c21503c7d59bb66e99f3db6cd5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/23/1080/884173b7a5d4ae9c55c9d4e223ea1626.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1446,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:48:12+00:00",
+    "sort_order": 23,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/23/1080/884173b7a5d4ae9c55c9d4e223ea1626.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/23/720/0c74e0c21503c7d59bb66e99f3db6cd5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/23/480/0b2328110f85e027228b2424b75c3e85.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c8ab3a-789e-11ec-ae92-0242ac120002",
+    "name": "Сквозь безграничное расстояние",
+    "ordinal": 24,
+    "opening": {
+      "stop": 108,
+      "start": 18
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/8398/24/480/d581dc067b3993c1a9cd133c8eb2eb71.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/8398/24/720/077ac8b2675b5671862406fffecbc971.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/24/1080/c75742ed7a33bbb565f291c8abec52d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1440,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-05T14:49:22+00:00",
+    "sort_order": 24,
+    "release_id": 8398,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/8398/24/1080/c75742ed7a33bbb565f291c8abec52d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/8398/24/720/077ac8b2675b5671862406fffecbc971.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/8398/24/480/d581dc067b3993c1a9cd133c8eb2eb71.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

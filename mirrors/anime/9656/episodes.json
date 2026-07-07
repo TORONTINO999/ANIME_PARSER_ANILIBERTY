@@ -1,0 +1,40 @@
+[
+  {
+    "id": "9b58aaf9-c49e-4896-8a5b-1560f2d3b2c3",
+    "name": "Обитель зла: Остров смерти",
+    "ordinal": 1,
+    "opening": {
+      "stop": 375,
+      "start": 292
+    },
+    "ending": {
+      "stop": 5440,
+      "start": 5194
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV.jpg",
+      "preview": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV__4e2a5e22d4d4c28be618bb5c03628f9c.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV__e205b426a157996426d6e0e8eb2a404a.webp",
+        "preview": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV__e205b426a157996426d6e0e8eb2a404a.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9656/1/9AfM5e1efqze6VPV__afd9b611ee7cf2fb893af406e644e51c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9656/1/480/e617c2e5602529bf70a3d4b029b744d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9656/1/720/ca82ef20cdbc845fc471f4eaee805c50.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9656/1/1080/a9df0a1b760d68e6f3f3c2c176f24710.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 5443,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2024-02-16T23:50:51+00:00",
+    "sort_order": 1,
+    "release_id": 9656,
+    "name_english": "Resident Evil: Death Island",
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9656/1/1080/a9df0a1b760d68e6f3f3c2c176f24710.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9656/1/720/ca82ef20cdbc845fc471f4eaee805c50.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9656/1/480/e617c2e5602529bf70a3d4b029b744d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

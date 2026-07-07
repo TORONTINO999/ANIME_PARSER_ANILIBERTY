@@ -1,0 +1,36 @@
+[
+  {
+    "id": "f115cf4a-41ec-48b6-97b1-512253ca28f0",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-08-28T09:05:58+00:00",
+    "sort_order": 1,
+    "release_id": 8877,
+    "name_english": null,
+    "_stream_links": {}
+  }
+]

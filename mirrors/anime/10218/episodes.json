@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a1a014a7-2257-4f9f-bb6b-267e4d12cf30",
+    "name": "Девица",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W.jpg",
+      "preview": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W__a3920a7bb62c1bceefd3cf8316f4aced.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W__fd5ceb40981e285d335413a382beb5f1.webp",
+        "preview": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W__fd5ceb40981e285d335413a382beb5f1.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10218/1/S2z3cPp84gyXFG6W__2d2ee312eb41740aa45fdff1ac94ecc8.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10218/1/480/ece1c9386172c0bfb0c48d78acb63df7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10218/1/720/ed9126dc76543a141b9cafc97aec22b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10218/1/1080/783cfa18134922b6b4d1e6aadcbbc5fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 6573,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-04-25T09:32:45+00:00",
+    "sort_order": 1,
+    "release_id": 10218,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10218/1/1080/783cfa18134922b6b4d1e6aadcbbc5fb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10218/1/720/ed9126dc76543a141b9cafc97aec22b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10218/1/480/ece1c9386172c0bfb0c48d78acb63df7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

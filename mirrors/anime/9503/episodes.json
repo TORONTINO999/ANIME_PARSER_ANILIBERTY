@@ -1,0 +1,420 @@
+[
+  {
+    "id": "99a306f5-9f5e-4634-b640-ebfa75ad3ad3",
+    "name": "Сильнейший",
+    "ordinal": 1,
+    "opening": {
+      "stop": 214,
+      "start": 124
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE__dc71a9d59db9b4cb3be40d1ec2ead027.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE__cec76ef8bc30772f0d27f2bd44e28bda.webp",
+        "preview": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE__cec76ef8bc30772f0d27f2bd44e28bda.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/1/KcVoDJGG4SJZveDE__ff8a4fcfd88b76061e158b6fea4d9be6.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/1/480/bdf6180422b9198fa2f672999a419194.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/1/720/32c8fe23cfe9681b90bfc5ff74e8bf15.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/1/1080/5acf2187c4531c77f06351757be53615.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-14T11:22:15+00:00",
+    "sort_order": 1,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/1/1080/5acf2187c4531c77f06351757be53615.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/1/720/32c8fe23cfe9681b90bfc5ff74e8bf15.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/1/480/bdf6180422b9198fa2f672999a419194.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99b176bd-33fa-4f69-a758-b9eaa6a5dc2e",
+    "name": "Ответ на все вопросы",
+    "ordinal": 2,
+    "opening": {
+      "stop": 199,
+      "start": 109
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG__ffda6f6d310cd8c1cd1702aa1c5f7e15.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG__284bc0dcb8c271ccc6deb485a48fe9d0.webp",
+        "preview": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG__284bc0dcb8c271ccc6deb485a48fe9d0.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/2/3omocc1AxAEYW3CG__5dfab809a3ef1d41939dd32572249eec.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/2/480/16a1bec8793fd4d5ba5d3710daa71030.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/2/720/317cff7547758fb7a336a9302ec4167e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/2/1080/00cc94a4a758189e8d61cf2e0d680d8f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-24T22:06:10+00:00",
+    "sort_order": 2,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/2/1080/00cc94a4a758189e8d61cf2e0d680d8f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/2/720/317cff7547758fb7a336a9302ec4167e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/2/480/16a1bec8793fd4d5ba5d3710daa71030.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99bf96ca-1c18-4df1-9b38-86d532185d4b",
+    "name": "Герой против преступника",
+    "ordinal": 3,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB__91a3cf5703b7f62cb9bff1d5b11536b1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB__50bb71c89b7100c141b329ec2bad8c52.webp",
+        "preview": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB__50bb71c89b7100c141b329ec2bad8c52.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/3/KzRLV7HU0QsLAWqB__6f662a5932961fd4b4da03437dd08c16.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/3/480/3b0a4aad3d797252f5d7e0b5b723ef48.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/3/720/7f8bddf29b8877d2a2fcfa45e80c080e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/3/1080/fc9b485025917477ad0e6134cc46ec69.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1422,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-07-27T18:30:58+00:00",
+    "sort_order": 3,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/3/1080/fc9b485025917477ad0e6134cc46ec69.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/3/720/7f8bddf29b8877d2a2fcfa45e80c080e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/3/480/3b0a4aad3d797252f5d7e0b5b723ef48.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99cdd48e-4dd8-46c0-a175-8dc4c307cd6d",
+    "name": "Война героев, война банд",
+    "ordinal": 4,
+    "opening": {
+      "stop": 229,
+      "start": 139
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ__5bdc367caac815b11d60335d870dc808.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ__bf9dbdd737890396515fe5552e0e0581.webp",
+        "preview": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ__bf9dbdd737890396515fe5552e0e0581.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/4/YEyYJnxt7dmuKCmQ__13f04ed4ed4f612dfcdff141a6cc238f.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/4/480/a8b1471688eb26831cbd251a3942576d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/4/720/ef9baaddf41345f41526d8be364cda1b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/4/1080/9d34b76a9bb751ad3c75fd869a513c45.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-10T22:54:59+00:00",
+    "sort_order": 4,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/4/1080/9d34b76a9bb751ad3c75fd869a513c45.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/4/720/ef9baaddf41345f41526d8be364cda1b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/4/480/a8b1471688eb26831cbd251a3942576d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99dc1a7c-e3bc-44b0-bc22-3f0082c3015a",
+    "name": "В небесном порту (Часть 1)",
+    "ordinal": 5,
+    "opening": {
+      "stop": 131,
+      "start": 41
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3__f01393c5cbda3bfb915dd064b9e44654.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3__598f8f5087dee86d704d27b9e9743ca7.webp",
+        "preview": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3__598f8f5087dee86d704d27b9e9743ca7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/5/91Pj2o7vo7n6NTI3__35ecad4572b246495c44f23e1c9962d2.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/5/480/74a8cdda3e8385d58f1dd9d42a0487bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/5/720/d88be7702ca36998fc5cb62d8774bcf8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/5/1080/8539fedad1cc6c77d6fe0a33d6336ffa.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-10T22:40:11+00:00",
+    "sort_order": 5,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/5/1080/8539fedad1cc6c77d6fe0a33d6336ffa.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/5/720/d88be7702ca36998fc5cb62d8774bcf8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/5/480/74a8cdda3e8385d58f1dd9d42a0487bb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99e9e735-771b-4e0d-9285-d44f54a95e81",
+    "name": "В небесном порту (Часть 2)",
+    "ordinal": 6,
+    "opening": {
+      "stop": 544,
+      "start": 454
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ__b1bbf2ae245387f17dc7e4d4f343f192.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ__de1d04bad4feeef29bdd8884fb4704a0.webp",
+        "preview": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ__de1d04bad4feeef29bdd8884fb4704a0.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/6/xtN6hidk8yWTi2VZ__ba3b615ccfdd96281c652d9784230f41.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/6/480/6f55e0ea3cfcc81e94c4e2b90999dc22.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/6/720/2e60a06a2a58d70375c578a94939ef3d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/6/1080/e5948c8687836189b3672a200a847a08.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-17T20:08:58+00:00",
+    "sort_order": 6,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/6/1080/e5948c8687836189b3672a200a847a08.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/6/720/2e60a06a2a58d70375c578a94939ef3d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/6/480/6f55e0ea3cfcc81e94c4e2b90999dc22.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "99f8314d-a868-488d-99ca-9dd571a38ef7",
+    "name": "В небесном порту (Часть 3)",
+    "ordinal": 7,
+    "opening": {
+      "stop": 368,
+      "start": 278
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q__9cb30c96274f4f8b4930174a0d065340.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q__fea7eac86fed160cfe8d4c7feab85845.webp",
+        "preview": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q__fea7eac86fed160cfe8d4c7feab85845.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/7/bP56zdoVVDvMqr9q__f915c41b4355b6cd9b02c923671650c8.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/7/480/d18588128e81330bf0fbebbb2e0221eb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/7/720/0414108441dbe7542de1804724b50640.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/7/1080/98391d22c0df39116307c82ce2ec501d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1422,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-24T21:50:58+00:00",
+    "sort_order": 7,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/7/1080/98391d22c0df39116307c82ce2ec501d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/7/720/0414108441dbe7542de1804724b50640.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/7/480/d18588128e81330bf0fbebbb2e0221eb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9a063f77-5750-4a2c-86c7-ea2603b50b36",
+    "name": "Демонические земли (Часть 1)",
+    "ordinal": 8,
+    "opening": {
+      "stop": 233,
+      "start": 143
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX__56b43b6b9ea939d766189c02735f211c.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX__1b6e33ff2365b6a19ada79ff6078a421.webp",
+        "preview": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX__1b6e33ff2365b6a19ada79ff6078a421.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/8/5QkI6uBlnh9QfurX__703a8892867d7166e8fc373b98c64e91.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/8/480/c9e5bf1f42b905c6ef9ccc020b2abd56.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/8/720/18c206751fac7571f901f96e04743ebb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/8/1080/09b16d2ad7618c9fb34e1ecfcfe7feb7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-08-31T22:04:57+00:00",
+    "sort_order": 8,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/8/1080/09b16d2ad7618c9fb34e1ecfcfe7feb7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/8/720/18c206751fac7571f901f96e04743ebb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/8/480/c9e5bf1f42b905c6ef9ccc020b2abd56.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9a15cf6a-778d-4fc7-a1f9-b264d6d858d7",
+    "name": "Демонические земли (Часть 2)",
+    "ordinal": 9,
+    "opening": {
+      "stop": 146,
+      "start": 56
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4__d285669be69cc91c5573c21612d0103a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4__3a1a3efa37ae6f28b1e9e5f8bf8cebea.webp",
+        "preview": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4__3a1a3efa37ae6f28b1e9e5f8bf8cebea.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/9/YmZzMGY4hCDLlOz4__f93a4219f742961d00e8bc1b9f897a18.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/9/480/c9aca7cbaf8556a486d093a8b3622da3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/9/720/50df00bbed92a9a693de3e2a53751b27.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/9/1080/b4f2f4d54db7ea3064a2463efc5c2fa5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1422,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-09-08T15:30:45+00:00",
+    "sort_order": 9,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/9/1080/b4f2f4d54db7ea3064a2463efc5c2fa5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/9/720/50df00bbed92a9a693de3e2a53751b27.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/9/480/c9aca7cbaf8556a486d093a8b3622da3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9a24447f-cdb7-4557-840c-9a3f2a269550",
+    "name": "Демонические земли (Часть 3)",
+    "ordinal": 10,
+    "opening": {
+      "stop": 183,
+      "start": 93
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW__f6ca502ff537444083cfc8baa35ccb01.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW__ded631af8261014abf8c18b27ab25157.webp",
+        "preview": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW__ded631af8261014abf8c18b27ab25157.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/10/5K9YoGGI67EufckW__9429b04c71c70fd9ecf22428c7ad17af.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/10/480/4c66ebc47f5c81aa98416bea35dd2b0d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/10/720/3ee528b94350c8eb0d11092fced741df.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/10/1080/3f9db03f94f1474eeeedc7890cde2dba.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-09-15T19:59:35+00:00",
+    "sort_order": 10,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/10/1080/3f9db03f94f1474eeeedc7890cde2dba.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/10/720/3ee528b94350c8eb0d11092fced741df.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/10/480/4c66ebc47f5c81aa98416bea35dd2b0d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9a3040ad-df84-435d-a28c-eecafe8f16b9",
+    "name": "Прощание в сумерках",
+    "ordinal": 11,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ.jpg",
+      "preview": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ__a984578db0e4d9da724b5a76022c4782.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ__f9c91fab6f36ba5791396507bee9260f.webp",
+        "preview": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ__f9c91fab6f36ba5791396507bee9260f.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9503/11/ZSy5gSA0EoB5hkRJ__fcb2eee0beb62406f04fc1430678c977.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9503/11/480/458867e632676ba6868c433a689f502c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9503/11/720/3b6376c4d2d888282260c580ac423df8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/11/1080/5804b9d913d886cca9af62a30c60bcc6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-09-21T19:20:46+00:00",
+    "sort_order": 11,
+    "release_id": 9503,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9503/11/1080/5804b9d913d886cca9af62a30c60bcc6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9503/11/720/3b6376c4d2d888282260c580ac423df8.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9503/11/480/458867e632676ba6868c433a689f502c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "95c1ba93-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": 32,
+      "start": 1
+    },
+    "ending": {
+      "stop": 1650,
+      "start": 1540
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/6471/1/480/1e66665d299897d94867755897dfdf14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/6471/1/720/6c6ce4b401d61437e4b8fc11248f1c14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1651,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-02-26T18:08:51+00:00",
+    "sort_order": 1,
+    "release_id": 6471,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/6471/1/720/6c6ce4b401d61437e4b8fc11248f1c14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/6471/1/480/1e66665d299897d94867755897dfdf14.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c1bb0e-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 2,
+    "opening": {
+      "stop": 132,
+      "start": 1
+    },
+    "ending": {
+      "stop": 1578,
+      "start": 1394
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/6471/2/480/6080d3ac285e4b9fe5fb971c9b2953ad.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/6471/2/720/f82196ce43ab7586f606a30e6cfbf2aa.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1579,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-02-26T18:09:54+00:00",
+    "sort_order": 2,
+    "release_id": 6471,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/6471/2/720/f82196ce43ab7586f606a30e6cfbf2aa.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/6471/2/480/6080d3ac285e4b9fe5fb971c9b2953ad.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "95c1bb87-789e-11ec-ae92-0242ac120002",
+    "name": null,
+    "ordinal": 3,
+    "opening": {
+      "stop": 132,
+      "start": 1
+    },
+    "ending": {
+      "stop": 1673,
+      "start": 1440
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/6471/3/480/dead2d048cd1550d49c2276ecc1b25c2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/6471/3/720/e4a766daae0e85e8609c9d6e24366075.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": null,
+    "duration": 1674,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-02-26T18:11:15+00:00",
+    "sort_order": 3,
+    "release_id": 6471,
+    "name_english": null,
+    "_stream_links": {
+      "hls_720": "https://cache.libria.fun/videos/media/ts/6471/3/720/e4a766daae0e85e8609c9d6e24366075.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/6471/3/480/dead2d048cd1550d49c2276ecc1b25c2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

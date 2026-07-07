@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a2326830-c02e-4945-a46e-0691538f101a",
+    "name": "Стабильная и уважаемая работа",
+    "ordinal": 1,
+    "opening": {
+      "stop": 168,
+      "start": 78
+    },
+    "ending": {
+      "stop": 1365,
+      "start": 1275
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp.jpg",
+      "preview": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp__6918f0678164fe07be208c28cf22763e.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp__9e2df96f6ee4f9e58ddcc6c6b72ef4ff.webp",
+        "preview": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp__9e2df96f6ee4f9e58ddcc6c6b72ef4ff.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10261/1/BDIzFRZ0NO6QLNEp__5d621776bf2249231bda0fa67075f97c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10261/1/480/946d93bf1cb9f75ca72b59c10016a8c6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10261/1/720/e1bc8a5b99a6fe17f48f6dfde227c38a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10261/1/1080/5b3f679a72fd59e3e0ffe02b00e7da6e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1394,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-06T22:16:53+00:00",
+    "sort_order": 1,
+    "release_id": 10261,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10261/1/1080/5b3f679a72fd59e3e0ffe02b00e7da6e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10261/1/720/e1bc8a5b99a6fe17f48f6dfde227c38a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10261/1/480/946d93bf1cb9f75ca72b59c10016a8c6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

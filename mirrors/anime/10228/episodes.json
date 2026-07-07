@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a22fbe6b-58cd-4645-ae6a-86e6a1067af2",
+    "name": "Смертельная дуэль? Рыцарь на рыцаря!",
+    "ordinal": 1,
+    "opening": {
+      "stop": 222,
+      "start": 132
+    },
+    "ending": {
+      "stop": 1418,
+      "start": 1328
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8.jpg",
+      "preview": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8__bf222f66f52585bb0a9c2f5eb2d73610.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8__aaad7521f65ff1faaecc1237380ebe59.webp",
+        "preview": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8__aaad7521f65ff1faaecc1237380ebe59.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10228/1/x3yFI8YCcBU9SzS8__e498d3e3b94e70584c18b441e6063e77.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10228/1/480/f64e99924902c92a78f67bd44c8ed236.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10228/1/720/2c8034724b93afa5f682cf6e19c3bef7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10228/1/1080/4503c8088d0055a40fcb0b794aa51463.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1430,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-05T14:23:14+00:00",
+    "sort_order": 1,
+    "release_id": 10228,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10228/1/1080/4503c8088d0055a40fcb0b794aa51463.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10228/1/720/2c8034724b93afa5f682cf6e19c3bef7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10228/1/480/f64e99924902c92a78f67bd44c8ed236.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

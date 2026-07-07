@@ -1,0 +1,78 @@
+[
+  {
+    "id": "a1b0b997-7e8b-468e-b18d-d16ae595c3ac",
+    "name": "Эпизод 1: Большое происшествие с пятерняшками (Часть 1)",
+    "ordinal": 1,
+    "opening": {
+      "stop": 138,
+      "start": 48
+    },
+    "ending": {
+      "stop": 1452,
+      "start": 1412
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp.jpg",
+      "preview": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp__aa03c7349f47881f55e7fbed39eefec1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp__9609cc2d701efe4cd3f16937b0879bfd.webp",
+        "preview": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp__9609cc2d701efe4cd3f16937b0879bfd.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10219/1/iHQecrbUvGeZYNAp__57550472e539b50e8a7bc75c262d4591.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10219/1/480/dcf7bf7fc2e7050c14053693bc36b88b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10219/1/720/30e46b234846816837278e47cc2fc87a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10219/1/1080/8fafd0d303bbbf0c2ab03d96063fdfeb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-06-27T18:09:33+00:00",
+    "sort_order": 1,
+    "release_id": 10219,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10219/1/1080/8fafd0d303bbbf0c2ab03d96063fdfeb.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10219/1/720/30e46b234846816837278e47cc2fc87a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10219/1/480/dcf7bf7fc2e7050c14053693bc36b88b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "a2200178-76dc-4101-acd0-595ee67744e3",
+    "name": "Эпизод 2: Большое происшествие с пятерняшками (Часть 2)",
+    "ordinal": 2,
+    "opening": {
+      "stop": 261,
+      "start": 171
+    },
+    "ending": {
+      "stop": 1385,
+      "start": 1270
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ.jpg",
+      "preview": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ__be52888a71d5f774725246239ec52cfc.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ__a50dbdd2da2845ca2f909a1711519d2e.webp",
+        "preview": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ__a50dbdd2da2845ca2f909a1711519d2e.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10219/2/9MDXYd8J5QvgCcfJ__43a5f156857408bee8b726ed36185e62.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10219/2/480/36699db7d1288c52cef996a74e76b0cc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10219/2/720/643c625c3e55e44146e0d88705f9a86a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10219/2/1080/c653b4183dd3f118fc7f56fb6ff44fad.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1452,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-06-27T18:19:11+00:00",
+    "sort_order": 2,
+    "release_id": 10219,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10219/2/1080/c653b4183dd3f118fc7f56fb6ff44fad.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10219/2/720/643c625c3e55e44146e0d88705f9a86a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10219/2/480/36699db7d1288c52cef996a74e76b0cc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

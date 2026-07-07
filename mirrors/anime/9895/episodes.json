@@ -1,0 +1,40 @@
+[
+  {
+    "id": "9ddb60f5-2a1f-4374-809f-86a418852054",
+    "name": "«Монака» бросилась вперёд",
+    "ordinal": 1,
+    "opening": {
+      "stop": 133,
+      "start": 44
+    },
+    "ending": {
+      "stop": 1421,
+      "start": 1330
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn.jpg",
+      "preview": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn__b65bb45d66227ceafecd6768c39198f8.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn__0dda16182c7eea2b958858ca3841b6f7.webp",
+        "preview": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn__0dda16182c7eea2b958858ca3841b6f7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9895/1/d71PszNkN4fbSKwn__749224f0b8dd46589b5fc8cc14e62c26.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9895/1/480/fbca7cba3884821dac903041d469bc41.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9895/1/720/9e6de4a44e8d9a9cf272bb5eb57ba9fd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9895/1/1080/b50b3ff3a200bff790cc82559e1b3c39.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1421,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2024-12-31T15:44:56+00:00",
+    "sort_order": 1,
+    "release_id": 9895,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9895/1/1080/b50b3ff3a200bff790cc82559e1b3c39.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9895/1/720/9e6de4a44e8d9a9cf272bb5eb57ba9fd.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9895/1/480/fbca7cba3884821dac903041d469bc41.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

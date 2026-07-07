@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a13fda96-a0d2-442a-afc1-ef2806439a4b",
+    "name": "Одинокая дракоша хочет быть любимой",
+    "ordinal": 1,
+    "opening": {
+      "stop": 271,
+      "start": 182
+    },
+    "ending": {
+      "stop": 6228,
+      "start": 5955
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK.jpg",
+      "preview": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK__9ec9aa51c32c10b1ec2863da782f507b.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK__119bd8b7c2941026fa9fb700696961a7.webp",
+        "preview": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK__119bd8b7c2941026fa9fb700696961a7.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10214/1/s6Kz1JVwns5dkNgK__b3c08de184b33fa86898fb30af6c9cb6.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10214/1/480/4739e24831b4a1c3b2fe2fed21dac8ff.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10214/1/720/848d5f41e6ca3f5a65b130d28a5b58f2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10214/1/1080/982cae2e1a7b7c7a675940bb71899615.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 6267,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-03-08T10:38:26+00:00",
+    "sort_order": 1,
+    "release_id": 10214,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10214/1/1080/982cae2e1a7b7c7a675940bb71899615.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10214/1/720/848d5f41e6ca3f5a65b130d28a5b58f2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10214/1/480/4739e24831b4a1c3b2fe2fed21dac8ff.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

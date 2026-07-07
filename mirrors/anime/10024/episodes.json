@@ -1,0 +1,78 @@
+[
+  {
+    "id": "9f42aecd-c357-4d22-9dea-1329bd32143a",
+    "name": "Взрыв алого потока",
+    "ordinal": 1,
+    "opening": {
+      "stop": 164,
+      "start": 75
+    },
+    "ending": {
+      "stop": 1471,
+      "start": 1381
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF.jpg",
+      "preview": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF__121fc75d2dc73e159f124c73b97dd065.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF__c37f79bfa795823b263e0658638f9d2a.webp",
+        "preview": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF__c37f79bfa795823b263e0658638f9d2a.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10024/1/MJGumgYiFaRwLRfF__5ccc06c1b4abdf55f7890aa831566372.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10024/1/480/4170f15f9dbefc3739d8e4bbe5d4fc6f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10024/1/720/a9211a4fb227a272330cb1a40e449a51.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10024/1/1080/3df39da4834667a6fbfd8fbb4bed80a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1472,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-28T05:47:38+00:00",
+    "sort_order": 1,
+    "release_id": 10024,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10024/1/1080/3df39da4834667a6fbfd8fbb4bed80a0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10024/1/720/a9211a4fb227a272330cb1a40e449a51.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10024/1/480/4170f15f9dbefc3739d8e4bbe5d4fc6f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9f42b453-fb82-41c8-8e9f-a189b1f6eed6",
+    "name": "Остерегайтесь Шарлатанов!",
+    "ordinal": 2,
+    "opening": {
+      "stop": 149,
+      "start": 60
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t.jpg",
+      "preview": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t__6defa7f17023525f493acdb2c7b8548c.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t__8972b0a3e355c3eba9c39769709560cd.webp",
+        "preview": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t__8972b0a3e355c3eba9c39769709560cd.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10024/2/XURxplNWUDnjfY3t__d711ff85ac28e690c9714090f8c0566c.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10024/2/480/fc3991e4d3e19335a35c64ae4704a8ab.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10024/2/720/463d69776675459e5f110158d7e30879.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10024/2/1080/51aff7d2bb6d4a6fd2b9f1605a6ad184.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1606,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-06-28T06:06:22+00:00",
+    "sort_order": 2,
+    "release_id": 10024,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10024/2/1080/51aff7d2bb6d4a6fd2b9f1605a6ad184.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10024/2/720/463d69776675459e5f110158d7e30879.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10024/2/480/fc3991e4d3e19335a35c64ae4704a8ab.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "98b1f62f-0c63-4808-b134-0b754c7bf816",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": 155,
+      "start": 58
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c.jpg",
+      "preview": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c__6db6cb0724219065011359025a417fc1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c__c959f8450abfd0de1821e5cb27b83fd6.webp",
+        "preview": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c__c959f8450abfd0de1821e5cb27b83fd6.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9448/1/ackeLs7eh7edTe0c__e151b8eb022d7ee72c47982c3cde6f2a.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9448/1/480/19f6ce8a780475f7ed836df5c2ea7f19.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9448/1/720/ae8f148256eff39d08301da377bf739f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9448/1/1080/5aad9b9dbe354333df1e30d9b1b0060d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1605,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-03-15T18:21:00+00:00",
+    "sort_order": 1,
+    "release_id": 9448,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9448/1/1080/5aad9b9dbe354333df1e30d9b1b0060d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9448/1/720/ae8f148256eff39d08301da377bf739f.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9448/1/480/19f6ce8a780475f7ed836df5c2ea7f19.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "98bfea54-6e27-4293-adc5-dc8b1ecf2088",
+    "name": null,
+    "ordinal": 2,
+    "opening": {
+      "stop": 95,
+      "start": 1
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c.jpg",
+      "preview": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c__dead39471961c731a33f96eef6b98202.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c__72a5cf429647a6fd54594ee741ab0bba.webp",
+        "preview": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c__72a5cf429647a6fd54594ee741ab0bba.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9448/2/GPMfFSdx09th546c__fbb0e4246118f08a5b09c652fa9cd283.webp"
+      }
+    },
+    "hls_480": null,
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9448/2/720/1fd90dd4da596b4980440c90f8f53f5e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9448/2/1080/017add23f6bc2f282d0af1cd24c123bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1594,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2023-03-22T16:17:59+00:00",
+    "sort_order": 2,
+    "release_id": 9448,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9448/2/1080/017add23f6bc2f282d0af1cd24c123bf.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9448/2/720/1fd90dd4da596b4980440c90f8f53f5e.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

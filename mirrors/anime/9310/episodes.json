@@ -1,0 +1,40 @@
+[
+  {
+    "id": "7461bd26-8b09-4132-8987-5a67fc285b93",
+    "name": "Дрейфующий дом",
+    "ordinal": 1,
+    "opening": {
+      "stop": 270,
+      "start": 167
+    },
+    "ending": {
+      "stop": 7162,
+      "start": 6772
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY.jpg",
+      "preview": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY__cf49e9f681e85f2a488b5fd513695a1a.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY__2e6b5cc4e59b8fbe6e2262e879919f2b.webp",
+        "preview": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY__2e6b5cc4e59b8fbe6e2262e879919f2b.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9310/1/hra9wD5mhaCekusY__98ab41580c971bc6e3afdbdfd152dc91.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9310/1/480/9cc4f55952cc0c70bca28062fecba73d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9310/1/720/6da5d906db201021f73c3bbf1ee6e97a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9310/1/1080/e6d44d3d3257d616dcec5033882fbc18.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 7172,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-02-09T20:48:05+00:00",
+    "sort_order": 1,
+    "release_id": 9310,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9310/1/1080/e6d44d3d3257d616dcec5033882fbc18.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9310/1/720/6da5d906db201021f73c3bbf1ee6e97a.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9310/1/480/9cc4f55952cc0c70bca28062fecba73d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

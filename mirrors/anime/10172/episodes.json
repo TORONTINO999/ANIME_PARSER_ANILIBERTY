@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a159552a-9fa7-4737-867b-d22cf7115602",
+    "name": "Гонка «Стальной шар»",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": 2923,
+      "start": 2736
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS.jpg",
+      "preview": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS__82ad36618dad057d9ef4f59211bea8ae.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS__e5e23039dbdc25123253306bf45c52cc.webp",
+        "preview": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS__e5e23039dbdc25123253306bf45c52cc.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10172/1/M6iZLz8T1ehf2BfS__d928f81b89284c66e2bb82359dff85cb.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10172/1/480/601093fb6e5cda6520b2b12022ed6049.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10172/1/720/95216005ac03802f81e45e186892600c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10172/1/1080/09c3f314f335e3c5786c237c9f2f5529.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 2924,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-06-20T14:49:58+00:00",
+    "sort_order": 1,
+    "release_id": 10172,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10172/1/1080/09c3f314f335e3c5786c237c9f2f5529.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10172/1/720/95216005ac03802f81e45e186892600c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10172/1/480/601093fb6e5cda6520b2b12022ed6049.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

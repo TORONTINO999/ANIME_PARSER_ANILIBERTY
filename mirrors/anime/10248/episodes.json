@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a22f8718-8325-4b41-beb6-017c17a164cc",
+    "name": "Будущее - в наших руках",
+    "ordinal": 1,
+    "opening": {
+      "stop": 137,
+      "start": 48
+    },
+    "ending": {
+      "stop": 1424,
+      "start": 1335
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t.jpg",
+      "preview": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t__3a7ab53651b20e220f28367a42f7fc10.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t__d87e5b356a2a8e0dd555aef34bd9a539.webp",
+        "preview": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t__d87e5b356a2a8e0dd555aef34bd9a539.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10248/1/haU8Llrlduehb63t__5530835b7fbe61e975462dbff98503a6.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10248/1/480/721cd5ec1023fa373ad233759a5d8e4d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10248/1/720/9f9d7a8d190eeceb84eb49a7b54e3300.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10248/1/1080/072fd5d893169c8900000b2268318dd3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1425,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-07-05T12:09:44+00:00",
+    "sort_order": 1,
+    "release_id": 10248,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10248/1/1080/072fd5d893169c8900000b2268318dd3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10248/1/720/9f9d7a8d190eeceb84eb49a7b54e3300.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10248/1/480/721cd5ec1023fa373ad233759a5d8e4d.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

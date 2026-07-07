@@ -1,0 +1,38 @@
+[
+  {
+    "id": "9ca9890e-de74-4faf-b6df-568a5ca7736a",
+    "name": null,
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "017dd90dbacfd84de42809e85632099f",
+    "youtube_id": null,
+    "updated_at": "2024-08-01T13:40:35+00:00",
+    "sort_order": 1,
+    "release_id": 9778,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/017dd90dbacfd84de42809e85632099f/"
+    }
+  }
+]

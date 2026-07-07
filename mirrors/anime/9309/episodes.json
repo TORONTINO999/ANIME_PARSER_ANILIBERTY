@@ -1,0 +1,40 @@
+[
+  {
+    "id": "80049afb-92ec-4308-9bb6-44fddc0adb13",
+    "name": "Снежный шар",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK.jpg",
+      "preview": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK__bb0d4c1c2a124c171d9fea66f3505e4c.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK__3a9a6ed5fb9fe6cbe95270e7aee6c3ab.webp",
+        "preview": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK__3a9a6ed5fb9fe6cbe95270e7aee6c3ab.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9309/1/31GyanJey9AUiqVK__cd4b8f6690cfd3971952d7a3eb126fc5.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9309/1/480/5f1caaf9b77575bc327dd40285b804b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9309/1/720/ed91f382ec73b74d2b354afe9f6a469b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9309/1/1080/42829016c0548b1f67c4c9fa5f9bf30b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 2195,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2022-09-23T21:15:27+00:00",
+    "sort_order": 1,
+    "release_id": 9309,
+    "name_english": "Snow Globe",
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9309/1/1080/42829016c0548b1f67c4c9fa5f9bf30b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9309/1/720/ed91f382ec73b74d2b354afe9f6a469b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9309/1/480/5f1caaf9b77575bc327dd40285b804b1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

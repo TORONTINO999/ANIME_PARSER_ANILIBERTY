@@ -1,0 +1,78 @@
+[
+  {
+    "id": "9e4e3d06-228b-4c42-a584-60eddde21e3d",
+    "name": "Обеденный стол?",
+    "ordinal": 1,
+    "opening": {
+      "stop": 183,
+      "start": 129
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm.jpg",
+      "preview": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm__ac566f8fc7bc4506a3a2f2b26f032c3f.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm__0968339d736a27eccbbe6690a35ea5eb.webp",
+        "preview": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm__0968339d736a27eccbbe6690a35ea5eb.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9950/1/2iQWUinkenCynTWm__85db94ea48073c9110c042e1bc5f39e5.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9950/1/480/ad77666d1276d291f65960cf7716c0d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9950/1/720/ac8d087068763ec7a53272abb67f11fc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9950/1/1080/dd0a98b272271b5281f10ab5a0e6e857.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 822,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-02-26T17:02:53+00:00",
+    "sort_order": 1,
+    "release_id": 9950,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9950/1/1080/dd0a98b272271b5281f10ab5a0e6e857.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9950/1/720/ac8d087068763ec7a53272abb67f11fc.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9950/1/480/ad77666d1276d291f65960cf7716c0d0.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  },
+  {
+    "id": "9e4e3e0d-618c-488b-8bdf-e551f17f2458",
+    "name": "Мирная ночь?",
+    "ordinal": 2,
+    "opening": {
+      "stop": 104,
+      "start": 51
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX.jpg",
+      "preview": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX__ada9981cfc98a3e40d1e944b3277f5fe.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX__963317a08ce24fd513aaf8691ecf4f2e.webp",
+        "preview": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX__963317a08ce24fd513aaf8691ecf4f2e.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9950/2/Rryhkmf1bfKm9AXX__b3f2ad5d475d9971f6d49a2038703050.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9950/2/480/b607dcfa3e2f8989609776fb0b8eadec.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9950/2/720/392efb7bacc9f08dacb05f999abac9a1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9950/2/1080/091313a58e9ee51158cf664e37dc72a3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1136,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-02-26T17:15:17+00:00",
+    "sort_order": 2,
+    "release_id": 9950,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9950/2/1080/091313a58e9ee51158cf664e37dc72a3.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9950/2/720/392efb7bacc9f08dacb05f999abac9a1.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9950/2/480/b607dcfa3e2f8989609776fb0b8eadec.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

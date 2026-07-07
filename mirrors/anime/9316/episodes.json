@@ -1,0 +1,40 @@
+[
+  {
+    "id": "1e6c1487-b399-4bf5-b047-810ef1ce0aad",
+    "name": "Олений Король",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP.jpg",
+      "preview": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP__e20a82d0358f7057ad55e26e83c601d6.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP__4535add1eb93a0aec0b9ec54569b538c.webp",
+        "preview": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP__4535add1eb93a0aec0b9ec54569b538c.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9316/1/pkQo5uPUKchJfEuP__982a08d038865cfd6b62f894d320a2ae.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9316/1/480/11ffc99f10587af0341e394f19689f82.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9316/1/720/fa661808bf2a6d98040117edad202cd4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9316/1/1080/c380600238d738c24e01c4f28a10743c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 6867,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2025-10-30T17:57:27+00:00",
+    "sort_order": 1,
+    "release_id": 9316,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9316/1/1080/c380600238d738c24e01c4f28a10743c.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9316/1/720/fa661808bf2a6d98040117edad202cd4.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9316/1/480/11ffc99f10587af0341e394f19689f82.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

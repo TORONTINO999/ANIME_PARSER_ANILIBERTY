@@ -1,0 +1,578 @@
+[
+  {
+    "id": "98ffbe56-46be-4c46-80e4-7db5555bfcc3",
+    "name": "Штурм",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "95ff63cc1037acf7778025a76f9da382",
+    "youtube_id": null,
+    "updated_at": "2023-04-23T09:22:54+00:00",
+    "sort_order": 1,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/95ff63cc1037acf7778025a76f9da382/"
+    }
+  },
+  {
+    "id": "98ffbec5-810b-4c59-9b82-b27d022124b0",
+    "name": "Бой",
+    "ordinal": 2,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "1ab06caf059fd26f68636532efe4f760",
+    "youtube_id": null,
+    "updated_at": "2023-04-23T09:24:06+00:00",
+    "sort_order": 2,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/1ab06caf059fd26f68636532efe4f760/"
+    }
+  },
+  {
+    "id": "990bbb6d-3140-4bfb-8c48-6b39ca75f06e",
+    "name": "Город взят",
+    "ordinal": 3,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "053c5dedb6ab64cd087d6463ccb37f42",
+    "youtube_id": null,
+    "updated_at": "2023-04-29T08:24:41+00:00",
+    "sort_order": 3,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/053c5dedb6ab64cd087d6463ccb37f42/"
+    }
+  },
+  {
+    "id": "9919ce35-6078-43bc-ae98-96e1c91a8124",
+    "name": "Я смогу тебя защитить",
+    "ordinal": 4,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "df050773b905819ee3aa1ed58f419404",
+    "youtube_id": null,
+    "updated_at": "2023-05-06T08:18:48+00:00",
+    "sort_order": 4,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/df050773b905819ee3aa1ed58f419404/"
+    }
+  },
+  {
+    "id": "9927f236-4ae1-4b83-a823-be537635bfbb",
+    "name": "Братья",
+    "ordinal": 5,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "535e7de52cd37866daf87cc08ad19034",
+    "youtube_id": null,
+    "updated_at": "2023-05-13T09:01:04+00:00",
+    "sort_order": 5,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/535e7de52cd37866daf87cc08ad19034/"
+    }
+  },
+  {
+    "id": "9935f997-1abe-4c54-8b03-aa46bd3b9a3d",
+    "name": "Под покровом теней",
+    "ordinal": 6,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "c9412673a0fcee2894a4971bb1eef392",
+    "youtube_id": null,
+    "updated_at": "2023-05-20T08:23:17+00:00",
+    "sort_order": 6,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/c9412673a0fcee2894a4971bb1eef392/"
+    }
+  },
+  {
+    "id": "99442e08-c308-4404-b3cb-363267066ccd",
+    "name": "Сластолюбец",
+    "ordinal": 7,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "e3da8b7048c21ac4b626a089aaa0db84",
+    "youtube_id": null,
+    "updated_at": "2023-05-27T09:51:31+00:00",
+    "sort_order": 7,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/e3da8b7048c21ac4b626a089aaa0db84/"
+    }
+  },
+  {
+    "id": "995249a4-c975-49c5-abc5-04ee2be622d2",
+    "name": "Непревзойденный конюх",
+    "ordinal": 8,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "8258f08ef6f0b4d60e58ccc3634a58c6",
+    "youtube_id": null,
+    "updated_at": "2023-06-03T10:10:19+00:00",
+    "sort_order": 8,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/8258f08ef6f0b4d60e58ccc3634a58c6/"
+    }
+  },
+  {
+    "id": "99eef126-4c03-4172-9b99-45645ee6c81c",
+    "name": null,
+    "ordinal": 9,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "9dccc96405c04b3f780094e2329cea14",
+    "youtube_id": null,
+    "updated_at": "2023-08-20T07:09:56+00:00",
+    "sort_order": 9,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/9dccc96405c04b3f780094e2329cea14/"
+    }
+  },
+  {
+    "id": "99fbd7ba-cad4-4b8d-865d-d38f6ea00505",
+    "name": null,
+    "ordinal": 10,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "6384b054206305c0b49e208c0e00c7bb",
+    "youtube_id": null,
+    "updated_at": "2023-08-26T17:02:31+00:00",
+    "sort_order": 10,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/6384b054206305c0b49e208c0e00c7bb/"
+    }
+  },
+  {
+    "id": "9a0931da-6437-46c0-83fc-dba903402595",
+    "name": null,
+    "ordinal": 11,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "83b14a0ee68c32c8d8480134866b7476",
+    "youtube_id": null,
+    "updated_at": "2023-09-02T08:20:17+00:00",
+    "sort_order": 11,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/83b14a0ee68c32c8d8480134866b7476/"
+    }
+  },
+  {
+    "id": "9a175cbb-a0d2-4155-9d2a-60e14cc64691",
+    "name": null,
+    "ordinal": 12,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "5a0b846cab5df3da44814be687e9d6c4",
+    "youtube_id": null,
+    "updated_at": "2023-09-09T09:21:47+00:00",
+    "sort_order": 12,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/5a0b846cab5df3da44814be687e9d6c4/"
+    }
+  },
+  {
+    "id": "9a25b200-98c8-495a-8ccd-48279912c1dc",
+    "name": null,
+    "ordinal": 13,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "426f34394744f82be1678cea5ab9b5dc",
+    "youtube_id": null,
+    "updated_at": "2023-09-16T12:21:48+00:00",
+    "sort_order": 13,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/426f34394744f82be1678cea5ab9b5dc/"
+    }
+  },
+  {
+    "id": "9a339b83-7993-45cf-8f32-dca2d9aeedc4",
+    "name": null,
+    "ordinal": 14,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "a4e968cf489a33600172a2b53a378978",
+    "youtube_id": null,
+    "updated_at": "2023-09-23T10:20:30+00:00",
+    "sort_order": 14,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/a4e968cf489a33600172a2b53a378978/"
+    }
+  },
+  {
+    "id": "9a41c45e-f37f-4058-b766-a4f4ef88785d",
+    "name": null,
+    "ordinal": 15,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "f6a252085e3332339fc16f9308be7b4b",
+    "youtube_id": null,
+    "updated_at": "2023-09-30T11:16:21+00:00",
+    "sort_order": 15,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/f6a252085e3332339fc16f9308be7b4b/"
+    }
+  },
+  {
+    "id": "9a4f88a6-8d7a-47dc-8bf1-c8525071c6be",
+    "name": null,
+    "ordinal": 16,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": null,
+      "preview": null,
+      "thumbnail": null,
+      "optimized": {
+        "src": null,
+        "preview": null,
+        "thumbnail": null
+      }
+    },
+    "hls_480": null,
+    "hls_720": null,
+    "hls_1080": null,
+    "duration": 0,
+    "rutube_id": "3b54c8f64d8c924933c796c13af1f6d5",
+    "youtube_id": null,
+    "updated_at": "2023-10-07T07:32:18+00:00",
+    "sort_order": 16,
+    "release_id": 9467,
+    "name_english": null,
+    "_stream_links": {
+      "rutube": "https://rutube.ru/video/3b54c8f64d8c924933c796c13af1f6d5/"
+    }
+  }
+]

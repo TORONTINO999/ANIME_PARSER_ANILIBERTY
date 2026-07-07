@@ -1,0 +1,40 @@
+[
+  {
+    "id": "a1718926-e8c7-4fc7-b2f3-a28495ef2728",
+    "name": "Механическая девушка",
+    "ordinal": 1,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": null,
+      "start": null
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm.jpg",
+      "preview": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm__393d6e70f44176139b32c2a774f7d5d1.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm__374349d9681a879b7133aaad95aa2426.webp",
+        "preview": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm__374349d9681a879b7133aaad95aa2426.webp",
+        "thumbnail": "/storage/releases/episodes/previews/10216/1/c2PPqyvShf5j1Azm__8ffc8da6a473deb086615e843bfffb81.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/10216/1/480/3f90b35cfe35ce281ebd9691c94360e2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/10216/1/720/fade02c58d799eb92bd36c67480f4236.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/10216/1/1080/f0f196d42b4d63f39ba09d29ecdd067b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 2134,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2026-04-02T01:07:30+00:00",
+    "sort_order": 1,
+    "release_id": 10216,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/10216/1/1080/f0f196d42b4d63f39ba09d29ecdd067b.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/10216/1/720/fade02c58d799eb92bd36c67480f4236.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/10216/1/480/3f90b35cfe35ce281ebd9691c94360e2.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "9d614df9-2e69-4f2b-87b2-9f73d905afe8",
+    "name": "Сжечь ведьму",
+    "ordinal": 0.8,
+    "opening": {
+      "stop": null,
+      "start": null
+    },
+    "ending": {
+      "stop": 1573,
+      "start": 1500
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W.jpg",
+      "preview": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W__8e665f2d6dfe145f2a1863b107d0f0c2.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W__4ff391137ca888182dcd48deb56bc043.webp",
+        "preview": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W__4ff391137ca888182dcd48deb56bc043.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9836/0.8/eC7sZkHSW4aLfo1W__fe20531d8db4a71735520d11e5b3f90e.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9836/0.8/480/fcd5c722269f4c1dbb4191809b021bb6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9836/0.8/720/b460502197536c61402439e93ec35759.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9836/0.8/1080/4bb95f76a1c5e4ca28e2b88591c90ba7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1728,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2024-10-31T22:49:31+00:00",
+    "sort_order": 1,
+    "release_id": 9836,
+    "name_english": "Burn the Witch",
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9836/0.8/1080/4bb95f76a1c5e4ca28e2b88591c90ba7.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9836/0.8/720/b460502197536c61402439e93ec35759.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9836/0.8/480/fcd5c722269f4c1dbb4191809b021bb6.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]

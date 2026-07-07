@@ -1,0 +1,40 @@
+[
+  {
+    "id": "9dd7696f-c935-4cb8-bcf3-8bb045cc3452",
+    "name": "Форма моего счастья",
+    "ordinal": 1,
+    "opening": {
+      "stop": 148,
+      "start": 58
+    },
+    "ending": {
+      "stop": 1531,
+      "start": 1339
+    },
+    "preview": {
+      "src": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E.jpg",
+      "preview": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E.jpg",
+      "thumbnail": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E__6b2639330bddb9c85f2a98051afd0891.jpg",
+      "optimized": {
+        "src": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E__ea9b5831e24e171150a903f5e960e963.webp",
+        "preview": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E__ea9b5831e24e171150a903f5e960e963.webp",
+        "thumbnail": "/storage/releases/episodes/previews/9894/1/Cshf76MENQGCTf7E__c5915ff0082066422779a857aa82f34f.webp"
+      }
+    },
+    "hls_480": "https://cache.libria.fun/videos/media/ts/9894/1/480/e8ad6b18d96d1bbbce0d648fa98f7439.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_720": "https://cache.libria.fun/videos/media/ts/9894/1/720/bd71b10300b15cde48d615f126931f94.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "hls_1080": "https://cache.libria.fun/videos/media/ts/9894/1/1080/32196b1328b8918d3222e13e6b3bd1c5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+    "duration": 1532,
+    "rutube_id": null,
+    "youtube_id": null,
+    "updated_at": "2024-12-29T15:33:46+00:00",
+    "sort_order": 1,
+    "release_id": 9894,
+    "name_english": null,
+    "_stream_links": {
+      "hls_1080": "https://cache.libria.fun/videos/media/ts/9894/1/1080/32196b1328b8918d3222e13e6b3bd1c5.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_720": "https://cache.libria.fun/videos/media/ts/9894/1/720/bd71b10300b15cde48d615f126931f94.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1",
+      "hls_480": "https://cache.libria.fun/videos/media/ts/9894/1/480/e8ad6b18d96d1bbbce0d648fa98f7439.m3u8?countryIso=US&isAuthorized=0&isWithVideoAds=1&isWithVideoAdsAlways=1"
+    }
+  }
+]
