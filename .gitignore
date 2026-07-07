@@ -1,40 +1,60 @@
-# Python
+# --- Python ---
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+build/
+dist/
+*.egg-info/
 env/
 venv/
 ENV/
+.venv/
 
-# IDE
+# --- IDE & Editors ---
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
 
-# OS
+# --- OS ---
 .DS_Store
 Thumbs.db
-.env.local
+ehthumbs.db
+Desktop.ini
 
-# Cache
+# --- Environment Variables & Secrets ---
+.env
+.env.local
+.env.*.local
+
+# --- Cache & Temp ---
 parse_cache.json
 *.cache
 .cache/
+*.tmp
+*.temp
 
-# Large files (но не все)
+# --- Logs ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Large Media Files (Mirrors) ---
+# Игнорируем тяжелые постеры, но оставляем метаданные и плейлисты
 mirrors/*/poster_*.jpg
 mirrors/*/poster_*.png
 mirrors/*/poster_*.webp
 
-# Но сохраняем сами M3U
+# --- Exceptions (Whitelist) ---
+# Явно разрешаем эти файлы, даже если они попадают под другие правила или лежат в игнорируемых папках
 !*.m3u8
 !mirrors/*/README.md
 !mirrors/metadata.json
-
-# Лог файлы
-*.log
-logs/
