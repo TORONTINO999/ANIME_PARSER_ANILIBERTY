@@ -1,31 +1,44 @@
-name: Count Releases
+name: Parser CI
 
 on:
-  workflow_dispatch: # Только ручной запуск через кнопку в Actions
-  push:
-    paths:
-      - 'count_releases.py' # Автозапуск только при изменении самого скрипта счетчика
+  schedule:
+    - cron: '0 3 * * 1'  # Каждый понедельник в 03:00 UTC
+  workflow_dispatch:     # Ручной запуск
 
 env:
   ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
-  count-releases:
+  run-parser:
     runs-on: ubuntu-latest
+    timeout-minutes: 55
     permissions:
-      contents: read # Запрет на запись/коммиты в репозиторий
+      contents: read
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install requests
+      - name: Install dependencies
         run: pip install requests
 
-      - name: Count Releases
-        run: python count_releases.py
+      - name: Run Parser
+        run: python main.py
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aniliberty-data
+          path: |
+            mirrors/main.m3u
+            mirrors/anime/
+            mirrors/posters/
+            mirrors/parser_progress.json
+          retention-days: 7
+          if-no-files-found: warn
