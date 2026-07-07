@@ -1,80 +1,32 @@
-name: Anime Parser - Multi Source
+name: AniLiberty Catalog Parser
 
 on:
-  push:
-    paths:
-      - 'urls-anime.txt'
-      - 'parser.py'
-      - 'requirements.txt'
-      - '.github/workflows/**'
-  workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */12 * * *' # Раз в 12 часов
+  workflow_dispatch:
 
 jobs:
-  parse-anime:
+  run-parser:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-
     steps:
-      # 1. Checkout с GH_TOKEN (для возможности пуша)
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          token: ${{ secrets.GH_TOKEN }}
-          persist-credentials: false
 
-      # 2. Кэш Playwright
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        id: playwright-cache
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-v1
-          restore-keys: ${{ runner.os }}-playwright-
-
-      # 3. Python 3.11 + кэш pip
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
-      # 4. Установка зависимостей
-      - name: Install Python packages
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run main.py script
+        run: python main.py
+
+      - name: Commit and Push changes
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
-      # 5. Установка браузера Playwright
-      - name: Install Playwright browser
-        run: python -m playwright install --with-deps chromium
-
-      # 6. Запуск парсера
-      - name: Run parser
-        env:
-          PYTHONUNBUFFERED: 1
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: python parser.py
-
-      # 7. Создание PR (обновлено до v6 — Node 20)
-      - name: Create Pull Request with updated mirrors
-        if: success()
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          commit-message: "Update mirrors [run ${{ github.run_id }}]"
-          title: "Auto: update mirrors"
-          body: |
-            Автоматическое обновление зеркал из CI.
-            Run ID: ${{ github.run_id }}
-            Trigger: ${{ github.event_name }}
-          branch: ci/mirrors-update-${{ github.run_id }}
-          add-paths: |
-            mirrors/
-            aniliberty_all.m3u
-            parser_progress.json
-          delete-branch: true
-          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add mirrors/
+          # Проверяем, изменилось ли что-то в папке mirrors, чтобы не делать пустых коммитов
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Автоматическое обновление базы плейлиста" && git push)
