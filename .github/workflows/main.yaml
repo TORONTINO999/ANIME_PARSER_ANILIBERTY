@@ -1,18 +1,37 @@
-name: Docker Compose Build
+name: CI/CD Pipeline
 
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker Compose
-        run: docker compose up -d --build
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Используем ту же версию, что была в ошибке
 
-      - name: Check containers
-        run: docker compose ps
+      # --- ВАЖНО: Сначала устанавливаем библиотеки Python ---
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Если есть requirements.txt:
+          pip install -r requirements.txt
+          # Если нет requirements.txt, раскомментируйте строку ниже:
+          # pip install playwright beautifulsoup4 requests # добавьте ваши библиотеки
+
+      # --- Теперь устанавливаем браузеры ---
+      - name: Install Playwright Browsers
+        run: python -m playwright install --with-deps chromium
+
+      # --- Ваш основной скрипт ---
+      - name: Run Parser
+        run: python main.py # Замените на имя вашего главного файла
