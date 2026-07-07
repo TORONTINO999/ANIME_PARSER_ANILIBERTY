@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AniLiberty HTML Parser — Простой парсер без API
-Парсит HTML страницы через requests + BeautifulSoup
+AniLiberty HTML Parser v3 — Поиск ВСЕХ видео ссылок
+Ищет: m3u8, mp4, mpd, webm, и любые другие прямые ссылки
 """
 
 import os
@@ -10,7 +10,7 @@ import re
 import json
 import time
 import requests
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 from bs4 import BeautifulSoup
@@ -24,21 +24,20 @@ MIRRORS_DIR = "mirrors"
 GLOBAL_M3U = "aniliberty_all.m3u"
 PROGRESS_FILE = "parser_progress.json"
 
-MAX_WORKERS = 10          # 10 параллельных потоков
-REQUEST_DELAY = 0.5       # Задержка между запросами к каталогу
-TIMEOUT = 20              # Таймаут запросов
+MAX_WORKERS = 10
+REQUEST_DELAY = 0.3
+TIMEOUT = 15
+DEBUG = True
 
-# HTTP сессия
 session = requests.Session()
 session.headers.update({
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept': '*/*',
     'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
 })
 
-# Потокобезопасные счетчики
 lock = Lock()
-stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0}
+stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0, 'no_episodes': 0}
 
 # ══════════════════════════════════════════════════════════════
 #  УТИЛИТЫ
@@ -57,11 +56,35 @@ def retry_request(url: str, max_retries: int = 3):
             resp.raise_for_status()
             return resp
         except Exception as e:
+            if DEBUG:
+                print(f"    ⚠ Попытка {attempt + 1}/{max_retries} не удалась: {e}")
             if attempt < max_retries - 1:
                 time.sleep(1)
             else:
-                print(f"  ✗ Ошибка запроса {url}: {e}")
                 return None
+
+def debug_print(msg: str):
+    if DEBUG:
+        print(f"    🔍 {msg}")
+
+def is_video_url(url: str) -> bool:
+    """Проверяет, является ли ссылка видео"""
+    if not url or not isinstance(url, str):
+        return False
+    
+    url_lower = url.lower()
+    
+    # Прямые расширения видео
+    video_extensions = ['.m3u8', '.mp4', '.webm', '.mpd', '.ts', '.flv', '.avi', '.mkv']
+    if any(ext in url_lower for ext in video_extensions):
+        return True
+    
+    # Ключевые слова в URL
+    video_keywords = ['video', 'hls', 'stream', 'media', 'cdn', 'player', 'embed']
+    if any(keyword in url_lower for keyword in video_keywords):
+        return True
+    
+    return False
 
 # ══════════════════════════════════════════════════════════════
 #  ПРОГРЕСС
@@ -87,30 +110,26 @@ def save_progress(done_urls: set):
 #  ПАРСИНГ КАТАЛОГА
 # ══════════════════════════════════════════════════════════════
 def get_total_pages() -> int:
-    """Определение количества страниц в каталоге"""
     resp = retry_request(CATALOG_URL)
     if not resp:
         return 1
     
     soup = BeautifulSoup(resp.content, 'html.parser')
-    
-    # Поиск пагинации
     max_page = 1
-    for link in soup.select('a[href*="page="], .pagination a, ul.pagination li a'):
+    
+    for link in soup.select('a[href*="page="], .pagination a, nav a'):
         text = link.get_text(strip=True)
         if text.isdigit():
             max_page = max(max_page, int(text))
     
     if max_page == 1:
-        text = soup.get_text()
-        match = re.search(r'Страница\s+\d+\s+из\s+(\d+)', text)
+        match = re.search(r'Страница\s+\d+\s+из\s+(\d+)', soup.get_text())
         if match:
             max_page = int(match.group(1))
     
     return max_page
 
 def fetch_catalog_urls() -> list:
-    """Получение всех ссылок на релизы из каталога"""
     print("=" * 60)
     print("📡  Сканирую каталог...")
     print("=" * 60)
@@ -127,11 +146,8 @@ def fetch_catalog_urls() -> list:
             continue
         
         soup = BeautifulSoup(resp.content, 'html.parser')
-        
-        # Ищем ссылки на релизы
         page_urls = []
         
-        # Вариант 1: Ссылки с /anime/ в href (но не каталог)
         for link in soup.find_all('a', href=True):
             href = link['href']
             if '/anime/' in href and '/catalog' not in href and href != '/anime/':
@@ -139,32 +155,78 @@ def fetch_catalog_urls() -> list:
                 if full_url not in page_urls:
                     page_urls.append(full_url)
         
-        # Вариант 2: Карточки релизов
-        if not page_urls:
-            for card in soup.select('.release-card, .anime-card, .card'):
-                link = card.find('a', href=True)
-                if link:
-                    full_url = urljoin(BASE_URL, link['href'])
-                    if full_url not in page_urls:
-                        page_urls.append(full_url)
+        for card in soup.select('.card, .release-card, .anime-card, article'):
+            link = card.find('a', href=True)
+            if link and '/anime/' in link['href']:
+                full_url = urljoin(BASE_URL, link['href'])
+                if full_url not in page_urls:
+                    page_urls.append(full_url)
         
         all_urls.extend(page_urls)
-        
-        percent = (page / total_pages * 100) if total_pages else 0
         print(f"  📄 Стр. {page}/{total_pages} | Найдено: {len(page_urls)} | Всего: {len(all_urls)}")
-        
         time.sleep(REQUEST_DELAY)
     
-    # Уникальные ссылки
-    all_urls = list(set(all_urls))
-    print(f"\n✅ Всего уникальных релизов: {len(all_urls)}")
-    return all_urls
+    return list(set(all_urls))
 
 # ══════════════════════════════════════════════════════════════
-#  ПАРСИНГ РЕЛИЗА
+#  ПАРСИНГ IFRAME (рекурсивно)
+# ══════════════════════════════════════════════════════════════
+def parse_iframe(iframe_url: str, depth: int = 0) -> set:
+    """Рекурсивно парсит iframe для поиска видео"""
+    if depth > 3:  # Максимальная глубина рекурсии
+        return set()
+    
+    video_urls = set()
+    
+    try:
+        resp = retry_request(iframe_url)
+        if not resp:
+            return video_urls
+        
+        soup = BeautifulSoup(resp.content, 'html.parser')
+        
+        # Ищем видео ссылки в iframe
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            if is_video_url(href):
+                full_url = urljoin(iframe_url, href)
+                video_urls.add(full_url)
+                debug_print(f"  📺 [iframe lvl {depth}] Найдено видео: {full_url}")
+        
+        for source in soup.find_all('source'):
+            src = source.get('src')
+            if src and is_video_url(src):
+                full_url = urljoin(iframe_url, src)
+                video_urls.add(full_url)
+                debug_print(f"  📺 [iframe lvl {depth}] Найдено video source: {full_url}")
+        
+        # Ищем в скриптах
+        scripts = soup.find_all('script')
+        for script in scripts:
+            script_text = script.string or ''
+            # Ищем любые URL с видео
+            urls = re.findall(r'https?://[^\s"\'<>]+', script_text)
+            for url in urls:
+                if is_video_url(url):
+                    video_urls.add(url)
+                    debug_print(f"  📺 [iframe lvl {depth}] Найдено в скрипте: {url}")
+        
+        # Рекурсия для вложенных iframe
+        for nested_iframe in soup.find_all('iframe'):
+            nested_src = nested_iframe.get('src')
+            if nested_src:
+                nested_url = urljoin(iframe_url, nested_src)
+                video_urls.update(parse_iframe(nested_url, depth + 1))
+    
+    except Exception as e:
+        debug_print(f"  ⚠ Ошибка парсинга iframe {iframe_url}: {e}")
+    
+    return video_urls
+
+# ══════════════════════════════════════════════════════════════
+#  ПАРСИНГ РЕЛИЗА (ВСЕ ВИДЫ ВИДЕО)
 # ══════════════════════════════════════════════════════════════
 def parse_release_page(url: str) -> dict:
-    """Парсинг страницы одного релиза"""
     resp = retry_request(url)
     if not resp:
         return None
@@ -180,44 +242,102 @@ def parse_release_page(url: str) -> dict:
     }
     
     # Название
-    title_elem = soup.select_one('h1, .title, .anime-title')
+    title_elem = soup.select_one('h1, .title, .anime-title, h2.title, [itemprop="name"]')
     if title_elem:
         data['title'] = title_elem.get_text(strip=True)
     
+    debug_print(f"Название: {data['title']}")
+    
     # Год
-    text = soup.get_text()
-    year_match = re.search(r'(20\d{2})', text)
+    year_match = re.search(r'(20\d{2})', soup.get_text())
     if year_match:
         data['year'] = int(year_match.group(1))
     
     # Постер
-    poster = soup.select_one('img.poster, .poster img, img.anime-poster, img[src*="poster"]')
-    if poster:
-        data['poster_url'] = urljoin(BASE_URL, poster.get('src', ''))
+    poster_selectors = [
+        'img.poster', '.poster img', 'img.anime-poster',
+        'img[src*="poster"]', 'img[src*="cover"]', '.cover img',
+        '[itemprop="image"]', 'meta[property="og:image"]',
+        '.anime-image img', '.thumbnail img'
+    ]
     
-    # Эпизоды и m3u8 ссылки
-    # Ищем m3u8 в скриптах
-    scripts = soup.find_all('script')
-    m3u8_urls = []
-    for script in scripts:
-        if script.string and '.m3u8' in script.string:
-            urls = re.findall(r'https?://[^\s"\']+\.m3u8', script.string)
-            m3u8_urls.extend(urls)
+    for selector in poster_selectors:
+        poster = soup.select_one(selector)
+        if poster:
+            src = poster.get('src') or poster.get('content')
+            if src:
+                data['poster_url'] = urljoin(BASE_URL, src)
+                debug_print(f"Постер найден: {data['poster_url']}")
+                break
     
-    # Ищем ссылки на m3u8 в тегах
+    # ══════════════════════════════════════════════════════════
+    #  ПОИСК ВСЕХ ВИДЕО ССЫЛОК
+    # ══════════════════════════════════════════════════════════
+    video_urls = set()
+    
+    # 1. Прямые ссылки в тегах
     for link in soup.find_all('a', href=True):
-        if '.m3u8' in link['href']:
-            m3u8_urls.append(urljoin(BASE_URL, link['href']))
+        href = link['href']
+        if is_video_url(href):
+            full_url = urljoin(BASE_URL, href)
+            video_urls.add(full_url)
+            debug_print(f"✅ Найдено видео в ссылке: {full_url}")
     
-    # Уникальные m3u8
-    m3u8_urls = list(set(m3u8_urls))
+    # 2. Source теги
+    for source in soup.find_all('source'):
+        src = source.get('src')
+        if src and is_video_url(src):
+            full_url = urljoin(BASE_URL, src)
+            video_urls.add(full_url)
+            debug_print(f"✅ Найдено video source: {full_url}")
+    
+    # 3. Video теги
+    for video in soup.find_all('video'):
+        src = video.get('src')
+        if src and is_video_url(src):
+            full_url = urljoin(BASE_URL, src)
+            video_urls.add(full_url)
+            debug_print(f"✅ Найдено video tag: {full_url}")
+    
+    # 4. Data атрибуты
+    for elem in soup.find_all(attrs=True):
+        for attr in ['data-src', 'data-video', 'data-url', 'data-hls', 'data-mp4']:
+            val = elem.get(attr)
+            if val and is_video_url(val):
+                full_url = urljoin(BASE_URL, val)
+                video_urls.add(full_url)
+                debug_print(f"✅ Найдено в data-атрибуте: {full_url}")
+    
+    # 5. Скрипты - поиск всех URL
+    scripts = soup.find_all('script')
+    for script in scripts:
+        script_text = script.string or ''
+        
+        # Ищем все HTTP(S) URL
+        all_urls = re.findall(r'https?://[^\s"\'<>]+', script_text)
+        for url in all_urls:
+            if is_video_url(url):
+                video_urls.add(url)
+                debug_print(f"✅ Найдено в скрипте: {url}")
+    
+    # 6. Iframe - рекурсивный парсинг
+    for iframe in soup.find_all('iframe'):
+        src = iframe.get('src')
+        if src:
+            iframe_url = urljoin(BASE_URL, src)
+            debug_print(f"🎬 Найден iframe: {iframe_url}")
+            iframe_videos = parse_iframe(iframe_url)
+            video_urls.update(iframe_videos)
     
     # Создаем список эпизодов
-    for idx, m3u8_url in enumerate(m3u8_urls, 1):
+    sorted_urls = sorted(list(video_urls))
+    debug_print(f"🎯 Всего найдено видео ссылок: {len(sorted_urls)}")
+    
+    for idx, video_url in enumerate(sorted_urls, 1):
         data['episodes'].append({
             'number': idx,
             'name': f"Серия {idx}",
-            'url': m3u8_url
+            'url': video_url
         })
     
     return data
@@ -226,19 +346,29 @@ def parse_release_page(url: str) -> dict:
 #  ОБРАБОТКА И СОХРАНЕНИЕ
 # ══════════════════════════════════════════════════════════════
 def process_and_save(url: str, done_urls: set) -> dict:
-    """Обработка одного релиза: парсинг → сохранение"""
     if url in done_urls:
         with lock:
             stats['skipped'] += 1
         return {'skipped': True}
     
+    debug_print(f"Обработка: {url}")
     data = parse_release_page(url)
-    if not data or not data['episodes']:
+    
+    if not data:
+        debug_print("Не удалось получить данные")
         with lock:
             stats['processed'] += 1
         return None
     
+    if not data['episodes']:
+        debug_print(f"⚠ Нет видео для: {data['title']}")
+        with lock:
+            stats['no_episodes'] += 1
+            stats['processed'] += 1
+        return None
+    
     title = data['title'] or 'Unknown'
+    debug_print(f"✅ Найдено {len(data['episodes'])} видео")
     
     # Папка
     folder_name = safe_filename(f"{title}_{data.get('year', '')}")
@@ -257,7 +387,9 @@ def process_and_save(url: str, done_urls: set) -> dict:
             resp.raise_for_status()
             with open(os.path.join(folder_path, poster_filename), 'wb') as f:
                 f.write(resp.content)
-        except:
+            debug_print(f"✅ Постер сохранен: {poster_filename}")
+        except Exception as e:
+            debug_print(f"⚠ Не удалось скачать постер: {e}")
             poster_filename = None
     
     # M3U
@@ -346,19 +478,17 @@ def main():
     start_time = time.time()
     
     print("╔" + "═" * 58 + "╗")
-    print("║" + "  AniLiberty HTML Parser".center(58) + "║")
+    print("║" + "  AniLiberty HTML Parser v3 — Все видео".center(58) + "║")
     print("║" + f"  Потоков: {MAX_WORKERS} | Таймаут: {TIMEOUT}с".center(58) + "║")
     print("╚" + "═" * 58 + "╝")
     print()
     
     os.makedirs(MIRRORS_DIR, exist_ok=True)
     
-    # Прогресс
     done_urls = load_progress()
     if done_urls:
         print(f"🔄  Найдено сохранение прогресса: {len(done_urls)} уже обработано")
     
-    # 1. Каталог
     catalog_urls = fetch_catalog_urls()
     if not catalog_urls:
         print("❌ Не удалось получить каталог")
@@ -366,7 +496,6 @@ def main():
     
     stats['total'] = len(catalog_urls)
     
-    # 2. Обработка
     print(f"\n{'=' * 60}")
     print(f"🚀  Обрабатываю {len(catalog_urls)} релизов в {MAX_WORKERS} потоков...")
     print(f"{'=' * 60}")
@@ -397,6 +526,7 @@ def main():
                         s = stats['saved']
                         k = stats['skipped']
                         t = stats['total']
+                        ne = stats['no_episodes']
                     
                     percent = (p / t * 100) if t else 0
                     bar_len = 30
@@ -407,17 +537,15 @@ def main():
                     speed = p / elapsed if elapsed > 0 else 0
                     eta = (t - p) / speed if speed > 0 else 0
                     
-                    print(f"  [{bar}] {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} | {speed:.1f} р/с | ETA: {eta:.0f}с")
+                    print(f"  [{bar}] {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} ❌{ne} | {speed:.1f} р/с | ETA: {eta:.0f}с")
                     
             except Exception as e:
                 pass
     
     save_progress(done_urls)
     
-    # 3. M3U
     total_eps = generate_global_m3u()
     
-    # 4. Итоги
     elapsed = time.time() - start_time
     
     print(f"\n╔" + "═" * 58 + "╗")
@@ -426,6 +554,7 @@ def main():
     print(f"║  Релизов в каталоге: {stats['total']:<37}║")
     print(f"║  Сохранено: {stats['saved']:<46}║")
     print(f"║  Пропущено (уже есть): {stats['skipped']:<35}║")
+    print(f"║  Без видео: {stats['no_episodes']:<46}║")
     print(f"║  Всего эпизодов: {total_eps:<41}║")
     print(f"║  Время: {elapsed:.1f} сек ({elapsed/60:.1f} мин)".ljust(59) + "║")
     print(f"║  Папка: {MIRRORS_DIR}/".ljust(59) + "║")
