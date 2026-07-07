@@ -1,0 +1,27 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Установка зависимостей
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Копируем requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копируем парсер
+COPY aniliberty_fast.py .
+COPY aniliberty_parser_v2.py .
+
+# Создаём директории
+RUN mkdir -p mirrors logs
+
+# Переменные окружения
+ENV PYTHONUNBUFFERED=1
+ENV CONCURRENT_REQUESTS=10
+
+# Запуск
+CMD ["python", "aniliberty_fast.py"]
