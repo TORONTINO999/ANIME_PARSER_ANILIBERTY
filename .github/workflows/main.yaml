@@ -3,7 +3,7 @@ name: Parser CI
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch: # Добавляет кнопку "Run workflow" вручную
+  workflow_dispatch: # Кнопка ручного запуска
 
 jobs:
   run-parser:
@@ -21,18 +21,21 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          # Установлены все необходимые зависимости для нового скрипта
+          pip install requests tqdm
 
       - name: Run Parser
         run: python main.py
 
-      # ✅ Вместо git push мы сохраняем файлы как артефакт
       - name: Upload Results
+        if: always() # Загружать артефакты даже если парсер упал (для проверки прогресса)
         uses: actions/upload-artifact@v4
         with:
           name: aniliberty-data
+          # Все файлы теперь корректно лежат внутри mirrors/
           path: |
-            mirrors/
-            aniliberty_all.m3u
-            parser_progress.json
-          retention-days: 5 # Хранить 5 дней
+            mirrors/aniliberty_all.m3u
+            mirrors/parser_progress.json
+            mirrors/posters/
+          retention-days: 5
+          if-no-files-found: warn # Не валить job, если файлов еще нет
