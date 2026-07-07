@@ -3,11 +3,12 @@ name: Parser CI
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch: # Кнопка ручного запуска
+  workflow_dispatch: # Кнопка ручного запуска в интерфейсе GitHub
 
 jobs:
   run-parser:
     runs-on: ubuntu-latest
+    timeout-minutes: 30 # Защита от бесконечного зависания раннера
 
     steps:
       - name: Checkout code
@@ -21,18 +22,19 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Установлены все необходимые зависимости для нового скрипта
-          pip install requests tqdm
+          # tqdm удален, нужен только requests
+          pip install requests
 
       - name: Run Parser
         run: python main.py
 
       - name: Upload Results
-        if: always() # Загружать артефакты даже если парсер упал (для проверки прогресса)
+        # Загружаем артефакты даже если парсер упал (чтобы сохранить прогресс)
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
           name: aniliberty-data
-          # Все файлы теперь корректно лежат внутри mirrors/
+          # Явные пути к файлам внутри папки mirrors
           path: |
             mirrors/aniliberty_all.m3u
             mirrors/parser_progress.json
