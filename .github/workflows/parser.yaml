@@ -1,21 +1,28 @@
 name: Parser CI
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
-  workflow_dispatch:
 
 jobs:
   run-parser:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 360
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
+          persist-credentials: true  # нужно для git push
           fetch-depth: 0
 
-      - name: Setup Python
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -25,11 +32,27 @@ jobs:
 
       - name: Run parser
         run: python main.py
+        env:
+          PYTHONUNBUFFERED: 1
 
-      - name: Commit and push updates
+      - name: Commit and push aniliberty_all.m3u
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add mirrors/
-          git diff --staged --quiet || git commit -m "Автообновление AniLiberty [skip ci]"
-          git push
+          
+          if [ -f "aniliberty_all.m3u" ]; then
+            git add aniliberty_all.m3u
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              git commit -m "🔄 Update aniliberty_all.m3u [skip ci]"
+              git push
+            fi
+          fi
+
+      - name: Upload mirrors artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mirrors-data
+          path: mirrors/
+          retention-days: 7
