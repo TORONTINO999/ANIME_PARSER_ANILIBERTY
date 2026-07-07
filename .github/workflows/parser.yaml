@@ -1,0 +1,79 @@
+name: Anime Parser - Multi Source
+
+on:
+  push:
+    paths:
+      - 'urls-anime.txt'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  parse-anime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: gitverse/actions/checkout@v1
+
+      # === КЭШ PLAYWRIGHT ===
+      - name: Cache Playwright browsers
+        uses: gitverse/actions/cache@v1
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-v1
+          restore-keys: ${{ runner.os }}-playwright-
+
+      # === УСТАНОВКА PYTHON И КЭШ ЗАВИСИМОСТЕЙ ===
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # === УСТАНОВКА ЗАВИСИМОСТЕЙ ===
+      - name: Install Python packages
+        run: |
+          pip install --upgrade pip
+          pip install playwright beautifulsoup4 lxml requests urllib3
+
+      - name: Install Playwright browser
+        run: python -m playwright install chromium
+
+      # === АВТОМАТИЧЕСКОЕ ИСПРАВЛЕНИЕ ОШИБКИ import time ===
+      - name: Fix missing import time
+        run: |
+          if ! grep -q "^import time" parser.py; then
+            sed -i '1iimport time' parser.py
+            echo "✅ import time добавлен"
+          fi
+
+      # === СИСТЕМНЫЕ ПАКЕТЫ (на всякий случай) ===
+      - name: Install system deps
+        run: |
+          sudo apt-get update || true
+          sudo apt-get install -y --no-install-recommends \
+            libnss3 libnspr4 libgbm1 libasound2 libx11-6 libxcb1 \
+            libxcomposite1 libxdamage1 libxrandr2 libgtk-3-0 || true
+
+      # === ЗАПУСК ===
+      - name: Run parser
+        env:
+          PYTHONUNBUFFERED: 1
+        run: python parser.py
+
+      # === КОММИТ РЕЗУЛЬТАТОВ ===
+      - name: Commit results
+        if: always()
+        run: |
+          git config --local user.email "action@gitverse.com"
+          git config --local user.name "GitVerse Action"
+          git add Mirrors/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update mirrors $(date '+%Y-%m-%d %H:%M:%S')"
+            git push
+          fi
