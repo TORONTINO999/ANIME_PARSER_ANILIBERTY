@@ -3,8 +3,7 @@ name: Parser CI
 on:
   push:
     branches: [ "main" ]
-  schedule:
-    - cron: '0 */6 * * *'  # Запуск каждые 6 часов (опционально)
+  workflow_dispatch: # Добавляет кнопку "Run workflow" вручную
 
 jobs:
   run-parser:
@@ -27,10 +26,13 @@ jobs:
       - name: Run Parser
         run: python main.py
 
-      - name: Commit results
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff --staged --quiet || git commit -m "Update parsed data"
-          git push
+      # ✅ Вместо git push мы сохраняем файлы как артефакт
+      - name: Upload Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: aniliberty-data
+          path: |
+            mirrors/
+            aniliberty_all.m3u
+            parser_progress.json
+          retention-days: 5 # Хранить 5 дней
