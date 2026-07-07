@@ -1,12 +1,12 @@
 import os
+import sys
 import json
 import time
 import requests
 from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from tqdm import tqdm
 
-# === КОНФИГУРАЦИЯ API V1 ===
+# === КОНФИГУРАЦИЯ ===
 BASE_API = "https://anilibria.top/api/v1/"
 CACHE_HOST = "https://cache.libria.fun"
 OUTPUT_DIR = "mirrors"
@@ -15,7 +15,8 @@ PROGRESS_FILE = os.path.join(OUTPUT_DIR, "parser_progress.json")
 POSTERS_DIR = os.path.join(OUTPUT_DIR, "posters")
 QUALITY = "720"
 MAX_WORKERS = 10
-DELAY = 0.5  # Чуть больше задержка для v1, чтобы не упереться в rate-limit
+DELAY = 0.5
+LOG_EVERY = 100  # Писать в лог каждые N релизов вместо tqdm
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(POSTERS_DIR, exist_ok=True)
@@ -25,6 +26,11 @@ session.headers.update({
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Accept": "application/json"
 })
+
+
+def log(msg):
+    """Логирование с принудительным сбросом буфера для CI"""
+    print(msg, flush=True)
 
 
 def load_progress():
@@ -40,15 +46,11 @@ def save_progress(data):
 
 
 def fetch_all_releases_v1():
-    """
-    Получает ВСЕ релизы через API v1.
-    Пагинация через параметр 'after' (ID последнего полученного релиза).
-    """
     all_releases = []
     after = 0
     limit = 50
 
-    print("🔍 Поиск всех релизов через API v1...")
+    log("🔍 Поиск всех релизов через API v1...")
     while True:
         try:
             resp = session.get(
@@ -58,12 +60,12 @@ def fetch_all_releases_v1():
             )
 
             if resp.status_code == 429:
-                print("\n⏳ Rate-limit. Пауза 30с...")
+                log("⏳ Rate-limit. Пауза 30с...")
                 time.sleep(30)
                 continue
 
             if resp.status_code != 200:
-                print(f"\n⚠️ Ошибка API v1: {resp.status_code}. Пауза 5с...")
+                log(f"⚠️ Ошибка API v1: {resp.status_code}. Пауза 5с...")
                 time.sleep(5)
                 continue
 
@@ -77,7 +79,9 @@ def fetch_all_releases_v1():
             last_item = items[-1]
             after = last_item.get("id", after + 1)
 
-            print(f"\r📦 Релизов загружено: {len(all_releases)} | Last ID: {after}", end="", flush=True)
+            # Логирование порциями вместо tqdm
+            if len(all_releases) % LOG_EVERY == 0 or len(items) < limit:
+                log(f"📦 Загружено: {len(all_releases)} | Last ID: {after}")
 
             if len(items) < limit:
                 break
@@ -85,13 +89,13 @@ def fetch_all_releases_v1():
             time.sleep(DELAY)
 
         except requests.exceptions.ConnectionError as e:
-            print(f"\n❌ Ошибка соединения: {e}. Повтор через 10с...")
+            log(f"❌ Ошибка соединения: {e}. Повтор через 10с...")
             time.sleep(10)
         except Exception as e:
-            print(f"\n❌ Неизвестная ошибка: {e}. Повтор через 5с...")
+            log(f"❌ Неизвестная ошибка: {e}. Повтор через 5с...")
             time.sleep(5)
 
-    print(f"\n✅ Всего найдено релизов: {len(all_releases)}")
+    log(f"✅ Всего найдено релизов: {len(all_releases)}")
     return all_releases
 
 
@@ -119,7 +123,6 @@ def build_m3u_entry(release):
     names = release.get("names", {}) or {}
     title_ru = names.get("ru") or names.get("en") or release.get("code", "Unknown")
 
-    # Постер из v1 структуры
     poster_url = None
     posters = release.get("posters", {}) or {}
     medium = posters.get("medium", {}) or posters.get("small", {}) or {}
@@ -153,17 +156,17 @@ def main():
     releases = fetch_all_releases_v1()
 
     new_releases = [r for r in releases if r.get("id") not in processed_set]
-    print(f"🆕 Новых релизов для обработки: {len(new_releases)}")
+    log(f"🆕 Новых релизов для обработки: {len(new_releases)}")
 
     if not new_releases:
-        print("ℹ️ Все релизы уже обработаны.")
+        log("ℹ️ Все релизы уже обработаны.")
         return
 
     all_m3u_lines = []
     poster_tasks = []
 
-    print("⚙️ Обработка плееров и серий...")
-    for rel in tqdm(new_releases, desc="Parsing"):
+    log("⚙️ Обработка плееров и серий...")
+    for i, rel in enumerate(new_releases, 1):
         entries, poster_url = build_m3u_entry(rel)
         all_m3u_lines.extend(entries)
 
@@ -172,16 +175,24 @@ def main():
             poster_tasks.append((poster_url, fname))
 
         processed_set.add(rel.get("id"))
+
+        # Прогресс без tqdm
+        if i % LOG_EVERY == 0 or i == len(new_releases):
+            log(f"  Обработано: {i}/{len(new_releases)} | Эпизодов: {len(all_m3u_lines)}")
+
         time.sleep(DELAY * 0.5)
 
     if poster_tasks:
-        print(f"🖼️ Скачивание {len(poster_tasks)} постеров...")
+        log(f"🖼️ Скачивание {len(poster_tasks)} постеров...")
+        done_count = 0
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = {executor.submit(download_poster, url, fn): fn for url, fn in poster_tasks}
-            for _ in tqdm(as_completed(futures), total=len(futures), desc="Posters"):
-                pass
+            for _ in as_completed(futures):
+                done_count += 1
+                if done_count % LOG_EVERY == 0 or done_count == len(poster_tasks):
+                    log(f"  Постеров скачано: {done_count}/{len(poster_tasks)}")
 
-    print(f"💾 Сохранение {M3U_FILE}...")
+    log(f"💾 Сохранение {M3U_FILE}...")
     mode = "a" if os.path.exists(M3U_FILE) and progress["total_episodes"] > 0 else "w"
 
     with open(M3U_FILE, mode, encoding="utf-8") as f:
@@ -195,7 +206,7 @@ def main():
     progress["last_id"] = max(processed_set) if processed_set else 0
     save_progress(progress)
 
-    print(f"🎉 ГОТОВО! Эпизодов добавлено: {len(all_m3u_lines)} | Всего: {progress['total_episodes']}")
+    log(f"🎉 ГОТОВО! Эпизодов добавлено: {len(all_m3u_lines)} | Всего: {progress['total_episodes']}")
 
 
 if __name__ == "__main__":
