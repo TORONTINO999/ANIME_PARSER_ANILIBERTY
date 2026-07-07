@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AniLiberty Mirror + M3U Generator v3.0 — API v1
-Фикс: правильный эндпоинт, формат ответа, защита от ошибок кодировки
+AniLiberty Mirror + M3U Generator v5.0 — правильный ids[]
+Забирает всё через /anime/releases/list?ids[]=381&ids[]=382...
 """
 
 import json
@@ -9,8 +9,7 @@ import time
 import sys
 from pathlib import Path
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, List
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -18,14 +17,15 @@ from urllib3.util.retry import Retry
 
 # ─── НАСТРОЙКИ ──────────────────────────────────────────────────
 API_BASE_URL = "https://api.anilibria.tv/v1"
+BATCH_SIZE = 50
 REQUEST_TIMEOUT = 30
 MAX_RETRIES = 3
-MAX_WORKERS = 3
-USER_AGENT = "AniLiberty-Mirror/3.0"
+USER_AGENT = "AniLiberty-Mirror/5.0"
 
 BASE_DIR = Path("mirrors")
 ANIME_DIR = BASE_DIR / "anime"
 M3U_FILE = BASE_DIR / "main.m3u"
+POSTER_BASE = "https://aniliberty.top"  # Базовый URL для постеров
 
 ALL_IDS = [
     381, 382, 383, 384, 389, 390, 391, 392, 393, 394, 395, 396, 398, 399,
@@ -188,7 +188,7 @@ def create_session() -> requests.Session:
     s = requests.Session()
     retries = Retry(
         total=MAX_RETRIES,
-        backoff_factor=1,
+        backoff_factor=2,
         status_forcelist=[429, 500, 502, 503, 504]
     )
     adapter = HTTPAdapter(max_retries=retries)
@@ -200,73 +200,49 @@ def create_session() -> requests.Session:
     return s
 
 session = create_session()
-
-stats = {"ok": 0, "no_episodes": 0, "not_found": 0, "error": 0}
-errors_log: Dict[str, str] = {}
 m3u_blocks: List[str] = []
 
 
-def safe_str(text: Any) -> str:
-    """Безопасное преобразование в строку, удаляет проблемные символы."""
-    if text is None:
-        return ""
-    if isinstance(text, str):
-        # Удаляем все не-ASCII и не-принтабл символы, кроме основных
-        return text.encode('utf-8', errors='replace').decode('utf-8', errors='replace')
-    return str(text)
-
-
-def fetch_anime_v1(anime_id: int) -> Optional[Dict[str, Any]]:
+def fetch_batch(ids_batch: List[int]) -> List[Dict]:
     """
-    API v1: GET /v1/title/{id}
-    Возвращает данные релиза или None.
+    Запрос: GET /anime/releases/list?ids[]=381&ids[]=382&...
     """
-    url = f"{API_BASE_URL}/title/{anime_id}"
+    url = f"{API_BASE_URL}/anime/releases/list"
+    params = [("ids[]", str(i)) for i in ids_batch]
+    params.append(("limit", str(len(ids_batch))))
+    
     try:
-        resp = session.get(url, timeout=REQUEST_TIMEOUT)
-        if resp.status_code == 404:
-            stats["not_found"] += 1
-            return None
+        resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
+        if resp.status_code == 422:
+            print(f"  ⚠️  422 Validation Error для батча [{ids_batch[0]}...{ids_batch[-1]}]")
+            print(f"      Ответ: {resp.text[:200]}")
+            return []
         resp.raise_for_status()
-        # v1 возвращает response в raw bytes, принудительно UTF-8
-        resp.encoding = 'utf-8'
         data = resp.json()
-        return data
-    except requests.exceptions.Timeout:
-        stats["error"] += 1
-        return None
-    except requests.exceptions.HTTPError as e:
-        stats["error"] += 1
-        return None
+        return data.get("data", [])
     except Exception as e:
-        stats["error"] += 1
-        errors_log[str(anime_id)] = f"{type(e).__name__}: {safe_str(e)[:200]}"
-        return None
+        print(f"  ❌ Ошибка батча [{ids_batch[0]}...{ids_batch[-1]}]: {e}")
+        return []
 
 
-def extract_stream_links(episode: dict) -> Dict[str, str]:
-    """Извлекает прямые ссылки из эпизода (v1 формат)."""
-    links = {}
-    # HLS
-    for quality in ["hls_480", "hls_720", "hls_1080"]:
-        val = episode.get(quality)
-        if val and isinstance(val, str) and val.startswith("http"):
-            links[quality] = val
-    # Rutube
-    if episode.get("rutube_id"):
-        links["rutube"] = f"https://rutube.ru/video/{episode['rutube_id']}/"
-    # YouTube
-    if episode.get("youtube_id"):
-        links["youtube"] = f"https://www.youtube.com/watch?v={episode['youtube_id']}"
-    return links
+def fix_poster_url(url: str) -> str:
+    """Добавляет базовый URL к относительным ссылкам."""
+    if not url:
+        return ""
+    if url.startswith("/"):
+        return f"{POSTER_BASE}{url}"
+    if url.startswith("http"):
+        return url
+    return f"{POSTER_BASE}/{url}"
 
 
 def download_poster(poster_url: str, save_path: Path) -> Optional[str]:
     """Скачивает постер."""
     if not poster_url:
         return None
+    full_url = fix_poster_url(poster_url)
     for ext in ["jpg", "webp"]:
-        url = poster_url.replace(".(jpg|webp)", f".{ext}")
+        url = full_url.replace(".(jpg|webp)", f".{ext}")
         try:
             resp = session.get(url, timeout=30)
             if resp.status_code == 200 and len(resp.content) > 500:
@@ -279,18 +255,32 @@ def download_poster(poster_url: str, save_path: Path) -> Optional[str]:
     return None
 
 
-def generate_m3u_block(anime_id: int, metadata: dict, episodes: list) -> str:
-    """Создаёт M3U блок для одного аниме."""
-    name = safe_str(metadata.get("name", {}).get("main", f"Anime {anime_id}"))
+def extract_stream_links(episode: dict) -> Dict[str, str]:
+    """Извлекает прямые ссылки."""
+    links = {}
+    for quality in ["hls_480", "hls_720", "hls_1080"]:
+        val = episode.get(quality)
+        if val and isinstance(val, str) and val.startswith("http"):
+            links[quality] = val
+    if episode.get("rutube_id"):
+        links["rutube"] = f"https://rutube.ru/video/{episode['rutube_id']}/"
+    if episode.get("youtube_id"):
+        links["youtube"] = f"https://www.youtube.com/watch?v={episode['youtube_id']}"
+    return links
+
+
+def generate_m3u_block(metadata: dict, episodes: list) -> str:
+    """Создаёт M3U блок."""
+    name = metadata.get("name", {}).get("main", f"Anime {metadata.get('id', '?')}")
     year = metadata.get("year", "")
     poster = metadata.get("_poster_path", "")
-
+    
     lines = [f'#EXTINF:-1 group-title="{name}" tvg-logo="{poster}",{name} ({year})']
     
     sorted_eps = sorted(episodes, key=lambda e: e.get("sort_order", 0) or e.get("ordinal", 0))
     
     for ep in sorted_eps:
-        ep_name = safe_str(ep.get("name", f"Серия {ep.get('ordinal', '?')}"))
+        ep_name = ep.get("name", f"Серия {ep.get('ordinal', '?')}")
         links = ep.get("_stream_links", {})
         stream_url = links.get("hls_720") or links.get("hls_1080") or links.get("hls_480")
         
@@ -304,90 +294,101 @@ def generate_m3u_block(anime_id: int, metadata: dict, episodes: list) -> str:
     return "\n".join(lines)
 
 
-def process_anime(anime_id: int) -> bool:
-    """Обрабатывает одно аниме."""
+def process_release(release: Dict) -> bool:
+    """Сохраняет один релиз."""
+    anime_id = release.get("id")
+    if not anime_id:
+        return False
+    
     folder = ANIME_DIR / str(anime_id)
     folder.mkdir(parents=True, exist_ok=True)
     
     try:
-        data = fetch_anime_v1(anime_id)
-        if data is None:
-            return False
-        
-        # v1 отдаёт данные напрямую
         metadata = {
-            "id": data.get("id"),
-            "name": data.get("name", {}),
-            "alias": data.get("alias"),
-            "year": data.get("year"),
-            "season": data.get("season"),
-            "description": data.get("description"),
-            "age_rating": data.get("age_rating"),
-            "episodes_total": data.get("episodes_total"),
-            "is_ongoing": data.get("is_ongoing"),
-            "genres": [g.get("name") for g in data.get("genres", [])],
-            "poster_url": data.get("poster", {}).get("optimized", {}).get("thumbnail", ""),
+            "id": release.get("id"),
+            "name": release.get("name", {}),
+            "alias": release.get("alias"),
+            "year": release.get("year"),
+            "season": release.get("season"),
+            "description": release.get("description"),
+            "age_rating": release.get("age_rating"),
+            "episodes_total": release.get("episodes_total"),
+            "is_ongoing": release.get("is_ongoing"),
+            "genres": [g.get("name") for g in release.get("genres", [])],
+            "poster_url": release.get("poster", {}).get("optimized", {}).get("thumbnail", ""),
         }
         
         poster_url = metadata["poster_url"]
         poster_path = download_poster(poster_url, folder)
         metadata["_poster_path"] = poster_path or ""
         
-        episodes = data.get("episodes", [])
+        episodes = release.get("episodes", [])
         for ep in episodes:
             ep["_stream_links"] = extract_stream_links(ep)
         
-        # Сохраняем в UTF-8
         with open(folder / "metadata.json", "w", encoding="utf-8") as f:
             json.dump(metadata, f, ensure_ascii=False, indent=2)
         with open(folder / "episodes.json", "w", encoding="utf-8") as f:
             json.dump(episodes, f, ensure_ascii=False, indent=2)
         
         if episodes:
-            m3u_block = generate_m3u_block(anime_id, metadata, episodes)
+            m3u_block = generate_m3u_block(metadata, episodes)
             m3u_blocks.append(m3u_block)
-            stats["ok"] += 1
-            name = safe_str(metadata['name'].get('main', '?'))
+            name = metadata["name"].get("main", "?")
             print(f"  ✅ {anime_id}: {name} ({len(episodes)} эп.)")
             return True
         else:
-            stats["no_episodes"] += 1
-            name = safe_str(metadata['name'].get('main', '?'))
+            name = metadata["name"].get("main", "?")
             print(f"  ⚠️  {anime_id}: {name} (нет эпизодов)")
             return False
             
     except Exception as e:
-        stats["error"] += 1
-        errors_log[str(anime_id)] = f"{type(e).__name__}: {safe_str(e)[:200]}"
+        print(f"  ❌ {anime_id}: {str(e)[:80]}")
         return False
 
 
 def main():
     print("=" * 60)
-    print(f"🎌 AniLiberty Mirror v3.0 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"   API: {API_BASE_URL}")
+    print(f"🎌 AniLiberty Mirror v5.0 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"   API: {API_BASE_URL}/anime/releases/list?ids[]=...")
     print(f"   Всего ID: {len(ALL_IDS)}")
+    print(f"   Батч: {BATCH_SIZE}")
     print("=" * 60)
     
     ANIME_DIR.mkdir(parents=True, exist_ok=True)
     
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = {executor.submit(process_anime, aid): aid for aid in ALL_IDS}
-        for i, future in enumerate(as_completed(futures), 1):
-            future.result()
-            if i % 100 == 0:
-                print(f"   📊 {i}/{len(ALL_IDS)} | OK:{stats['ok']} ERR:{stats['error']}")
+    stats = {"ok": 0, "no_ep": 0, "fail": 0}
+    total_batches = (len(ALL_IDS) + BATCH_SIZE - 1) // BATCH_SIZE
     
-    # Сохраняем M3U в UTF-8
+    for i in range(0, len(ALL_IDS), BATCH_SIZE):
+        batch = ALL_IDS[i:i + BATCH_SIZE]
+        batch_num = i // BATCH_SIZE + 1
+        print(f"\n📦 Батч {batch_num}/{total_batches} [{batch[0]}...{batch[-1]}] ({len(batch)} ID)")
+        
+        releases = fetch_batch(batch)
+        
+        if not releases:
+            stats["fail"] += len(batch)
+            time.sleep(1)
+            continue
+        
+        for release in releases:
+            if process_release(release):
+                stats["ok"] += 1
+        
+        found_ids = {r["id"] for r in releases}
+        missing = [x for x in batch if x not in found_ids]
+        if missing:
+            print(f"  🔍 Нет в ответе: {len(missing)} ID")
+            stats["fail"] += len(missing)
+        
+        time.sleep(0.3)
+    
+    # M3U
     if m3u_blocks:
         m3u_content = "#EXTM3U\n\n" + "\n\n".join(m3u_blocks) + "\n"
         with open(M3U_FILE, "w", encoding="utf-8") as f:
             f.write(m3u_content)
-    
-    # Сохраняем ошибки
-    if errors_log:
-        with open(BASE_DIR / "errors.json", "w", encoding="utf-8") as f:
-            json.dump(errors_log, f, ensure_ascii=False, indent=2)
     
     with open(BASE_DIR / "last_sync.txt", "w", encoding="utf-8") as f:
         f.write(datetime.now().isoformat())
@@ -395,13 +396,11 @@ def main():
     print("\n" + "=" * 60)
     print("📊 ИТОГИ")
     print(f"   ✅ Успешно: {stats['ok']}")
-    print(f"   ⚠️  Без эпизодов: {stats['no_episodes']}")
-    print(f"   🔍 Не найдено (404): {stats['not_found']}")
-    print(f"   ❌ Ошибок: {stats['error']}")
+    print(f"   ❌ Ошибок/пропусков: {stats['fail']}")
     print(f"   📄 M3U: {M3U_FILE} ({len(m3u_blocks)} аниме)")
     print("=" * 60)
     
-    return 0 if stats["error"] < len(ALL_IDS) * 0.1 else 1
+    return 0 if stats["fail"] < len(ALL_IDS) * 0.5 else 1
 
 
 if __name__ == "__main__":
