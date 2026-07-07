@@ -15,11 +15,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: gitverse/actions/checkout@v1
+        uses: actions/checkout@v4
 
       # === КЭШ PLAYWRIGHT ===
       - name: Cache Playwright browsers
-        uses: gitverse/actions/cache@v1
+        uses: actions/cache@v3
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -68,8 +68,8 @@ jobs:
       - name: Commit results
         if: always()
         run: |
-          git config --local user.email "action@gitverse.com"
-          git config --local user.name "GitVerse Action"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add Mirrors/
           if git diff --staged --quiet; then
             echo "No changes to commit"
