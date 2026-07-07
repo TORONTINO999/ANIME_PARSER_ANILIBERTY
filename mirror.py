@@ -220,7 +220,7 @@ def make_main_m3u_entry(metadata: Dict[str, Any], episodes: List[Dict[str, Any]]
     """Создает блок M3U для общего плейлиста."""
     name = metadata.get("name", {}).get("main", "Unknown")
     year = metadata.get("year", "")
-    poster = metadata.get("_poster_path", "").replace("\", "/")
+    poster = metadata.get("_poster_path", "").replace(chr(92), "/")
 
     lines = []
     for ep in sorted(episodes, key=lambda e: e.get("sort_order", 0) or e.get("ordinal", 0)):
