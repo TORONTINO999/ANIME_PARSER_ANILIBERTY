@@ -14,12 +14,11 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # 6 часов на всякий случай
+    timeout-minutes: 360
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          # Нужен для push обратно
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
@@ -41,7 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add mirrors/ main.m3u errors.json .last_sync
-          # Коммитим только если есть изменения
+          git add mirrors/ main.m3u .last_sync
+          [ -f errors.json ] && git add errors.json
           git diff --staged --quiet || git commit -m "chore: mirror sync $(date -u +%Y-%m-%d)"
           git push
