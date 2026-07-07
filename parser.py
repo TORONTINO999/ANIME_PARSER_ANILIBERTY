@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AniLiberty API Parser v6 — ПОЛНАЯ ВЕРСИЯ
-- Увеличен лимит страницы (100 вместо 50)
-- Диагностика: показывает что реально берем
-- Проверка что ВСЕ страницы получены
-- Прогресс-файл для продолжения
+AniLiberty API Parser v8 — DEBUG EDITION
+- Подробное логирование каждой ошибки
+- Проверка что реально происходит при обработке
+- Увеличены таймауты
 """
 
 import os
@@ -25,12 +24,13 @@ API_BASE = f"{BASE_URL}/api/v1"
 MIRRORS_DIR = "mirrors"
 GLOBAL_M3U = "aniliberty_all.m3u"
 PROGRESS_FILE = "parser_progress.json"
+DEBUG_LOG = "parser_debug.log"
 
-PAGE_LIMIT = 100           # 100 релизов за страницу (было 50)
-MAX_WORKERS = 15
-REQUEST_DELAY = 0.02
-MAX_RETRIES = 2
-TIMEOUT = 10
+PAGE_LIMIT = 50
+MAX_WORKERS = 10           # Уменьшил потоки (было 20)
+REQUEST_DELAY = 0.2        # Увеличил задержку
+MAX_RETRIES = 3            # Увеличил retry
+TIMEOUT = 15               # Увеличил таймаут (было 8)
 
 # HTTP сессия
 session = requests.Session()
@@ -41,7 +41,16 @@ session.headers.update({
 })
 
 lock = Lock()
-stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0}
+stats = {'processed': 0, 'saved': 0, 'skipped': 0, 'total': 0, 'errors': 0}
+
+# ══════════════════════════════════════════════════════════════
+#  ЛОГИРОВАНИЕ
+# ══════════════════════════════════════════════════════════════
+def log_debug(msg: str):
+    """Записываем в лог-файл"""
+    timestamp = time.strftime('%H:%M:%S')
+    with open(DEBUG_LOG, 'a', encoding='utf-8') as f:
+        f.write(f"[{timestamp}] {msg}\n")
 
 # ══════════════════════════════════════════════════════════════
 #  УТИЛИТЫ
@@ -73,9 +82,11 @@ def retry_request(url: str, params: dict = None):
             resp = session.get(url, params=params, timeout=TIMEOUT)
             resp.raise_for_status()
             return resp.json()
-        except:
+        except Exception as e:
+            error_msg = f"Запрос {url} - попытка {attempt+1}/{MAX_RETRIES} - Ошибка: {str(e)[:100]}"
+            log_debug(error_msg)
             if attempt < MAX_RETRIES - 1:
-                time.sleep(0.5)
+                time.sleep(1)
             else:
                 return None
 
@@ -100,18 +111,17 @@ def save_progress(done_ids: set):
         pass
 
 # ══════════════════════════════════════════════════════════════
-#  API — ПОЛНАЯ ДИАГНОСТИКА
+#  API
 # ══════════════════════════════════════════════════════════════
 def fetch_all_releases() -> list:
     print("=" * 60)
-    print("📡  ПОЛУЧАЮ СПИСОК ВСЕХ РЕЛИЗОВ (БЕЗ ФИЛЬТРОВ)")
+    print("📡  ПОЛУЧАЮ СПИСОК ВСЕХ РЕЛИЗОВ")
     print("=" * 60)
     
-    # Сначала проверим что вообще есть
     url = f"{API_BASE}/anime/catalog/releases"
-    params = {'page': 1, 'limit': 1}
+    test_params = {'page': 1, 'limit': PAGE_LIMIT}
     
-    test_data = retry_request(url, params)
+    test_data = retry_request(url, test_params)
     if not test_data:
         print("❌ Не удалось подключиться к API")
         return []
@@ -120,97 +130,50 @@ def fetch_all_releases() -> list:
     total_releases = pagination.get('total', 0)
     total_pages = pagination.get('total_pages', 0)
     
-    print(f"\n📊  ДИАГНОСТИКА API:")
-    print(f"    Всего релизов в базе: {total_releases}")
+    print(f"\n📊  Всего релизов: {total_releases}")
     print(f"    Всего страниц: {total_pages}")
-    print(f"    Лимит страницы: {PAGE_LIMIT}")
     
-    if total_releases == 0:
-        print("❌ API вернул 0 релизов!")
-        return []
-    
-    # Теперь получаем ВСЁ
     all_releases = []
     page = 1
-    seen_ids = set()
     
     while page <= total_pages:
         params = {
             'page': page,
             'limit': PAGE_LIMIT,
-            'sorting': 'id',           # Сортировка по ID (от старого к новому)
-            'sort_direction': 'asc'    # По возрастанию
+            'sorting': 'fresh_at',
+            'sort_direction': 'desc'
         }
         
         data = retry_request(url, params)
         if not data:
-            print(f"  ⚠️  Ошибка на стр. {page}, пропускаю...")
+            print(f"  ⚠️  Ошибка на стр. {page}")
             page += 1
             continue
         
         releases = data.get('data', [])
         if not releases:
-            print(f"  ⚠️  Стр. {page} пустая, останавливаюсь")
             break
         
-        # Добавляем только уникальные
-        for r in releases:
-            rid = r.get('id')
-            if rid and rid not in seen_ids:
-                seen_ids.add(rid)
-                all_releases.append(r)
+        all_releases.extend(releases)
         
-        # Показываем что берем
-        if page == 1:
-            first = releases[0] if releases else {}
-            print(f"\n📖  ПЕРВЫЙ РЕЛИЗ (стр. 1):")
-            print(f"    ID: {first.get('id')}")
-            print(f"    Название: {first.get('name', {}).get('main', '?')}")
-            print(f"    Год: {first.get('year', '?')}")
-        
-        if page == total_pages:
-            last = releases[-1] if releases else {}
-            print(f"\n📖  ПОСЛЕДНИЙ РЕЛИЗ (стр. {total_pages}):")
-            print(f"    ID: {last.get('id')}")
-            print(f"    Название: {last.get('name', {}).get('main', '?')}")
-            print(f"    Год: {last.get('year', '?')}")
-        
-        # Прогресс-бар
-        percent = (page / total_pages * 100)
-        bar_len = 30
-        filled = int(bar_len * page / total_pages)
-        bar = '█' * filled + '░' * (bar_len - filled)
-        
-        print(f"  📄 [{bar}] {percent:5.1f}% | Стр. {page}/{total_pages} | +{len(releases):3d} | Всего: {len(all_releases)}/{total_releases}")
+        percent = (page / total_pages * 100) if total_pages else 0
+        print(f"  📄 {percent:5.1f}% | Стр. {page}/{total_pages} | Всего: {len(all_releases)}/{total_releases}")
         
         page += 1
         time.sleep(REQUEST_DELAY)
     
-    print(f"\n✅ ПОЛУЧЕНО РЕЛИЗОВ: {len(all_releases)} из {total_releases}")
-    
-    if len(all_releases) < total_releases:
-        print(f"⚠️  ВНИМАНИЕ: Получено меньше чем есть в API!")
-        print(f"    Пропущено: {total_releases - len(all_releases)} релизов")
-    
-    # Проверяем диапазон ID
-    if all_releases:
-        ids = [r.get('id') for r in all_releases if r.get('id')]
-        if ids:
-            print(f"\n📊  ДИАПАЗОН ID:")
-            print(f"    Минимальный ID: {min(ids)}")
-            print(f"    Максимальный ID: {max(ids)}")
-            print(f"    Уникальных ID: {len(set(ids))}")
-    
+    print(f"\n✅ Получено релизов: {len(all_releases)}")
     return all_releases
 
 # ══════════════════════════════════════════════════════════════
-#  ОБРАБОТКА РЕЛИЗА
+#  ОБРАБОТКА РЕЛИЗА — С ДЕТАЛЬНЫМ ЛОГИРОВАНИЕМ
 # ══════════════════════════════════════════════════════════════
 def process_and_save(release: dict, done_ids: set) -> dict:
     rid = release.get('id')
     title_ru = release.get('name', {}).get('main', 'Unknown')
     
     if not rid:
+        log_debug(f"ID={rid} - Нет ID, пропускаю")
         return None
     
     if rid in done_ids:
@@ -218,19 +181,27 @@ def process_and_save(release: dict, done_ids: set) -> dict:
             stats['skipped'] += 1
         return {'skipped': True, 'title': title_ru}
     
+    # Получаем детали
     url = f"{API_BASE}/anime/releases/{rid}"
+    log_debug(f"ID={rid} - Запрашиваю детали: {url}")
+    
     details = retry_request(url)
     if not details:
+        log_debug(f"ID={rid} - Не удалось получить детали (после {MAX_RETRIES} попыток)")
         with lock:
+            stats['errors'] += 1
             stats['processed'] += 1
         return None
     
+    # Проверяем эпизоды
     episodes_raw = details.get('episodes', [])
     if not episodes_raw:
+        log_debug(f"ID={rid} - Нет эпизодов (в производстве?)")
         with lock:
             stats['processed'] += 1
         return None
     
+    # Извлекаем HLS
     episodes = []
     for ep in episodes_raw:
         hls_url = get_best_hls(ep)
@@ -244,10 +215,12 @@ def process_and_save(release: dict, done_ids: set) -> dict:
         })
     
     if not episodes:
+        log_debug(f"ID={rid} - Нет HLS-ссылок в эпизодах")
         with lock:
             stats['processed'] += 1
         return None
     
+    # Постер
     poster_obj = details.get('poster', {})
     poster_url = make_absolute_url(
         poster_obj.get('src') or 
@@ -255,10 +228,12 @@ def process_and_save(release: dict, done_ids: set) -> dict:
         (poster_obj.get('optimized', {}) or {}).get('src') or ''
     )
     
+    # Сохраняем
     folder_name = safe_filename(f"{rid}_{title_ru}")
     folder_path = os.path.join(MIRRORS_DIR, folder_name)
     os.makedirs(folder_path, exist_ok=True)
     
+    # Постер
     poster_filename = None
     if poster_url:
         ext = '.jpg'
@@ -270,9 +245,11 @@ def process_and_save(release: dict, done_ids: set) -> dict:
             resp.raise_for_status()
             with open(os.path.join(folder_path, poster_filename), 'wb') as f:
                 f.write(resp.content)
-        except:
+        except Exception as e:
+            log_debug(f"ID={rid} - Ошибка скачивания постера: {str(e)[:80]}")
             poster_filename = None
     
+    # M3U
     with open(os.path.join(folder_path, 'playlist.m3u'), 'w', encoding='utf-8') as f:
         f.write("#EXTM3U\n")
         f.write(f"#PLAYLIST:{title_ru}\n\n")
@@ -282,6 +259,7 @@ def process_and_save(release: dict, done_ids: set) -> dict:
             f.write(f"#EXTINF:{duration} tvg-logo=\"{poster_url}\",{title_ru} - {ep_title}\n")
             f.write(f"{ep['url']}\n")
     
+    # JSON
     metadata = {
         'id': rid,
         'title_ru': title_ru,
@@ -294,6 +272,8 @@ def process_and_save(release: dict, done_ids: set) -> dict:
     }
     with open(os.path.join(folder_path, 'info.json'), 'w', encoding='utf-8') as f:
         json.dump(metadata, f, ensure_ascii=False, indent=2)
+    
+    log_debug(f"ID={rid} - ✅ УСПЕШНО СОХРАНЕНО: {len(episodes)} эпизодов")
     
     with lock:
         stats['processed'] += 1
@@ -368,9 +348,13 @@ def generate_global_m3u():
 def main():
     start_time = time.time()
     
+    # Очищаем лог
+    if os.path.exists(DEBUG_LOG):
+        os.remove(DEBUG_LOG)
+    
     print("╔" + "═" * 58 + "╗")
-    print("║" + "  AniLiberty API Parser v6 — ПОЛНАЯ ВЕРСИЯ".center(58) + "║")
-    print("║" + f"  Лимит страницы: {PAGE_LIMIT} | Потоков: {MAX_WORKERS}".center(58) + "║")
+    print("║" + "  AniLiberty API Parser v8 — DEBUG".center(58) + "║")
+    print("║" + f"  Потоков: {MAX_WORKERS} | Таймаут: {TIMEOUT}с".center(58) + "║")
     print("╚" + "═" * 58 + "╝")
     print()
     
@@ -378,7 +362,7 @@ def main():
     
     done_ids = load_progress()
     if done_ids:
-        print(f"🔄  Найдено сохранение прогресса: {len(done_ids)} уже обработано")
+        print(f"🔄  Найдено сохранение: {len(done_ids)} уже обработано")
     
     catalog = fetch_all_releases()
     if not catalog:
@@ -388,7 +372,8 @@ def main():
     stats['total'] = len(catalog)
     
     print(f"\n{'=' * 60}")
-    print(f"🚀  Обрабатываю {len(catalog)} релизов в {MAX_WORKERS} потоков...")
+    print(f"🚀  Обрабатываю {len(catalog)} релизов...")
+    print(f"    Детальный лог: {DEBUG_LOG}")
     print(f"{'=' * 60}")
     
     last_print = time.time()
@@ -416,21 +401,14 @@ def main():
                         p = stats['processed']
                         s = stats['saved']
                         k = stats['skipped']
+                        e = stats['errors']
                         t = stats['total']
                     
                     percent = (p / t * 100) if t else 0
-                    bar_len = 30
-                    filled = int(bar_len * p / t) if t else 0
-                    bar = '█' * filled + '░' * (bar_len - filled)
-                    
-                    elapsed = time.time() - start_time
-                    speed = p / elapsed if elapsed > 0 else 0
-                    eta = (t - p) / speed if speed > 0 else 0
-                    
-                    print(f"  [{bar}] {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} | {speed:.1f} р/с | ETA: {eta:.0f}с")
+                    print(f"  {percent:5.1f}% | {p}/{t} | ✅{s} ⏭️{k} ❌{e}")
                     
             except Exception as e:
-                pass
+                log_debug(f"Исключение в потоке: {str(e)[:100]}")
     
     save_progress(done_ids)
     
@@ -444,11 +422,11 @@ def main():
     print(f"║  Релизов в каталоге: {stats['total']:<37}║")
     print(f"║  Сохранено: {stats['saved']:<46}║")
     print(f"║  Пропущено (уже есть): {stats['skipped']:<35}║")
+    print(f"║  Ошибок: {stats['errors']:<49}║")
     print(f"║  Всего эпизодов: {total_eps:<41}║")
     print(f"║  Время: {elapsed:.1f} сек ({elapsed/60:.1f} мин)".ljust(59) + "║")
-    print(f"║  Папка: {MIRRORS_DIR}/".ljust(59) + "║")
-    print(f"║  Общий M3U: {GLOBAL_M3U}".ljust(59) + "║")
     print("╚" + "═" * 58 + "╝")
+    print(f"\n📋  Детальный лог: {DEBUG_LOG}")
 
 if __name__ == '__main__':
     main()
