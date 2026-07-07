@@ -11,68 +11,63 @@ on:
 jobs:
   parse-anime:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # Кэш Playwright
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        id: playwright-cache
         with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-v1
-          restore-keys: ${{ runner.os }}-playwright-
+          fetch-depth: 1
+          persist-credentials: false  # отключаем встроенные creds — будем использовать GH_TOKEN
 
-      # Python + кэш зависимостей
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          cache: pip
 
-      # Установка зависимостей из requirements.txt
-      - name: Install Python packages
-        run: pip install --upgrade pip && pip install -r requirements.txt
-
-      - name: Install Playwright browser
-        run: python -m playwright install chromium
-
-      # Фикс import time
-      - name: Fix missing import time
+      - name: Install dependencies
         run: |
-          if ! grep -q "^import time" parser.py; then
-            sed -i '1iimport time' parser.py
-            echo "✅ import time добавлен"
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Если нужны системные пакеты (ffmpeg и т.п.) — раскомментируй:
+      # - name: Install system packages
+      #   run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Run parser
+        run: python parser.py
+        env:
+          # Если парсеру нужны переменные окружения — добавь сюда
+          # API_KEY: ${{ secrets.API_KEY }}
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Добавляем только то, что реально изменилось
+          git add mirrors/ aniliberty_all.m3u
+          
+          # Проверяем, есть ли что коммитить
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-update mirrors: $(date -u +"%Y-%m-%d %H:%M:%S")"
+          else
+            echo "No changes to commit"
+            exit 0
           fi
 
-      # Системные пакеты
-      - name: Install system deps
-        run: |
-          sudo apt-get update || true
-          sudo apt-get install -y --no-install-recommends \
-            libnss3 libnspr4 libgbm1 libasound2 libx11-6 libxcb1 \
-            libxcomposite1 libxdamage1 libxrandr2 libgtk-3-0 || true
-
-      # Запуск парсера
-      - name: Run parser
-        env:
-          PYTHONUNBUFFERED: 1
-        run: python parser.py
-
-      # Создание PR с изменениями (без токена и без прямого push)
-      - name: Create Pull Request with updated mirrors
-        if: success()
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "Update mirrors [run ${{ github.run_id }}]"
-          title: "Auto: update mirrors"
+          token: ${{ secrets.GH_TOKEN }}
+          commit-message: "Auto-update mirrors"
+          title: "Auto: mirrors update"
           body: |
-            Автоматическое обновление зеркал из CI.
-            Run ID: ${{ github.run_id }}
-            Trigger: ${{ github.event_name }}
-          branch: ci/mirrors-update-${{ github.run_id }}
-          add-paths: Mirrors/
+            Автоматическое обновление зеркал.
+            - Релизов обработано: ~1800+
+            - Сохранено: ~900+
+            - Эпизодов в M3U: ~11k+
+          branch: ci/mirrors-update
           delete-branch: true
+          draft: false
