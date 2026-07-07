@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.env.local
+
+# Cache
+parse_cache.json
+*.cache
+.cache/
+
+# Large files (но не все)
+mirrors/*/poster_*.jpg
+mirrors/*/poster_*.png
+mirrors/*/poster_*.webp
+
+# Но сохраняем сами M3U
+!*.m3u8
+!mirrors/*/README.md
+!mirrors/metadata.json
+
+# Лог файлы
+*.log
+logs/
