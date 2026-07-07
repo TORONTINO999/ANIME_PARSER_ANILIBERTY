@@ -1,43 +1,37 @@
-name: Parser CI
+name: Weekly AniLiberty Sync
 
 on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch: # Кнопка ручного запуска в интерфейсе GitHub
+  schedule:
+    # Каждую субботу в 03:00 UTC
+    - cron: '0 3 * * 6'
+  workflow_dispatch:  # ручной запуск
 
 jobs:
-  run-parser:
+  sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30 # Защита от бесконечного зависания раннера
+    timeout-minutes: 360  # 6 часов максимум
 
     steps:
-      - name: Checkout code
+      - name: ⬇️ Клонируем репозиторий
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Python
+      - name: 🐍 Устанавливаем Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: 📦 Устанавливаем зависимости
+        run: pip install -r requirements.txt
+
+      - name: 🔄 Запускаем синхронизацию
+        run: python sync.py
+
+      - name: 📤 Коммитим изменения
         run: |
-          python -m pip install --upgrade pip
-          # tqdm удален, нужен только requests
-          pip install requests
-
-      - name: Run Parser
-        run: python main.py
-
-      - name: Upload Results
-        # Загружаем артефакты даже если парсер упал (чтобы сохранить прогресс)
-        if: always() 
-        uses: actions/upload-artifact@v4
-        with:
-          name: aniliberty-data
-          # Явные пути к файлам внутри папки mirrors
-          path: |
-            mirrors/aniliberty_all.m3u
-            mirrors/parser_progress.json
-            mirrors/posters/
-          retention-days: 5
-          if-no-files-found: warn # Не валить job, если файлов еще нет
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add mirrors/ all_anime.m3u errors.json last_sync.txt
+          git diff --staged --quiet || git commit -m "🔄 Weekly sync $(date +%Y-%m-%d)"
+          git push
