@@ -1,212 +1,220 @@
 import os
-import sys
 import json
 import time
 import requests
-from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# === КОНФИГУРАЦИЯ ===
-BASE_API = "https://anilibria.top/api/v1/"
-CACHE_HOST = "https://cache.libria.fun"
+# === КОНФИГУРАЦИЯ ANILIBERTY API V1 ===
+API_BASE = "https://anilibria.top/api/v1"
+CATALOG_ENDPOINT = f"{API_BASE}/anime/catalog/releases"
 OUTPUT_DIR = "mirrors"
 M3U_FILE = os.path.join(OUTPUT_DIR, "aniliberty_all.m3u")
 PROGRESS_FILE = os.path.join(OUTPUT_DIR, "parser_progress.json")
 POSTERS_DIR = os.path.join(OUTPUT_DIR, "posters")
-QUALITY = "720"
-MAX_WORKERS = 10
-DELAY = 0.5
-LOG_EVERY = 100  # Писать в лог каждые N релизов вместо tqdm
+
+LIMIT = 50          # Максимально допустимый лимит для V1
+MAX_WORKERS = 10    # Потоков для скачивания постеров
+LOG_EVERY = 50      # Частота вывода логов (чтобы не спамить CI)
+RETRY_DELAY = 5     # Базовая задержка при ошибках
+RATE_LIMIT_DELAY = 60 # Задержка при получении 429 Too Many Requests
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(POSTERS_DIR, exist_ok=True)
 
 session = requests.Session()
 session.headers.update({
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "User-Agent": "AniLibertyParser/2.0 (GitHub Actions)",
     "Accept": "application/json"
 })
 
 
 def log(msg):
-    """Логирование с принудительным сбросом буфера для CI"""
-    print(msg, flush=True)
+    """Логирование с принудительным сбросом буфера для GitHub Actions"""
+    print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
 def load_progress():
     if os.path.exists(PROGRESS_FILE):
-        with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {"last_id": 0, "processed_ids": [], "total_episodes": 0}
+        try:
+            with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            pass
+    return {"processed_ids": [], "total_episodes": 0, "last_page": 1}
 
 
 def save_progress(data):
-    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+    tmp_file = PROGRESS_FILE + ".tmp"
+    with open(tmp_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_file, PROGRESS_FILE)  # Атомарная запись
 
 
-def fetch_all_releases_v1():
-    all_releases = []
-    after = 0
-    limit = 50
-
-    log("🔍 Поиск всех релизов через API v1...")
-    while True:
+def fetch_catalog_page(page_num):
+    """
+    Получает страницу каталога через GET /anime/catalog/releases
+    Сортировка по ID гарантирует стабильный порядок без дублей
+    """
+    params = {
+        "page": page_num,
+        "limit": LIMIT,
+        "sort_by": "id",       # Детерминированная сортировка
+        "order": "asc"         # От старых к новым
+    }
+    
+    for attempt in range(3):
         try:
-            resp = session.get(
-                f"{BASE_API}title/updates",
-                params={"after": after, "limit": limit},
-                timeout=30
-            )
-
+            resp = session.get(CATALOG_ENDPOINT, params=params, timeout=30)
+            
             if resp.status_code == 429:
-                log("⏳ Rate-limit. Пауза 30с...")
-                time.sleep(30)
+                wait = int(resp.headers.get("Retry-After", RATE_LIMIT_DELAY))
+                log(f"⏳ Rate-limit 429. Ждем {wait}с...")
+                time.sleep(wait)
                 continue
-
-            if resp.status_code != 200:
-                log(f"⚠️ Ошибка API v1: {resp.status_code}. Пауза 5с...")
-                time.sleep(5)
-                continue
-
-            data = resp.json()
-            items = data if isinstance(data, list) else data.get("list", [])
-
-            if not items:
-                break
-
-            all_releases.extend(items)
-            last_item = items[-1]
-            after = last_item.get("id", after + 1)
-
-            # Логирование порциями вместо tqdm
-            if len(all_releases) % LOG_EVERY == 0 or len(items) < limit:
-                log(f"📦 Загружено: {len(all_releases)} | Last ID: {after}")
-
-            if len(items) < limit:
-                break
-
-            time.sleep(DELAY)
-
-        except requests.exceptions.ConnectionError as e:
-            log(f"❌ Ошибка соединения: {e}. Повтор через 10с...")
-            time.sleep(10)
-        except Exception as e:
-            log(f"❌ Неизвестная ошибка: {e}. Повтор через 5с...")
-            time.sleep(5)
-
-    log(f"✅ Всего найдено релизов: {len(all_releases)}")
-    return all_releases
+                
+            if resp.status_code == 200:
+                data = resp.json()
+                items = data.get("data", [])
+                meta = data.get("meta", {}).get("pagination", {})
+                return items, meta.get("current_page", page_num), meta.get("last_page", 9999)
+                
+            log(f"⚠️ HTTP {resp.status_code} на стр. {page_num}. Попытка {attempt+1}/3")
+            time.sleep(RETRY_DELAY * (attempt + 1))
+            
+        except requests.exceptions.RequestException as e:
+            log(f"❌ Сеть: {e}. Попытка {attempt+1}/3")
+            time.sleep(RETRY_DELAY * (attempt + 1))
+            
+    return None, page_num, 0
 
 
 def download_poster(url, filename):
     path = os.path.join(POSTERS_DIR, filename)
     if os.path.exists(path):
-        return path
+        return True
     try:
-        r = session.get(url, timeout=15)
-        if r.status_code == 200:
+        r = session.get(url, timeout=20)
+        if r.status_code == 200 and len(r.content) > 0:
             with open(path, "wb") as f:
                 f.write(r.content)
-            return path
+            return True
     except Exception:
         pass
-    return None
+    return False
 
 
-def build_m3u_entry(release):
-    entries = []
-    player = release.get("player", {}) or {}
-    host = player.get("host", "").rstrip("/")
-    playlist = player.get("list", []) or []
-
-    names = release.get("names", {}) or {}
-    title_ru = names.get("ru") or names.get("en") or release.get("code", "Unknown")
-
+def process_release(release):
+    """
+    Извлекает данные из модели models.anime.releases.v1.release
+    Возвращает: (m3u_lines, poster_task)
+    """
+    rid = release.get("id")
+    name_obj = release.get("name", {})
+    title = name_obj.get("main") or name_obj.get("english") or release.get("alias", "Unknown")
+    
+    # Постер: берем optimized -> preview -> thumbnail
     poster_url = None
-    posters = release.get("posters", {}) or {}
-    medium = posters.get("medium", {}) or posters.get("small", {}) or {}
-    poster_path = medium.get("url") or ""
-    if poster_path:
-        poster_url = urljoin(CACHE_HOST, poster_path)
-
-    for ep in playlist:
-        ep_num = ep.get("episode") or ep.get("name") or "?"
-        hls_file = ep.get("hls") or ep.get("file") or ""
-
-        if not hls_file:
+    poster_obj = release.get("poster", {})
+    if poster_obj:
+        opt = poster_obj.get("optimized", {})
+        poster_url = opt.get("preview") or opt.get("thumbnail") or poster_obj.get("preview")
+    
+    m3u_lines = []
+    episodes = release.get("episodes", [])
+    
+    for ep in episodes:
+        # Приоритет: 720 -> 480 -> 1080 (как запрошено пользователем)
+        stream_url = ep.get("hls_720") or ep.get("hls_480") or ep.get("hls_1080")
+        if not stream_url:
             continue
-
-        if hls_file.startswith("http"):
-            stream_url = hls_file
-        else:
-            rid = release.get("id") or release.get("code")
-            stream_url = f"{host}/{rid}/{ep_num}/{QUALITY}/{hls_file}"
-
-        extinf = f'#EXTINF:-1 tvg-logo="{poster_url or ""}",{title_ru} — {ep_num}'
-        entries.append((extinf, stream_url))
-
-    return entries, poster_url
+            
+        ep_name = ep.get("name") or f"Серия {ep.get('ordinal', '?')}"
+        extinf = f'#EXTINF:-1 tvg-logo="{poster_url or ""}",{title} — {ep_name}'
+        m3u_lines.append((extinf, stream_url))
+    
+    poster_task = (poster_url, f"{rid}.jpg") if poster_url else None
+    return rid, m3u_lines, poster_task
 
 
 def main():
     progress = load_progress()
     processed_set = set(progress.get("processed_ids", []))
-
-    releases = fetch_all_releases_v1()
-
-    new_releases = [r for r in releases if r.get("id") not in processed_set]
-    log(f"🆕 Новых релизов для обработки: {len(new_releases)}")
-
-    if not new_releases:
-        log("ℹ️ Все релизы уже обработаны.")
-        return
-
-    all_m3u_lines = []
+    current_page = progress.get("last_page", 1)
+    
+    log("🚀 Старт парсинга AniLiberty API V1 Catalog...")
+    total_new_episodes = 0
     poster_tasks = []
-
-    log("⚙️ Обработка плееров и серий...")
-    for i, rel in enumerate(new_releases, 1):
-        entries, poster_url = build_m3u_entry(rel)
-        all_m3u_lines.extend(entries)
-
-        if poster_url:
-            fname = f"{rel.get('id', 'unknown')}.jpg"
-            poster_tasks.append((poster_url, fname))
-
-        processed_set.add(rel.get("id"))
-
-        # Прогресс без tqdm
-        if i % LOG_EVERY == 0 or i == len(new_releases):
-            log(f"  Обработано: {i}/{len(new_releases)} | Эпизодов: {len(all_m3u_lines)}")
-
-        time.sleep(DELAY * 0.5)
-
+    batch_m3u = []
+    
+    while True:
+        items, page, last_page = fetch_catalog_page(current_page)
+        
+        if items is None:
+            log("💥 Не удалось получить страницу после 3 попыток. Остановка.")
+            break
+            
+        if not items:
+            log(f"✅ Каталог закончен на странице {current_page}")
+            break
+            
+        new_count = 0
+        for rel in items:
+            rid, lines, ptask = process_release(rel)
+            if rid not in processed_set:
+                batch_m3u.extend(lines)
+                if ptask:
+                    poster_tasks.append(ptask)
+                processed_set.add(rid)
+                new_count += 1
+                total_new_episodes += len(lines)
+        
+        # Логирование прогресса
+        if current_page % LOG_EVERY == 0 or current_page >= last_page:
+            log(f"📦 Стр. {current_page}/{last_page} | Новых: {new_count} | Всего эп.: {total_new_episodes}")
+        
+        # Сохраняем прогресс каждые 10 страниц (защита от потери при таймауте CI)
+        if current_page % 10 == 0:
+            progress["processed_ids"] = list(processed_set)
+            progress["total_episodes"] += total_new_episodes
+            progress["last_page"] = current_page
+            save_progress(progress)
+            # Сбрасываем счетчик, т.к. сохранили
+            total_new_episodes = 0 
+            
+        if current_page >= last_page:
+            break
+            
+        current_page += 1
+        time.sleep(0.3)  # Вежливая пауза между запросами
+    
+    # Финальное сохранение прогресса
+    progress["processed_ids"] = list(processed_set)
+    progress["total_episodes"] = progress.get("total_episodes", 0) + total_new_episodes
+    progress["last_page"] = current_page
+    save_progress(progress)
+    
+    # Запись M3U
+    if batch_m3u:
+        log(f"💾 Дописываем {len(batch_m3u)} записей в M3U...")
+        mode = "a" if os.path.exists(M3U_FILE) else "w"
+        with open(M3U_FILE, mode, encoding="utf-8") as f:
+            if mode == "w":
+                f.write("#EXTM3U\n")
+            for extinf, url in batch_m3u:
+                f.write(f"{extinf}\n{url}\n")
+    
+    # Скачивание постеров
     if poster_tasks:
         log(f"🖼️ Скачивание {len(poster_tasks)} постеров...")
-        done_count = 0
+        done = 0
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = {executor.submit(download_poster, url, fn): fn for url, fn in poster_tasks}
+            futures = {executor.submit(download_poster, u, f): f for u, f in poster_tasks}
             for _ in as_completed(futures):
-                done_count += 1
-                if done_count % LOG_EVERY == 0 or done_count == len(poster_tasks):
-                    log(f"  Постеров скачано: {done_count}/{len(poster_tasks)}")
-
-    log(f"💾 Сохранение {M3U_FILE}...")
-    mode = "a" if os.path.exists(M3U_FILE) and progress["total_episodes"] > 0 else "w"
-
-    with open(M3U_FILE, mode, encoding="utf-8") as f:
-        if mode == "w":
-            f.write("#EXTM3U\n")
-        for extinf, url in all_m3u_lines:
-            f.write(f"{extinf}\n{url}\n")
-
-    progress["processed_ids"] = list(processed_set)
-    progress["total_episodes"] += len(all_m3u_lines)
-    progress["last_id"] = max(processed_set) if processed_set else 0
-    save_progress(progress)
-
-    log(f"🎉 ГОТОВО! Эпизодов добавлено: {len(all_m3u_lines)} | Всего: {progress['total_episodes']}")
+                done += 1
+                if done % LOG_EVERY == 0 or done == len(poster_tasks):
+                    log(f"  Постеров: {done}/{len(poster_tasks)}")
+    
+    log(f"🎉 ГОТОВО! Обработано страниц: {current_page} | Уникальных релизов: {len(processed_set)}")
 
 
 if __name__ == "__main__":
