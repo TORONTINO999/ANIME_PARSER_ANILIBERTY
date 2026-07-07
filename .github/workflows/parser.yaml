@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'urls-anime.txt'
+      - 'parser.py'
+      - 'requirements.txt'
+      - '.github/workflows/**'
   workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
@@ -14,63 +17,53 @@ jobs:
     timeout-minutes: 45
 
     steps:
+      # 1. Checkout с GH_TOKEN (для возможности пуша)
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          persist-credentials: false  # важно: отключаем GITHUB_TOKEN для git-операций
+          token: ${{ secrets.GH_TOKEN }}
+          persist-credentials: false
 
-      # Кэш Playwright
+      # 2. Кэш Playwright
       - name: Cache Playwright browsers
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-v1
           restore-keys: ${{ runner.os }}-playwright-
 
-      # Python + кэш зависимостей
+      # 3. Python 3.11 + кэш pip
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      # Установка зависимостей из requirements.txt
+      # 4. Установка зависимостей
       - name: Install Python packages
-        run: pip install --upgrade pip && pip install -r requirements.txt
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
+      # 5. Установка браузера Playwright
       - name: Install Playwright browser
-        run: python -m playwright install chromium
+        run: python -m playwright install --with-deps chromium
 
-      # Фикс import time
-      - name: Fix missing import time
-        run: |
-          if ! grep -q "^import time" parser.py; then
-            sed -i '1iimport time' parser.py
-            echo "✅ import time добавлен"
-          fi
-
-      # Системные пакеты
-      - name: Install system deps
-        run: |
-          sudo apt-get update || true
-          sudo apt-get install -y --no-install-recommends \
-            libnss3 libnspr4 libgbm1 libasound2 libx11-6 libxcb1 \
-            libxcomposite1 libxdamage1 libxrandr2 libgtk-3-0 || true
-
-      # Запуск парсера
+      # 6. Запуск парсера
       - name: Run parser
         env:
           PYTHONUNBUFFERED: 1
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: python parser.py
 
-      # Создание PR с изменениями (с GH_TOKEN)
+      # 7. Создание PR (обновлено до v6 — Node 20)
       - name: Create Pull Request with updated mirrors
         if: success()
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GH_TOKEN }}  # <-- используем твой токен
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: "Update mirrors [run ${{ github.run_id }}]"
           title: "Auto: update mirrors"
           body: |
@@ -78,5 +71,10 @@ jobs:
             Run ID: ${{ github.run_id }}
             Trigger: ${{ github.event_name }}
           branch: ci/mirrors-update-${{ github.run_id }}
-          add-paths: mirrors/  # <-- исправлено на нижний регистр, как в твоём репо
+          add-paths: |
+            mirrors/
+            aniliberty_all.m3u
+            parser_progress.json
           delete-branch: true
+          committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
