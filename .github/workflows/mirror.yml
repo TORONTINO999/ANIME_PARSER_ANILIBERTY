@@ -1,69 +1,42 @@
-name: AniLiberty Mirror Sync
+name: Build AniLibria Mirror
 
 on:
   schedule:
-    - cron: '0 4 * * 0'
+    # Запуск каждый день в 03:00 UTC
+    - cron: '0 3 * * *'
   workflow_dispatch:
-    inputs:
-      force_full:
-        description: 'Полная пересканировка (игнорировать resume)'
-        required: false
-        default: 'false'
-
-permissions:
-  contents: write
+    # Возможность ручного запуска
 
 jobs:
-  sync:
+  build-mirror:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-
+          
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
+          
       - name: Install dependencies
-        run: pip install requests
-
-      - name: Clean resume cache (optional)
-        if: github.event.inputs.force_full == 'true'
-        run: rm -rf mirrors/anime/*/.last_sync
-
-      - name: Run mirror scanner
-        run: python mirror.py
-
-      - name: Check what changed
         run: |
-          echo "=== Git status ==="
-          git status
-          echo "=== Files changed ==="
-          git diff --stat || true
-          echo "=== Untracked files ==="
-          git ls-files --others --exclude-standard | head -20 || true
-
-      - name: Commit and push
+          python -m pip install --upgrade pip
+          pip install requests
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Run mirror builder
+        run: python main.py
+        env:
+          PYTHONUNBUFFERED: 1
+          
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add mirrors/ main.m3u .last_sync
-          [ -f errors.json ] && git add errors.json
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git commit -m "chore: mirror sync $(date -u +%Y-%m-%d)"
-
-          echo "Pushing..."
-          git push origin HEAD:${{ github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git add mirrors/ anilibria_all.m3u processed.txt last_run.txt
+          git diff --staged --quiet || git commit -m "🔄 Automatic mirror update $(date +'%Y-%m-%d %H:%M')"
+          git push origin main
