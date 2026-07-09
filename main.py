@@ -1,407 +1,546 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
-AniLiberty Mirror + M3U Generator v5.0 — правильный ids[]
-Забирает всё через /anime/releases/list?ids[]=381&ids[]=382...
+AniLibria / AniLiberty Mirror Builder - GitHub Actions версия
+Поддерживает оба сайта: .tv (старый) и .top (новый)
+Извлекает все возможные ссылки на видео через парсинг JavaScript и HTML
+Автоматически пушит изменения в mirrors и обновляет мастер-плейлист
 """
 
+import os
+import re
 import json
 import time
+import requests
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-from typing import Optional, Dict, List
 
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+# ===== КОНФИГУРАЦИЯ =====
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+MIRRORS_ROOT = os.path.join(SCRIPT_DIR, "mirrors")
+M3U_MASTER = os.path.join(SCRIPT_DIR, "anilibria_all.m3u")
+TIMESTAMP_FILE = os.path.join(SCRIPT_DIR, "last_run.txt")
 
-# ─── НАСТРОЙКИ ──────────────────────────────────────────────────
-API_BASE_URL = "https://api.anilibria.tv/v1"
-BATCH_SIZE = 50
-REQUEST_TIMEOUT = 30
-MAX_RETRIES = 3
-USER_AGENT = "AniLiberty-Mirror/5.0"
+SITES = {
+    'old': {
+        'base': 'https://anilibria.tv',
+        'api': 'https://api.anilibria.tv/v3',
+        'name': 'AniLibria TV'
+    },
+    'new': {
+        'base': 'https://anilibria.top',
+        'api': 'https://api.anilibria.top/v1',
+        'name': 'AniLiberty'
+    }
+}
 
-BASE_DIR = Path("mirrors")
-ANIME_DIR = BASE_DIR / "anime"
-M3U_FILE = BASE_DIR / "main.m3u"
-POSTER_BASE = "https://aniliberty.top"  # Базовый URL для постеров
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
+    'Referer': 'https://anilibria.top/'
+}
 
-ALL_IDS = [
-    381, 382, 383, 384, 389, 390, 391, 392, 393, 394, 395, 396, 398, 399,
-    400, 401, 402, 404, 405, 406, 407, 408, 410, 411, 412, 413, 414, 415,
-    416, 417, 418, 420, 421, 422, 423, 424, 426, 429, 431, 433, 434, 435,
-    436, 438, 439, 440, 441, 442, 443, 466, 467, 468, 469, 473, 474, 475,
-    476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 489, 495, 496,
-    502, 505, 507, 508, 511, 513, 515, 516, 517, 518, 519, 520, 521, 522,
-    543, 554, 556, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574,
-    576, 577, 578, 579, 608, 611, 638, 644, 656, 660, 664, 686, 707, 711,
-    740, 741, 742, 753, 758, 762, 767, 772, 774, 777, 780, 783, 787, 796,
-    801, 809, 821, 822, 823, 824, 825, 826, 834, 870, 872, 873, 876, 877,
-    878, 882, 893, 908, 973, 1068, 1092, 1128, 1130, 1184, 1201, 1202, 1203,
-    1205, 1206, 1209, 1210, 1211, 1217, 1225, 1229, 1230, 1243, 1247, 1253,
-    1274, 1286, 1337, 1400, 1405, 1408, 1410, 1454, 1531, 1622, 1641, 1663,
-    1713, 1744, 1745, 1748, 1749, 1750, 1751, 1752, 1753, 1755, 1756, 1757,
-    1758, 1759, 1760, 1761, 1762, 1764, 1765, 1772, 1773, 1785, 1807, 1834,
-    1908, 2086, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2118, 2120, 2121,
-    2122, 2124, 2125, 2126, 2127, 2128, 2129, 2131, 2132, 2133, 2135, 2137,
-    2154, 2233, 2333, 2417, 2495, 2590, 2621, 2622, 2624, 2626, 2628, 2630,
-    2631, 2632, 2633, 2634, 2635, 2636, 2637, 2639, 2640, 2641, 2642, 2643,
-    2644, 2645, 2646, 2720, 2766, 2850, 2872, 2919, 2925, 2947, 3024, 3045,
-    3048, 3049, 3050, 3051, 3052, 3054, 3055, 3056, 3057, 3058, 3059, 3060,
-    3061, 3062, 3065, 3066, 3070, 3091, 3094, 3114, 3123, 3125, 3136, 3164,
-    3204, 3327, 3345, 3401, 3403, 3426, 3440, 3459, 3464, 3465, 3467, 3502,
-    3526, 3529, 3534, 3542, 3557, 3558, 3559, 3570, 3572, 3578, 3595, 3598,
-    3600, 3604, 3606, 3611, 3615, 3616, 3617, 3621, 3747, 3788, 3853, 3909,
-    3944, 3945, 3946, 3948, 3949, 3950, 3951, 3952, 3954, 3974, 3975, 3982,
-    3984, 3986, 3987, 3989, 3990, 3993, 3994, 3995, 3996, 4007, 4008, 4009,
-    4010, 4011, 4041, 4057, 4058, 4063, 4064, 4066, 4098, 4099, 4145, 4165,
-    4217, 4335, 4434, 4477, 4520, 4575, 4576, 4577, 4578, 4579, 4580, 4581,
-    4582, 4583, 4584, 4586, 4587, 4588, 4619, 4640, 4641, 4642, 4643, 4644,
-    4645, 4646, 4647, 4648, 4649, 4685, 4699, 4806, 4857, 5009, 5149, 5150,
-    5151, 5152, 5153, 5154, 5155, 5156, 5157, 5158, 5161, 5162, 5180, 5184,
-    5185, 5187, 5188, 5189, 5193, 5201, 5203, 5206, 5207, 5208, 5216, 5221,
-    5222, 5223, 5224, 5225, 5228, 5255, 5325, 5411, 5495, 5505, 5582, 5614,
-    5616, 5617, 5620, 5672, 5681, 5682, 5683, 5684, 5685, 5689, 5690, 5691,
-    5692, 5693, 5694, 5695, 5696, 5697, 5698, 5699, 5831, 5926, 6011, 6027,
-    6062, 6089, 6112, 6117, 6140, 6143, 6160, 6163, 6171, 6175, 6180, 6190,
-    6191, 6192, 6193, 6194, 6195, 6196, 6197, 6214, 6219, 6223, 6236, 6237,
-    6245, 6249, 6263, 6299, 6338, 6384, 6456, 6471, 6686, 6687, 6688, 6759,
-    6800, 6808, 6826, 6829, 6830, 6832, 6833, 6834, 6835, 6836, 6839, 6840,
-    6842, 6843, 6877, 6878, 6917, 6921, 6923, 6948, 7012, 7019, 7031, 7039,
-    7040, 7077, 7096, 7111, 7151, 7174, 7187, 7264, 7266, 7281, 7309, 7405,
-    7436, 7437, 7438, 7439, 7443, 7444, 7445, 7446, 7452, 7454, 7458, 7459,
-    7461, 7462, 7465, 7466, 7468, 7469, 7470, 7471, 7472, 7474, 7535, 7566,
-    7632, 7709, 7822, 7823, 7988, 8026, 8030, 8031, 8032, 8033, 8034, 8035,
-    8036, 8040, 8041, 8042, 8043, 8044, 8045, 8046, 8047, 8048, 8049, 8050,
-    8051, 8052, 8053, 8054, 8055, 8084, 8087, 8112, 8132, 8261, 8269, 8276,
-    8291, 8292, 8295, 8296, 8299, 8300, 8301, 8302, 8305, 8306, 8307, 8309,
-    8314, 8315, 8316, 8317, 8320, 8324, 8325, 8328, 8329, 8330, 8331, 8332,
-    8333, 8334, 8335, 8336, 8338, 8339, 8341, 8345, 8346, 8348, 8350, 8351,
-    8352, 8353, 8355, 8356, 8357, 8358, 8359, 8360, 8361, 8362, 8364, 8365,
-    8366, 8368, 8369, 8370, 8371, 8372, 8373, 8374, 8375, 8377, 8379, 8380,
-    8381, 8382, 8383, 8384, 8385, 8386, 8388, 8389, 8390, 8391, 8392, 8393,
-    8394, 8395, 8396, 8397, 8398, 8399, 8400, 8402, 8403, 8404, 8406, 8407,
-    8408, 8410, 8412, 8413, 8414, 8417, 8419, 8420, 8421, 8422, 8423, 8424,
-    8426, 8428, 8429, 8430, 8431, 8433, 8434, 8435, 8436, 8437, 8438, 8439,
-    8440, 8441, 8442, 8443, 8444, 8445, 8446, 8447, 8448, 8449, 8450, 8451,
-    8452, 8453, 8454, 8455, 8456, 8457, 8458, 8459, 8460, 8461, 8462, 8463,
-    8464, 8465, 8466, 8467, 8468, 8469, 8470, 8471, 8475, 8476, 8477, 8478,
-    8479, 8480, 8481, 8482, 8483, 8485, 8486, 8487, 8489, 8491, 8494, 8496,
-    8498, 8499, 8500, 8501, 8503, 8504, 8505, 8506, 8507, 8509, 8510, 8511,
-    8514, 8517, 8520, 8523, 8524, 8525, 8528, 8531, 8532, 8533, 8534, 8535,
-    8541, 8542, 8546, 8547, 8550, 8551, 8552, 8553, 8555, 8556, 8557, 8558,
-    8559, 8560, 8561, 8566, 8567, 8572, 8573, 8574, 8576, 8579, 8580, 8581,
-    8582, 8584, 8586, 8587, 8589, 8590, 8591, 8592, 8593, 8595, 8596, 8598,
-    8599, 8600, 8601, 8604, 8605, 8606, 8608, 8609, 8614, 8615, 8619, 8620,
-    8625, 8627, 8631, 8632, 8633, 8634, 8639, 8640, 8641, 8642, 8643, 8644,
-    8645, 8646, 8648, 8649, 8653, 8654, 8657, 8659, 8660, 8663, 8666, 8669,
-    8670, 8672, 8673, 8674, 8675, 8678, 8680, 8681, 8682, 8693, 8694, 8697,
-    8700, 8702, 8704, 8705, 8710, 8713, 8720, 8721, 8727, 8731, 8733, 8741,
-    8745, 8746, 8748, 8751, 8753, 8754, 8756, 8757, 8763, 8767, 8770, 8771,
-    8775, 8776, 8780, 8783, 8784, 8788, 8789, 8790, 8791, 8792, 8793, 8794,
-    8796, 8797, 8798, 8799, 8800, 8806, 8808, 8811, 8812, 8830, 8831, 8833,
-    8834, 8835, 8836, 8837, 8839, 8840, 8841, 8842, 8843, 8844, 8845, 8848,
-    8849, 8850, 8851, 8852, 8854, 8855, 8856, 8857, 8859, 8860, 8861, 8862,
-    8863, 8867, 8870, 8871, 8872, 8874, 8876, 8877, 8878, 8879, 8883, 8886,
-    8889, 8891, 8893, 8896, 8908, 8910, 8916, 8918, 8920, 8921, 8922, 8924,
-    8926, 8927, 8928, 8929, 8930, 8935, 8938, 8948, 8949, 8950, 8951, 8952,
-    8953, 8954, 8956, 8957, 8958, 8959, 8960, 8961, 8962, 8963, 8964, 8965,
-    8966, 8967, 8968, 8969, 8970, 8971, 8972, 8973, 8975, 8976, 8977, 8981,
-    8982, 8985, 8991, 8992, 8994, 8995, 8996, 8997, 8998, 8999, 9000, 9001,
-    9002, 9003, 9004, 9005, 9006, 9007, 9010, 9011, 9012, 9013, 9014, 9015,
-    9017, 9018, 9019, 9020, 9021, 9022, 9023, 9024, 9025, 9027, 9028, 9029,
-    9030, 9031, 9033, 9034, 9035, 9039, 9043, 9044, 9045, 9046, 9047, 9048,
-    9050, 9051, 9052, 9053, 9054, 9055, 9056, 9057, 9058, 9060, 9061, 9062,
-    9063, 9065, 9066, 9067, 9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075,
-    9076, 9079, 9080, 9083, 9086, 9093, 9094, 9095, 9097, 9098, 9099, 9100,
-    9101, 9102, 9103, 9104, 9105, 9107, 9108, 9110, 9111, 9112, 9113, 9116,
-    9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128,
-    9129, 9130, 9131, 9133, 9135, 9137, 9139, 9147, 9148, 9149, 9156, 9157,
-    9158, 9159, 9160, 9162, 9163, 9164, 9165, 9167, 9168, 9169, 9170, 9171,
-    9172, 9173, 9174, 9175, 9177, 9178, 9179, 9180, 9182, 9184, 9185, 9188,
-    9191, 9193, 9196, 9200, 9201, 9202, 9203, 9204, 9205, 9206, 9207, 9208,
-    9209, 9210, 9211, 9212, 9213, 9214, 9215, 9217, 9218, 9219, 9220, 9221,
-    9222, 9223, 9224, 9225, 9227, 9228, 9229, 9230, 9232, 9233, 9234, 9235,
-    9242, 9243, 9250, 9251, 9252, 9253, 9254, 9255, 9256, 9260, 9262, 9266,
-    9277, 9279, 9280, 9281, 9282, 9283, 9284, 9286, 9287, 9289, 9292, 9293,
-    9294, 9297, 9299, 9300, 9301, 9302, 9303, 9304, 9305, 9306, 9307, 9309,
-    9310, 9311, 9312, 9313, 9314, 9315, 9316, 9317, 9321, 9322, 9323, 9324,
-    9325, 9326, 9327, 9328, 9329, 9330, 9331, 9332, 9333, 9334, 9335, 9336,
-    9337, 9338, 9339, 9340, 9344, 9346, 9347, 9348, 9349, 9351, 9353, 9355,
-    9356, 9357, 9360, 9362, 9363, 9367, 9370, 9372, 9373, 9374, 9376, 9378,
-    9394, 9395, 9396, 9397, 9398, 9399, 9400, 9401, 9402, 9403, 9404, 9405,
-    9406, 9407, 9408, 9409, 9410, 9411, 9412, 9414, 9415, 9416, 9417, 9422,
-    9423, 9424, 9425, 9427, 9428, 9429, 9430, 9431, 9432, 9433, 9434, 9436,
-    9437, 9438, 9439, 9440, 9441, 9444, 9446, 9447, 9448, 9450, 9451, 9458,
-    9459, 9460, 9461, 9462, 9463, 9464, 9465, 9466, 9467, 9469, 9470, 9472,
-    9475, 9476, 9477, 9478, 9479, 9480, 9481, 9482, 9483, 9484, 9486, 9487,
-    9489, 9490, 9491, 9492, 9494, 9495, 9496, 9497, 9500, 9502, 9503, 9504,
-    9505, 9506, 9507, 9508, 9510, 9511, 9512, 9515, 9516, 9517, 9518, 9520,
-    9521, 9522, 9523, 9524, 9525, 9527, 9528, 9529, 9530, 9531, 9532, 9533,
-    9536, 9537, 9539, 9540, 9541, 9542, 9543, 9545, 9546, 9547, 9548, 9549,
-    9550, 9551, 9552, 9553, 9555, 9558, 9559, 9560, 9561, 9563, 9564, 9565,
-    9566, 9567, 9568, 9569, 9572, 9575, 9576, 9579, 9580, 9581, 9590, 9591,
-    9592, 9593, 9594, 9595, 9596, 9597, 9598, 9600, 9601, 9602, 9604, 9605,
-    9606, 9607, 9608, 9609, 9610, 9611, 9612, 9613, 9614, 9615, 9616, 9617,
-    9618, 9619, 9620, 9622, 9623, 9624, 9625, 9626, 9627, 9629, 9630, 9633,
-    9634, 9635, 9636, 9637, 9640, 9642, 9643, 9644, 9645, 9647, 9648, 9649,
-    9650, 9651, 9652, 9653, 9654, 9655, 9656, 9657, 9660, 9661, 9662, 9663,
-    9664, 9666, 9667, 9668, 9669, 9670, 9671, 9672, 9674, 9676, 9677, 9678,
-    9679, 9681, 9682, 9683, 9684, 9685, 9686, 9687, 9688, 9689, 9690, 9691,
-    9692, 9696, 9705, 9706, 9707, 9708, 9709, 9710, 9711, 9717, 9718, 9719,
-    9720, 9721, 9722, 9723, 9726, 9727, 9728, 9729, 9730, 9732, 9733, 9734,
-    9735, 9736, 9737, 9738, 9740, 9741, 9743, 9745, 9747, 9748, 9749, 9750,
-    9751, 9752, 9753, 9754, 9755, 9758, 9759, 9760, 9761, 9763, 9767, 9768,
-    9769, 9770, 9771, 9773, 9774, 9775, 9776, 9777, 9778, 9779, 9780, 9781,
-    9782, 9784, 9785, 9786, 9788, 9790, 9791, 9792, 9793, 9794, 9795, 9796,
-    9797, 9799, 9800, 9801, 9804, 9805, 9806, 9807, 9810, 9814, 9815, 9817,
-    9818, 9820, 9821, 9822, 9825, 9827, 9828, 9829, 9830, 9833, 9834, 9835,
-    9836, 9837, 9838, 9839, 9841, 9842, 9843, 9844, 9845, 9846, 9847, 9848,
-    9850, 9851, 9852, 9853, 9855, 9857, 9858, 9867, 9868, 9869, 9870, 9872,
-    9873, 9874, 9875, 9876, 9879, 9886, 9887, 9890, 9893, 9894, 9895, 9896,
-    9897, 9899, 9900, 9901, 9903, 9904, 9906, 9908, 9909, 9910, 9911, 9915,
-    9917, 9918, 9920, 9921, 9922, 9924, 9926, 9929, 9930, 9932, 9934, 9937,
-    9938, 9939, 9942, 9949, 9950, 9952, 9953, 9954, 9955, 9956, 9960, 9961,
-    9962, 9963, 9964, 9966, 9967, 9968, 9969, 9970, 9972, 9973, 9974, 9977,
-    9979, 9980, 9984, 9986, 9988, 9989, 9990, 9993, 9995, 10000, 10001, 10002,
-    10005, 10007, 10011, 10020, 10021, 10023, 10024, 10025, 10026, 10027, 10031,
-    10032, 10034, 10035, 10037, 10038, 10044, 10046, 10047, 10048, 10049, 10051,
-    10053, 10054, 10055, 10057, 10058, 10060, 10061, 10062, 10066, 10067, 10070,
-    10076, 10078, 10079, 10081, 10082, 10083, 10085, 10088, 10094, 10095, 10098,
-    10099, 10100, 10101, 10102, 10104, 10109, 10110, 10113, 10119, 10120, 10124,
-    10125, 10126, 10130, 10139, 10141, 10142, 10144, 10145, 10146, 10147, 10148,
-    10149, 10150, 10151, 10152, 10153, 10155, 10156, 10158, 10159, 10161, 10162,
-    10164, 10165, 10169, 10171, 10172, 10173, 10174, 10175, 10176, 10181, 10183,
-    10184, 10188, 10189, 10190, 10193, 10194, 10195, 10196, 10204, 10205, 10212,
-    10213, 10214, 10215, 10216, 10217, 10218, 10219, 10220, 10221, 10222, 10223,
-    10224, 10225, 10226, 10227, 10228, 10229, 10230, 10232, 10233, 10234, 10236,
-    10237, 10238, 10240, 10241, 10242, 10243, 10244, 10245, 10246, 10247, 10248,
-    10249, 10251, 10252, 10253, 10255, 10256, 10257, 10258, 10259, 10260, 10261,
-    10262, 10263, 10264, 10265, 10266, 10268, 10269, 10272, 10273, 10274, 10275,
-    10276, 10277, 10278, 10280, 10281, 10282, 10283, 10284, 10285, 10286, 10287,
-    10289
-]
-
-# ─── HTTP-СЕССИЯ ─────────────────────────────────────────────────
-def create_session() -> requests.Session:
-    s = requests.Session()
-    retries = Retry(
-        total=MAX_RETRIES,
-        backoff_factor=2,
-        status_forcelist=[429, 500, 502, 503, 504]
-    )
-    adapter = HTTPAdapter(max_retries=retries)
-    s.mount("https://", adapter)
-    s.headers.update({
-        "User-Agent": USER_AGENT,
-        "Accept": "application/json"
-    })
-    return s
-
-session = create_session()
-m3u_blocks: List[str] = []
-
-
-def fetch_batch(ids_batch: List[int]) -> List[Dict]:
-    """
-    Запрос: GET /anime/releases/list?ids[]=381&ids[]=382&...
-    """
-    url = f"{API_BASE_URL}/anime/releases/list"
-    params = [("ids[]", str(i)) for i in ids_batch]
-    params.append(("limit", str(len(ids_batch))))
+# ===== ЗАГРУЗКА СПИСКА =====
+def load_anime_titles():
+    titles_file = os.path.join(SCRIPT_DIR, "aliases.txt")
+    if os.path.exists(titles_file):
+        with open(titles_file, 'r', encoding='utf-8') as f:
+            return [line.strip() for line in f if line.strip()]
     
-    try:
-        resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
-        if resp.status_code == 422:
-            print(f"  ⚠️  422 Validation Error для батча [{ids_batch[0]}...{ids_batch[-1]}]")
-            print(f"      Ответ: {resp.text[:200]}")
-            return []
-        resp.raise_for_status()
-        data = resp.json()
-        return data.get("data", [])
-    except Exception as e:
-        print(f"  ❌ Ошибка батча [{ids_batch[0]}...{ids_batch[-1]}]: {e}")
-        return []
+    print("⚠️ aliases.txt не найден, использую встроенный список")
+    return [
+        "bleach",
+        "naruto",
+        "one-piece",
+        "attack-on-titan",
+        "demon-slayer"
+    ]
 
+def load_processed_titles():
+    processed_file = os.path.join(SCRIPT_DIR, "processed.txt")
+    if os.path.exists(processed_file):
+        with open(processed_file, 'r', encoding='utf-8') as f:
+            return set(line.strip() for line in f if line.strip())
+    return set()
 
-def fix_poster_url(url: str) -> str:
-    """Добавляет базовый URL к относительным ссылкам."""
-    if not url:
-        return ""
-    if url.startswith("/"):
-        return f"{POSTER_BASE}{url}"
-    if url.startswith("http"):
-        return url
-    return f"{POSTER_BASE}/{url}"
+def save_processed_titles(processed):
+    processed_file = os.path.join(SCRIPT_DIR, "processed.txt")
+    with open(processed_file, 'w', encoding='utf-8') as f:
+        for title in sorted(processed):
+            f.write(f"{title}\n")
 
-
-def download_poster(poster_url: str, save_path: Path) -> Optional[str]:
-    """Скачивает постер."""
-    if not poster_url:
-        return None
-    full_url = fix_poster_url(poster_url)
-    for ext in ["jpg", "webp"]:
-        url = full_url.replace(".(jpg|webp)", f".{ext}")
+# ===== ИЗВЛЕЧЕНИЕ ДАННЫХ =====
+def extract_js_data(html_content):
+    result = {}
+    
+    match = re.search(r'window\.__INITIAL_STATE__\s*=\s*({.*?});', html_content, re.DOTALL)
+    if match:
         try:
-            resp = session.get(url, timeout=30)
-            if resp.status_code == 200 and len(resp.content) > 500:
-                filepath = save_path / f"poster.{ext}"
-                with open(filepath, "wb") as f:
-                    f.write(resp.content)
-                return str(filepath)
-        except Exception:
-            continue
-    return None
+            result['initial_state'] = json.loads(match.group(1))
+        except:
+            pass
+    
+    for var in ['__NUXT__', '__NEXT_DATA__', '__DATA__', 'appData']:
+        pattern = rf'window\.{var}\s*=\s*({.*?});'
+        match = re.search(pattern, html_content, re.DOTALL)
+        if match:
+            try:
+                result[var.lower()] = json.loads(match.group(1))
+            except:
+                pass
+    
+    m3u8_links = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', html_content)
+    if m3u8_links:
+        result['m3u8_links'] = m3u8_links
+    
+    iframe_match = re.search(r'<iframe[^>]*src="([^"]*)"[^>]*>', html_content)
+    if iframe_match:
+        result['player_url'] = iframe_match.group(1)
+    
+    return result
 
-
-def extract_stream_links(episode: dict) -> Dict[str, str]:
-    """Извлекает прямые ссылки."""
-    links = {}
-    for quality in ["hls_480", "hls_720", "hls_1080"]:
-        val = episode.get(quality)
-        if val and isinstance(val, str) and val.startswith("http"):
-            links[quality] = val
-    if episode.get("rutube_id"):
-        links["rutube"] = f"https://rutube.ru/video/{episode['rutube_id']}/"
-    if episode.get("youtube_id"):
-        links["youtube"] = f"https://www.youtube.com/watch?v={episode['youtube_id']}"
+def extract_video_links_from_data(data):
+    links = {'1080': [], '720': [], '480': []}
+    
+    def _traverse(obj):
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if isinstance(value, str) and value.startswith('http'):
+                    if '.m3u8' in value or 'video' in key.lower() or 'stream' in key.lower() or 'hls' in key.lower():
+                        quality = '480'
+                        if '1080' in value or 'fhd' in value.lower():
+                            quality = '1080'
+                        elif '720' in value or 'hd' in value.lower():
+                            quality = '720'
+                        links[quality].append(value)
+                elif isinstance(value, (dict, list)):
+                    _traverse(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                _traverse(item)
+    
+    _traverse(data)
     return links
 
-
-def generate_m3u_block(metadata: dict, episodes: list) -> str:
-    """Создаёт M3U блок."""
-    name = metadata.get("name", {}).get("main", f"Anime {metadata.get('id', '?')}")
-    year = metadata.get("year", "")
-    poster = metadata.get("_poster_path", "")
-    
-    lines = [f'#EXTINF:-1 group-title="{name}" tvg-logo="{poster}",{name} ({year})']
-    
-    sorted_eps = sorted(episodes, key=lambda e: e.get("sort_order", 0) or e.get("ordinal", 0))
-    
-    for ep in sorted_eps:
-        ep_name = ep.get("name", f"Серия {ep.get('ordinal', '?')}")
-        links = ep.get("_stream_links", {})
-        stream_url = links.get("hls_720") or links.get("hls_1080") or links.get("hls_480")
-        
-        if stream_url:
-            lines.append(f"#EXTINF:-1,{name} — {ep_name}")
-            lines.append(stream_url)
-        elif links.get("rutube"):
-            lines.append(f"#EXTINF:-1,{name} — {ep_name} [Rutube]")
-            lines.append(links["rutube"])
-    
-    return "\n".join(lines)
-
-
-def process_release(release: Dict) -> bool:
-    """Сохраняет один релиз."""
-    anime_id = release.get("id")
-    if not anime_id:
-        return False
-    
-    folder = ANIME_DIR / str(anime_id)
-    folder.mkdir(parents=True, exist_ok=True)
+def get_page_and_extract_links(code, site_key):
+    site = SITES[site_key]
+    links = {'1080': [], '720': [], '480': []}
     
     try:
-        metadata = {
-            "id": release.get("id"),
-            "name": release.get("name", {}),
-            "alias": release.get("alias"),
-            "year": release.get("year"),
-            "season": release.get("season"),
-            "description": release.get("description"),
-            "age_rating": release.get("age_rating"),
-            "episodes_total": release.get("episodes_total"),
-            "is_ongoing": release.get("is_ongoing"),
-            "genres": [g.get("name") for g in release.get("genres", [])],
-            "poster_url": release.get("poster", {}).get("optimized", {}).get("thumbnail", ""),
-        }
+        url = f"{site['base']}/release/{code}.html"
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        if resp.status_code != 200:
+            return links
+        html = resp.text
         
-        poster_url = metadata["poster_url"]
-        poster_path = download_poster(poster_url, folder)
-        metadata["_poster_path"] = poster_path or ""
+        js_data = extract_js_data(html)
         
-        episodes = release.get("episodes", [])
-        for ep in episodes:
-            ep["_stream_links"] = extract_stream_links(ep)
+        if 'm3u8_links' in js_data:
+            for link in js_data['m3u8_links']:
+                quality = '480'
+                if '1080' in link:
+                    quality = '1080'
+                elif '720' in link:
+                    quality = '720'
+                links[quality].append(link)
         
-        with open(folder / "metadata.json", "w", encoding="utf-8") as f:
-            json.dump(metadata, f, ensure_ascii=False, indent=2)
-        with open(folder / "episodes.json", "w", encoding="utf-8") as f:
-            json.dump(episodes, f, ensure_ascii=False, indent=2)
+        for key, data in js_data.items():
+            if key.endswith('_state') or key in ['__nuxt__', '__next_data__', '__data__']:
+                extracted = extract_video_links_from_data(data)
+                for q in links:
+                    links[q].extend(extracted[q])
         
-        if episodes:
-            m3u_block = generate_m3u_block(metadata, episodes)
-            m3u_blocks.append(m3u_block)
-            name = metadata["name"].get("main", "?")
-            print(f"  ✅ {anime_id}: {name} ({len(episodes)} эп.)")
-            return True
-        else:
-            name = metadata["name"].get("main", "?")
-            print(f"  ⚠️  {anime_id}: {name} (нет эпизодов)")
-            return False
-            
+        if 'player_url' in js_data:
+            player_url = js_data['player_url']
+            if not player_url.startswith('http'):
+                player_url = urljoin(site['base'], player_url)
+            try:
+                player_resp = requests.get(player_url, headers=HEADERS, timeout=10)
+                if player_resp.status_code == 200:
+                    player_html = player_resp.text
+                    m3u8 = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', player_html)
+                    for link in m3u8:
+                        quality = '480'
+                        if '1080' in link:
+                            quality = '1080'
+                        elif '720' in link:
+                            quality = '720'
+                        links[quality].append(link)
+            except:
+                pass
     except Exception as e:
-        print(f"  ❌ {anime_id}: {str(e)[:80]}")
-        return False
+        print(f"    ⚠️ Ошибка парсинга: {e}")
+    
+    for q in links:
+        links[q] = list(dict.fromkeys(links[q]))
+    
+    return links
 
+# ===== API ФУНКЦИИ =====
+def search_new_api(title):
+    try:
+        url = f"{SITES['new']['api']}/search"
+        params = {'q': title, 'limit': 1}
+        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            data = resp.json()
+            if data and isinstance(data, list) and len(data) > 0:
+                return data[0]
+    except:
+        pass
+    return None
 
-def main():
-    print("=" * 60)
-    print(f"🎌 AniLiberty Mirror v5.0 — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"   API: {API_BASE_URL}/anime/releases/list?ids[]=...")
-    print(f"   Всего ID: {len(ALL_IDS)}")
-    print(f"   Батч: {BATCH_SIZE}")
-    print("=" * 60)
+def get_new_details(code):
+    try:
+        url = f"{SITES['new']['api']}/titles/{code}"
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except:
+        pass
+    return None
+
+def search_old_api(title):
+    try:
+        url = f"{SITES['old']['api']}/title/search"
+        params = {'search': title, 'limit': 1}
+        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            data = resp.json()
+            if data and len(data) > 0:
+                return data[0]
+    except:
+        pass
+    return None
+
+def get_old_details(code):
+    try:
+        url = f"{SITES['old']['api']}/title"
+        params = {'code': code}
+        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except:
+        pass
+    return None
+
+# ===== ОСНОВНЫЕ ФУНКЦИИ =====
+def download_poster(poster_url, folder_path):
+    if not poster_url:
+        return None
+    if poster_url.startswith('/'):
+        poster_url = SITES['new']['base'] + poster_url
+    try:
+        resp = requests.get(poster_url, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            ext = poster_url.split('.')[-1].split('?')[0]
+            if ext.lower() not in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
+                ext = 'jpg'
+            poster_path = os.path.join(folder_path, f"poster.{ext}")
+            with open(poster_path, 'wb') as f:
+                f.write(resp.content)
+            return poster_path
+    except:
+        pass
+    return None
+
+def clean_title(title):
+    """Очищает название от лишних символов для M3U"""
+    if not title:
+        return "Unknown"
+    # Убираем лишние пробелы и специальные символы
+    title = re.sub(r'[^\w\s\-]', '', title)
+    title = re.sub(r'\s+', ' ', title).strip()
+    return title
+
+def process_anime(title):
+    print(f"🔄 Обработка: {title}")
+    clean_title = title.strip()
+    anime_data = None
+    used_site = None
+    code = None
+
+    # Пробуем новый сайт
+    print(f"  🔍 Ищем на {SITES['new']['name']}...")
+    anime_data = search_new_api(clean_title)
+    if anime_data:
+        used_site = 'new'
+        code = anime_data.get('code') or anime_data.get('slug') or clean_title
+        details = get_new_details(code)
+        if details:
+            anime_data.update(details)
+        print(f"  ✅ Найдено на {SITES['new']['name']}")
     
-    ANIME_DIR.mkdir(parents=True, exist_ok=True)
+    if not anime_data:
+        print(f"  🔍 Ищем на {SITES['old']['name']}...")
+        anime_data = search_old_api(clean_title)
+        if anime_data:
+            used_site = 'old'
+            code = anime_data.get('code', clean_title)
+            details = get_old_details(code)
+            if details:
+                anime_data.update(details)
+            print(f"  ✅ Найдено на {SITES['old']['name']}")
+
+    if not anime_data:
+        print(f"  ❌ Не найдено ни на одном сайте")
+        return None
+
+    # Создаём папку
+    folder_name = code.replace('/', '_').replace('\\', '_')
+    folder_path = os.path.join(MIRRORS_ROOT, folder_name)
+    os.makedirs(folder_path, exist_ok=True)
+
+    # Получаем названия
+    names = anime_data.get('names', {})
+    title_ru = names.get('ru', code)
+    title_en = names.get('en', code)
+    title_alt = names.get('alternative', '')
     
-    stats = {"ok": 0, "no_ep": 0, "fail": 0}
-    total_batches = (len(ALL_IDS) + BATCH_SIZE - 1) // BATCH_SIZE
+    # Чистое название для M3U (без спецсимволов)
+    clean_title_ru = clean_title(title_ru)
+    clean_title_en = clean_title(title_en)
     
-    for i in range(0, len(ALL_IDS), BATCH_SIZE):
-        batch = ALL_IDS[i:i + BATCH_SIZE]
-        batch_num = i // BATCH_SIZE + 1
-        print(f"\n📦 Батч {batch_num}/{total_batches} [{batch[0]}...{batch[-1]}] ({len(batch)} ID)")
-        
-        releases = fetch_batch(batch)
-        
-        if not releases:
-            stats["fail"] += len(batch)
-            time.sleep(1)
+    # Сохраняем информацию в JSON (с английским названием)
+    info = {
+        'site': used_site,
+        'code': anime_data.get('code', ''),
+        'names': {
+            'ru': title_ru,
+            'en': title_en,
+            'alternative': title_alt
+        },
+        'description': anime_data.get('description', ''),
+        'description_short': anime_data.get('description_short', ''),
+        'genres': anime_data.get('genres', []),
+        'year': anime_data.get('year', ''),
+        'season': anime_data.get('season', ''),
+        'type': anime_data.get('type', ''),
+        'status': anime_data.get('status', ''),
+        'rating': anime_data.get('rating', ''),
+        'episodes_total': anime_data.get('episodes_total', 0),
+        'episodes_released': anime_data.get('episodes_released', 0),
+        'updated_at': datetime.now().isoformat()
+    }
+    info_path = os.path.join(folder_path, "info.json")
+    with open(info_path, 'w', encoding='utf-8') as f:
+        json.dump(info, f, ensure_ascii=False, indent=2)
+
+    # Скачиваем постер
+    poster_url = anime_data.get('poster') or anime_data.get('image') or anime_data.get('cover')
+    if poster_url:
+        poster_path = download_poster(poster_url, folder_path)
+        if poster_path:
+            print(f"  ✅ Постер сохранён")
+
+    # Извлекаем ссылки на видео
+    video_links = extract_video_links_from_data(anime_data)
+    if used_site:
+        page_links = get_page_and_extract_links(code, used_site)
+        for quality in video_links:
+            video_links[quality].extend(page_links[quality])
+            video_links[quality] = list(dict.fromkeys(video_links[quality]))
+
+    # Сохраняем ссылки
+    if any(video_links.values()):
+        links_path = os.path.join(folder_path, "links.txt")
+        with open(links_path, 'w', encoding='utf-8') as f:
+            f.write("# Найденные ссылки на видео (m3u8)\n")
+            f.write("# Формат: качество: URL\n\n")
+            for quality in ['1080', '720', '480']:
+                if video_links[quality]:
+                    for link in video_links[quality]:
+                        f.write(f"{quality}p: {link}\n")
+
+    # Создаём M3U плейлист для аниме
+    if any(video_links.values()):
+        m3u_path = os.path.join(folder_path, f"{code}.m3u")
+        with open(m3u_path, 'w', encoding='utf-8') as f:
+            f.write("#EXTM3U\n")
+            f.write(f'#PLAYLIST:{clean_title_ru}\n')
+            
+            # Добавляем информацию о плейлисте в комментариях
+            f.write(f'# Группа: {clean_title_ru}\n')
+            f.write(f'# Английское название: {clean_title_en}\n')
+            if title_alt:
+                f.write(f'# Альтернативное название: {title_alt}\n')
+            f.write(f'# Год: {info.get("year", "Неизвестно")}\n')
+            f.write(f'# Тип: {info.get("type", "Неизвестно")}\n')
+            f.write(f'# Статус: {info.get("status", "Неизвестно")}\n')
+            f.write(f'# Серий всего: {info.get("episodes_total", 0)}\n')
+            if info.get('description_short'):
+                f.write(f'# Описание: {info.get("description_short", "")[:200]}\n')
+            f.write(f'#\n')
+            
+            ep_num = 1
+            for quality in ['1080', '720', '480']:
+                for link in video_links[quality]:
+                    # Формируем название серии с качеством
+                    name = f"{clean_title_ru} - {quality}p"
+                    # Добавляем tvg-logo (путь к постеру)
+                    poster_rel = "poster.jpg" if os.path.exists(os.path.join(folder_path, "poster.jpg")) else ""
+                    if poster_rel:
+                        f.write(f'#EXTINF:-1 tvg-id="{code}_{ep_num}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{clean_title_ru}",{name}\n')
+                    else:
+                        f.write(f'#EXTINF:-1 tvg-id="{code}_{ep_num}" tvg-name="{name}" group-title="{clean_title_ru}",{name}\n')
+                    f.write(link + '\n')
+                    ep_num += 1
+        print(f"  ✅ M3U создан")
+
+    print(f"  ✅ Готово: {folder_name}")
+    return {
+        'code': code,
+        'title_ru': clean_title_ru,
+        'title_en': clean_title_en,
+        'folder': folder_name,
+        'poster': poster_path if 'poster_path' in locals() else None,
+        'links': video_links
+    }
+
+def create_master_m3u(results):
+    """Создание единого мастер-плейлиста со всеми аниме"""
+    lines = ["#EXTM3U"]
+    lines.append("# Playlist: AniLibria Mirror")
+    lines.append(f"# Updated: {datetime.now().isoformat()}")
+    lines.append(f"# Total titles: {len(results)}")
+    lines.append("#")
+    
+    # Сортируем по названию
+    sorted_results = sorted(results, key=lambda x: x.get('title_ru', '').lower())
+    
+    for anime in sorted_results:
+        if not anime:
             continue
         
-        for release in releases:
-            if process_release(release):
-                stats["ok"] += 1
+        title_ru = anime.get('title_ru', 'Unknown')
+        title_en = anime.get('title_en', '')
+        folder = anime.get('folder', '')
         
-        found_ids = {r["id"] for r in releases}
-        missing = [x for x in batch if x not in found_ids]
-        if missing:
-            print(f"  🔍 Нет в ответе: {len(missing)} ID")
-            stats["fail"] += len(missing)
+        # Информация о группе (аниме)
+        lines.append(f'#=== {title_ru} ===#')
+        if title_en:
+            lines.append(f'# Англ: {title_en}')
         
-        time.sleep(0.3)
+        # Определяем путь к постеру (если есть)
+        poster_rel = ""
+        if folder:
+            poster_path = os.path.join(MIRRORS_ROOT, folder, "poster.jpg")
+            if os.path.exists(poster_path):
+                poster_rel = f"mirrors/{folder}/poster.jpg"
+            else:
+                # Пробуем другие расширения
+                for ext in ['png', 'webp', 'jpeg', 'gif']:
+                    alt_path = os.path.join(MIRRORS_ROOT, folder, f"poster.{ext}")
+                    if os.path.exists(alt_path):
+                        poster_rel = f"mirrors/{folder}/poster.{ext}"
+                        break
+        
+        # Добавляем ссылки на видео
+        for quality in ['1080', '720', '480']:
+            for link in anime['links'].get(quality, []):
+                name = f"{title_ru} - {quality}p"
+                if poster_rel:
+                    lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{title_ru}",{name}')
+                else:
+                    lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" group-title="{title_ru}",{name}')
+                lines.append(link)
+        
+        lines.append("#")  # Разделитель между аниме
     
-    # M3U
-    if m3u_blocks:
-        m3u_content = "#EXTM3U\n\n" + "\n\n".join(m3u_blocks) + "\n"
-        with open(M3U_FILE, "w", encoding="utf-8") as f:
-            f.write(m3u_content)
+    # Сохраняем мастер-плейлист
+    os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
+    with open(M3U_MASTER, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
     
-    with open(BASE_DIR / "last_sync.txt", "w", encoding="utf-8") as f:
+    print(f"✅ Мастер M3U создан: {M3U_MASTER}")
+    return len(sorted_results)
+
+def main():
+    print("🚀 AniLibria/AniLiberty Mirror Builder (GitHub Actions)")
+    print("=" * 50)
+    print(f"⏰ Запуск: {datetime.now().isoformat()}")
+    
+    os.makedirs(MIRRORS_ROOT, exist_ok=True)
+    os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
+
+    anime_titles = load_anime_titles()
+    if not anime_titles:
+        print("❌ Нет названий для обработки")
+        sys.exit(1)
+    
+    print(f"📊 Загружено названий: {len(anime_titles)}")
+    
+    processed = load_processed_titles()
+    new_titles = [t for t in anime_titles if t not in processed]
+    
+    if not new_titles:
+        print("✅ Все названия уже обработаны")
+        sys.exit(0)
+    
+    print(f"🆕 Новых названий для обработки: {len(new_titles)}")
+
+    results = []
+    total = len(new_titles)
+
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(process_anime, title): title for title in new_titles}
+        for i, future in enumerate(as_completed(futures), 1):
+            title = futures[future]
+            try:
+                result = future.result()
+                if result:
+                    results.append(result)
+                    processed.add(title)
+                print(f"📊 Прогресс: {i}/{total} ({i/total*100:.1f}%)")
+            except Exception as e:
+                print(f"  ❌ Ошибка обработки {title}: {e}")
+            time.sleep(0.5)
+
+    save_processed_titles(processed)
+    
+    # Загружаем все результаты из папки mirrors для полного плейлиста
+    all_results = []
+    for folder in os.listdir(MIRRORS_ROOT):
+        folder_path = os.path.join(MIRRORS_ROOT, folder)
+        if os.path.isdir(folder_path):
+            info_path = os.path.join(folder_path, "info.json")
+            links_path = os.path.join(folder_path, "links.txt")
+            if os.path.exists(info_path) and os.path.exists(links_path):
+                with open(info_path, 'r', encoding='utf-8') as f:
+                    info = json.load(f)
+                links = {'1080': [], '720': [], '480': []}
+                with open(links_path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        if 'p:' in line:
+                            parts = line.strip().split('p: ')
+                            if len(parts) == 2:
+                                quality = parts[0]
+                                url = parts[1]
+                                if quality in links:
+                                    links[quality].append(url)
+                all_results.append({
+                    'code': info.get('code', folder),
+                    'title_ru': info.get('names', {}).get('ru', folder),
+                    'title_en': info.get('names', {}).get('en', folder),
+                    'folder': folder,
+                    'links': links
+                })
+    
+    count = create_master_m3u(all_results)
+    
+    with open(TIMESTAMP_FILE, 'w', encoding='utf-8') as f:
         f.write(datetime.now().isoformat())
     
-    print("\n" + "=" * 60)
-    print("📊 ИТОГИ")
-    print(f"   ✅ Успешно: {stats['ok']}")
-    print(f"   ❌ Ошибок/пропусков: {stats['fail']}")
-    print(f"   📄 M3U: {M3U_FILE} ({len(m3u_blocks)} аниме)")
-    print("=" * 60)
-    
-    return 0 if stats["fail"] < len(ALL_IDS) * 0.5 else 1
-
+    print("\n✅ Готово!")
+    print(f"📁 Папка: {MIRRORS_ROOT}")
+    print(f"📊 Всего аниме в зеркале: {len(all_results)}")
+    print(f"📄 Мастер плейлист: {M3U_MASTER}")
+    print(f"🆕 Обработано новых: {len(results)}")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
