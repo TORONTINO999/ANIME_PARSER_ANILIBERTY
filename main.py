@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-AniLibria / AniLiberty Mirror Builder - GitHub Actions версия
-Поддерживает оба сайта: .tv (старый) и .top (новый)
-Извлекает все возможные ссылки на видео через парсинг JavaScript и HTML
-Автоматически пушит изменения в mirrors и обновляет мастер-плейлист
+AniLibria / AniLiberty Mirror Builder - GitHub Actions версия с поддержкой браузера
+Использует Playwright для рендеринга динамических страниц, если установлен.
 """
 
 import os
@@ -19,11 +17,19 @@ from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
+# Попытка импортировать Playwright (опционально)
+try:
+    from playwright.sync_api import sync_playwright
+    HAS_PLAYWRIGHT = True
+except ImportError:
+    HAS_PLAYWRIGHT = False
+
 # ===== КОНФИГУРАЦИЯ =====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 MIRRORS_ROOT = os.path.join(SCRIPT_DIR, "mirrors")
 M3U_MASTER = os.path.join(SCRIPT_DIR, "anilibria_all.m3u")
 TIMESTAMP_FILE = os.path.join(SCRIPT_DIR, "last_run.txt")
+USE_BROWSER = os.environ.get("USE_BROWSER", "auto").lower()  # auto, true, false
 
 SITES = {
     'old': {
@@ -51,15 +57,8 @@ def load_anime_titles():
     if os.path.exists(titles_file):
         with open(titles_file, 'r', encoding='utf-8') as f:
             return [line.strip() for line in f if line.strip()]
-    
     print("⚠️ aliases.txt не найден, использую встроенный список")
-    return [
-        "bleach",
-        "naruto",
-        "one-piece",
-        "attack-on-titan",
-        "demon-slayer"
-    ]
+    return ["bleach", "naruto", "one-piece", "attack-on-titan", "demon-slayer"]
 
 def load_processed_titles():
     processed_file = os.path.join(SCRIPT_DIR, "processed.txt")
@@ -74,11 +73,12 @@ def save_processed_titles(processed):
         for title in sorted(processed):
             f.write(f"{title}\n")
 
-# ===== ИЗВЛЕЧЕНИЕ ДАННЫХ =====
+# ===== ИЗВЛЕЧЕНИЕ ДАННЫХ ИЗ HTML =====
 def extract_js_data(html_content):
     result = {}
-    
-    match = re.search(r'window\.__INITIAL_STATE__\s*=\s*({.*?});', html_content, re.DOTALL)
+    # Используем конкатенацию для избежания проблем с фигурными скобками
+    pattern_initial = r'window\.__INITIAL_STATE__\s*=\s*({.*?});'
+    match = re.search(pattern_initial, html_content, re.DOTALL)
     if match:
         try:
             result['initial_state'] = json.loads(match.group(1))
@@ -86,6 +86,7 @@ def extract_js_data(html_content):
             pass
     
     for var in ['__NUXT__', '__NEXT_DATA__', '__DATA__', 'appData']:
+        # Экранируем var и собираем шаблон через конкатенацию
         pattern = r'window\.' + re.escape(var) + r'\s*=\s*({.*?});'
         match = re.search(pattern, html_content, re.DOTALL)
         if match:
@@ -127,61 +128,86 @@ def extract_video_links_from_data(data):
     _traverse(data)
     return links
 
+def get_page_with_requests(url):
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        if resp.status_code == 200:
+            return resp.text
+    except:
+        pass
+    return None
+
+def get_page_with_playwright(url):
+    if not HAS_PLAYWRIGHT:
+        return None
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(url, wait_until="networkidle", timeout=30000)
+            content = page.content()
+            browser.close()
+            return content
+    except Exception as e:
+        print(f"    ⚠️ Playwright ошибка: {e}")
+        return None
+
+def get_page_content(url):
+    # Пробуем сначала requests (быстрее)
+    html = get_page_with_requests(url)
+    if html:
+        return html
+    # Если не получилось и разрешено использовать браузер – пробуем Playwright
+    if USE_BROWSER != "false" and HAS_PLAYWRIGHT:
+        print(f"    🔄 Использую браузер для загрузки {url}")
+        return get_page_with_playwright(url)
+    return None
+
 def get_page_and_extract_links(code, site_key):
     site = SITES[site_key]
     links = {'1080': [], '720': [], '480': []}
+    url = f"{site['base']}/release/{code}.html"
+    html = get_page_content(url)
+    if not html:
+        return links
     
-    try:
-        url = f"{site['base']}/release/{code}.html"
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        if resp.status_code != 200:
-            return links
-        html = resp.text
-        
-        js_data = extract_js_data(html)
-        
-        if 'm3u8_links' in js_data:
-            for link in js_data['m3u8_links']:
+    js_data = extract_js_data(html)
+    
+    if 'm3u8_links' in js_data:
+        for link in js_data['m3u8_links']:
+            quality = '480'
+            if '1080' in link:
+                quality = '1080'
+            elif '720' in link:
+                quality = '720'
+            links[quality].append(link)
+    
+    for key, data in js_data.items():
+        if key.endswith('_state') or key in ['__nuxt__', '__next_data__', '__data__']:
+            extracted = extract_video_links_from_data(data)
+            for q in links:
+                links[q].extend(extracted[q])
+    
+    if 'player_url' in js_data:
+        player_url = js_data['player_url']
+        if not player_url.startswith('http'):
+            player_url = urljoin(site['base'], player_url)
+        player_html = get_page_content(player_url)
+        if player_html:
+            m3u8 = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', player_html)
+            for link in m3u8:
                 quality = '480'
                 if '1080' in link:
                     quality = '1080'
                 elif '720' in link:
                     quality = '720'
                 links[quality].append(link)
-        
-        for key, data in js_data.items():
-            if key.endswith('_state') or key in ['__nuxt__', '__next_data__', '__data__']:
-                extracted = extract_video_links_from_data(data)
-                for q in links:
-                    links[q].extend(extracted[q])
-        
-        if 'player_url' in js_data:
-            player_url = js_data['player_url']
-            if not player_url.startswith('http'):
-                player_url = urljoin(site['base'], player_url)
-            try:
-                player_resp = requests.get(player_url, headers=HEADERS, timeout=10)
-                if player_resp.status_code == 200:
-                    player_html = player_resp.text
-                    m3u8 = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', player_html)
-                    for link in m3u8:
-                        quality = '480'
-                        if '1080' in link:
-                            quality = '1080'
-                        elif '720' in link:
-                            quality = '720'
-                        links[quality].append(link)
-            except:
-                pass
-    except Exception as e:
-        print(f"    ⚠️ Ошибка парсинга: {e}")
     
     for q in links:
         links[q] = list(dict.fromkeys(links[q]))
-    
     return links
 
-# ===== API ФУНКЦИИ =====
+# ===== API ФУНКЦИИ (без изменений) =====
 def search_new_api(title):
     try:
         url = f"{SITES['new']['api']}/search"
@@ -250,7 +276,6 @@ def download_poster(poster_url, folder_path):
     return None
 
 def clean_title(title):
-    """Очищает название от лишних символов для M3U"""
     if not title:
         return "Unknown"
     title = re.sub(r'[^\w\s\-]', '', title)
@@ -332,6 +357,7 @@ def process_anime(title):
         if poster_path:
             print(f"  ✅ Постер сохранён")
 
+    # Извлекаем ссылки – сначала из API, затем парсим страницу (с браузером при необходимости)
     video_links = extract_video_links_from_data(anime_data)
     if used_site:
         page_links = get_page_and_extract_links(code, used_site)
@@ -401,7 +427,6 @@ def create_master_m3u(results):
     for anime in sorted_results:
         if not anime:
             continue
-        
         title_ru = anime.get('title_ru', 'Unknown')
         title_en = anime.get('title_en', '')
         folder = anime.get('folder', '')
@@ -426,7 +451,6 @@ def create_master_m3u(results):
                 else:
                     lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" group-title="{title_ru}",{name}')
                 lines.append(link)
-        
         lines.append("#")
     
     os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
@@ -437,9 +461,11 @@ def create_master_m3u(results):
     return len(sorted_results)
 
 def main():
-    print("🚀 AniLibria/AniLiberty Mirror Builder (GitHub Actions)")
+    print("🚀 AniLibria/AniLiberty Mirror Builder (с поддержкой браузера)")
     print("=" * 50)
     print(f"⏰ Запуск: {datetime.now().isoformat()}")
+    print(f"📦 Playwright установлен: {HAS_PLAYWRIGHT}")
+    print(f"🌐 Использовать браузер: {USE_BROWSER}")
     
     os.makedirs(MIRRORS_ROOT, exist_ok=True)
     os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
