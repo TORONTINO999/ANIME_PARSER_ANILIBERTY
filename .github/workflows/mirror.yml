@@ -2,41 +2,52 @@ name: Build AniLibria Mirror
 
 on:
   schedule:
-    # Запуск каждый день в 03:00 UTC
+    # Запуск каждый день в 03:00 UTC (можно изменить)
     - cron: '0 3 * * *'
-  workflow_dispatch:
-    # Возможность ручного запуска
+  workflow_dispatch:  # Ручной запуск из интерфейса GitHub
 
 jobs:
   build-mirror:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+          # Важно: даём доступ к записи в репозиторий
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          
+          pip install playwright
+          # Если у вас есть файл requirements.txt, можно использовать его
+          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+          playwright install-deps
+
       - name: Run mirror builder
-        run: python main.py
         env:
+          USE_BROWSER: "true"   # Принудительно используем браузер (можно auto/true/false)
           PYTHONUNBUFFERED: 1
-          
+        run: python main.py
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Добавляем все изменения (папка mirrors, мастер-плейлист, processed.txt, last_run.txt)
           git add mirrors/ anilibria_all.m3u processed.txt last_run.txt
+          # Проверяем, есть ли изменения для коммита
           git diff --staged --quiet || git commit -m "🔄 Automatic mirror update $(date +'%Y-%m-%d %H:%M')"
           git push origin main
