@@ -86,7 +86,7 @@ def extract_js_data(html_content):
             pass
     
     for var in ['__NUXT__', '__NEXT_DATA__', '__DATA__', 'appData']:
-        pattern = rf'window\.{var}\s*=\s*({.*?});'
+        pattern = r'window\.' + re.escape(var) + r'\s*=\s*({.*?});'
         match = re.search(pattern, html_content, re.DOTALL)
         if match:
             try:
@@ -253,24 +253,22 @@ def clean_title(title):
     """Очищает название от лишних символов для M3U"""
     if not title:
         return "Unknown"
-    # Убираем лишние пробелы и специальные символы
     title = re.sub(r'[^\w\s\-]', '', title)
     title = re.sub(r'\s+', ' ', title).strip()
     return title
 
 def process_anime(title):
     print(f"🔄 Обработка: {title}")
-    clean_title = title.strip()
+    clean_title_input = title.strip()
     anime_data = None
     used_site = None
     code = None
 
-    # Пробуем новый сайт
     print(f"  🔍 Ищем на {SITES['new']['name']}...")
-    anime_data = search_new_api(clean_title)
+    anime_data = search_new_api(clean_title_input)
     if anime_data:
         used_site = 'new'
-        code = anime_data.get('code') or anime_data.get('slug') or clean_title
+        code = anime_data.get('code') or anime_data.get('slug') or clean_title_input
         details = get_new_details(code)
         if details:
             anime_data.update(details)
@@ -278,10 +276,10 @@ def process_anime(title):
     
     if not anime_data:
         print(f"  🔍 Ищем на {SITES['old']['name']}...")
-        anime_data = search_old_api(clean_title)
+        anime_data = search_old_api(clean_title_input)
         if anime_data:
             used_site = 'old'
-            code = anime_data.get('code', clean_title)
+            code = anime_data.get('code', clean_title_input)
             details = get_old_details(code)
             if details:
                 anime_data.update(details)
@@ -291,22 +289,18 @@ def process_anime(title):
         print(f"  ❌ Не найдено ни на одном сайте")
         return None
 
-    # Создаём папку
     folder_name = code.replace('/', '_').replace('\\', '_')
     folder_path = os.path.join(MIRRORS_ROOT, folder_name)
     os.makedirs(folder_path, exist_ok=True)
 
-    # Получаем названия
     names = anime_data.get('names', {})
     title_ru = names.get('ru', code)
     title_en = names.get('en', code)
     title_alt = names.get('alternative', '')
     
-    # Чистое название для M3U (без спецсимволов)
     clean_title_ru = clean_title(title_ru)
     clean_title_en = clean_title(title_en)
     
-    # Сохраняем информацию в JSON (с английским названием)
     info = {
         'site': used_site,
         'code': anime_data.get('code', ''),
@@ -331,14 +325,13 @@ def process_anime(title):
     with open(info_path, 'w', encoding='utf-8') as f:
         json.dump(info, f, ensure_ascii=False, indent=2)
 
-    # Скачиваем постер
     poster_url = anime_data.get('poster') or anime_data.get('image') or anime_data.get('cover')
+    poster_path = None
     if poster_url:
         poster_path = download_poster(poster_url, folder_path)
         if poster_path:
             print(f"  ✅ Постер сохранён")
 
-    # Извлекаем ссылки на видео
     video_links = extract_video_links_from_data(anime_data)
     if used_site:
         page_links = get_page_and_extract_links(code, used_site)
@@ -346,7 +339,6 @@ def process_anime(title):
             video_links[quality].extend(page_links[quality])
             video_links[quality] = list(dict.fromkeys(video_links[quality]))
 
-    # Сохраняем ссылки
     if any(video_links.values()):
         links_path = os.path.join(folder_path, "links.txt")
         with open(links_path, 'w', encoding='utf-8') as f:
@@ -357,14 +349,11 @@ def process_anime(title):
                     for link in video_links[quality]:
                         f.write(f"{quality}p: {link}\n")
 
-    # Создаём M3U плейлист для аниме
     if any(video_links.values()):
         m3u_path = os.path.join(folder_path, f"{code}.m3u")
         with open(m3u_path, 'w', encoding='utf-8') as f:
             f.write("#EXTM3U\n")
             f.write(f'#PLAYLIST:{clean_title_ru}\n')
-            
-            # Добавляем информацию о плейлисте в комментариях
             f.write(f'# Группа: {clean_title_ru}\n')
             f.write(f'# Английское название: {clean_title_en}\n')
             if title_alt:
@@ -375,15 +364,13 @@ def process_anime(title):
             f.write(f'# Серий всего: {info.get("episodes_total", 0)}\n')
             if info.get('description_short'):
                 f.write(f'# Описание: {info.get("description_short", "")[:200]}\n')
-            f.write(f'#\n')
+            f.write('#\n')
             
             ep_num = 1
             for quality in ['1080', '720', '480']:
                 for link in video_links[quality]:
-                    # Формируем название серии с качеством
                     name = f"{clean_title_ru} - {quality}p"
-                    # Добавляем tvg-logo (путь к постеру)
-                    poster_rel = "poster.jpg" if os.path.exists(os.path.join(folder_path, "poster.jpg")) else ""
+                    poster_rel = "poster.jpg" if poster_path and os.path.exists(poster_path) else ""
                     if poster_rel:
                         f.write(f'#EXTINF:-1 tvg-id="{code}_{ep_num}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{clean_title_ru}",{name}\n')
                     else:
@@ -398,19 +385,17 @@ def process_anime(title):
         'title_ru': clean_title_ru,
         'title_en': clean_title_en,
         'folder': folder_name,
-        'poster': poster_path if 'poster_path' in locals() else None,
+        'poster': poster_path,
         'links': video_links
     }
 
 def create_master_m3u(results):
-    """Создание единого мастер-плейлиста со всеми аниме"""
     lines = ["#EXTM3U"]
     lines.append("# Playlist: AniLibria Mirror")
     lines.append(f"# Updated: {datetime.now().isoformat()}")
     lines.append(f"# Total titles: {len(results)}")
     lines.append("#")
     
-    # Сортируем по названию
     sorted_results = sorted(results, key=lambda x: x.get('title_ru', '').lower())
     
     for anime in sorted_results:
@@ -421,26 +406,18 @@ def create_master_m3u(results):
         title_en = anime.get('title_en', '')
         folder = anime.get('folder', '')
         
-        # Информация о группе (аниме)
         lines.append(f'#=== {title_ru} ===#')
         if title_en:
             lines.append(f'# Англ: {title_en}')
         
-        # Определяем путь к постеру (если есть)
         poster_rel = ""
         if folder:
-            poster_path = os.path.join(MIRRORS_ROOT, folder, "poster.jpg")
-            if os.path.exists(poster_path):
-                poster_rel = f"mirrors/{folder}/poster.jpg"
-            else:
-                # Пробуем другие расширения
-                for ext in ['png', 'webp', 'jpeg', 'gif']:
-                    alt_path = os.path.join(MIRRORS_ROOT, folder, f"poster.{ext}")
-                    if os.path.exists(alt_path):
-                        poster_rel = f"mirrors/{folder}/poster.{ext}"
-                        break
+            for ext in ['jpg', 'png', 'webp', 'jpeg', 'gif']:
+                poster_path = os.path.join(MIRRORS_ROOT, folder, f"poster.{ext}")
+                if os.path.exists(poster_path):
+                    poster_rel = f"mirrors/{folder}/poster.{ext}"
+                    break
         
-        # Добавляем ссылки на видео
         for quality in ['1080', '720', '480']:
             for link in anime['links'].get(quality, []):
                 name = f"{title_ru} - {quality}p"
@@ -450,9 +427,8 @@ def create_master_m3u(results):
                     lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" group-title="{title_ru}",{name}')
                 lines.append(link)
         
-        lines.append("#")  # Разделитель между аниме
+        lines.append("#")
     
-    # Сохраняем мастер-плейлист
     os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
     with open(M3U_MASTER, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
@@ -503,7 +479,6 @@ def main():
 
     save_processed_titles(processed)
     
-    # Загружаем все результаты из папки mirrors для полного плейлиста
     all_results = []
     for folder in os.listdir(MIRRORS_ROOT):
         folder_path = os.path.join(MIRRORS_ROOT, folder)
