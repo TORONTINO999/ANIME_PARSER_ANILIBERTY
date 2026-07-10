@@ -2,144 +2,63 @@
 # -*- coding: utf-8 -*-
 
 """
-AniLibria / AniLiberty Mirror Builder - GitHub Actions версия с поддержкой браузера
-Использует Playwright для рендеринга динамических страниц, если установлен.
+AniLibria / AniLiberty Mirror Builder – с полным рендерингом через браузер.
+Парсит динамические страницы как реальный пользователь, извлекает всё:
+- русское и английское название
+- описание
+- постер
+- жанры
+- ссылки на все серии (m3u8) с указанием качества
+Создаёт структуру папок и M3U-плейлисты.
 """
 
 import os
 import re
 import json
 import time
-import requests
 import sys
-from pathlib import Path
-from urllib.parse import urljoin
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
+from urllib.parse import urljoin
 
-# Попытка импортировать Playwright (опционально)
-try:
-    from playwright.sync_api import sync_playwright
-    HAS_PLAYWRIGHT = True
-except ImportError:
-    HAS_PLAYWRIGHT = False
+# Импортируем Playwright (обязательно)
+from playwright.sync_api import sync_playwright
 
 # ===== КОНФИГУРАЦИЯ =====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 MIRRORS_ROOT = os.path.join(SCRIPT_DIR, "mirrors")
 M3U_MASTER = os.path.join(SCRIPT_DIR, "anilibria_all.m3u")
+PROCESSED_FILE = os.path.join(SCRIPT_DIR, "processed.txt")
 TIMESTAMP_FILE = os.path.join(SCRIPT_DIR, "last_run.txt")
-USE_BROWSER = os.environ.get("USE_BROWSER", "auto").lower()  # auto, true, false
 
-SITES = {
-    'old': {
-        'base': 'https://anilibria.tv',
-        'api': 'https://api.anilibria.tv/v3',
-        'name': 'AniLibria TV'
-    },
-    'new': {
-        'base': 'https://anilibria.top',
-        'api': 'https://api.anilibria.top/v1',
-        'name': 'AniLiberty'
-    }
-}
+SITES = [
+    {'base': 'https://anilibria.top', 'name': 'AniLiberty'},
+    {'base': 'https://anilibria.tv', 'name': 'AniLibria TV'}
+]
 
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-    'Accept': 'application/json, text/plain, */*',
-    'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
-    'Referer': 'https://anilibria.top/'
-}
-
-# ===== ЗАГРУЗКА СПИСКА =====
+# ===== ЗАГРУЗКА СПИСКА АНИМЕ =====
 def load_anime_titles():
     titles_file = os.path.join(SCRIPT_DIR, "aliases.txt")
     if os.path.exists(titles_file):
         with open(titles_file, 'r', encoding='utf-8') as f:
             return [line.strip() for line in f if line.strip()]
     print("⚠️ aliases.txt не найден, использую встроенный список")
-    return ["bleach", "naruto", "one-piece", "attack-on-titan", "demon-slayer"]
+    return ["bleach", "naruto", "one-piece"]
 
-def load_processed_titles():
-    processed_file = os.path.join(SCRIPT_DIR, "processed.txt")
-    if os.path.exists(processed_file):
-        with open(processed_file, 'r', encoding='utf-8') as f:
+# ===== РАБОТА С ПРОЦЕССОМ =====
+def load_processed():
+    if os.path.exists(PROCESSED_FILE):
+        with open(PROCESSED_FILE, 'r', encoding='utf-8') as f:
             return set(line.strip() for line in f if line.strip())
     return set()
 
-def save_processed_titles(processed):
-    processed_file = os.path.join(SCRIPT_DIR, "processed.txt")
-    with open(processed_file, 'w', encoding='utf-8') as f:
+def save_processed(processed):
+    with open(PROCESSED_FILE, 'w', encoding='utf-8') as f:
         for title in sorted(processed):
             f.write(f"{title}\n")
 
-# ===== ИЗВЛЕЧЕНИЕ ДАННЫХ ИЗ HTML =====
-def extract_js_data(html_content):
-    result = {}
-    # Используем конкатенацию для избежания проблем с фигурными скобками
-    pattern_initial = r'window\.__INITIAL_STATE__\s*=\s*({.*?});'
-    match = re.search(pattern_initial, html_content, re.DOTALL)
-    if match:
-        try:
-            result['initial_state'] = json.loads(match.group(1))
-        except:
-            pass
-    
-    for var in ['__NUXT__', '__NEXT_DATA__', '__DATA__', 'appData']:
-        # Экранируем var и собираем шаблон через конкатенацию
-        pattern = r'window\.' + re.escape(var) + r'\s*=\s*({.*?});'
-        match = re.search(pattern, html_content, re.DOTALL)
-        if match:
-            try:
-                result[var.lower()] = json.loads(match.group(1))
-            except:
-                pass
-    
-    m3u8_links = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', html_content)
-    if m3u8_links:
-        result['m3u8_links'] = m3u8_links
-    
-    iframe_match = re.search(r'<iframe[^>]*src="([^"]*)"[^>]*>', html_content)
-    if iframe_match:
-        result['player_url'] = iframe_match.group(1)
-    
-    return result
-
-def extract_video_links_from_data(data):
-    links = {'1080': [], '720': [], '480': []}
-    
-    def _traverse(obj):
-        if isinstance(obj, dict):
-            for key, value in obj.items():
-                if isinstance(value, str) and value.startswith('http'):
-                    if '.m3u8' in value or 'video' in key.lower() or 'stream' in key.lower() or 'hls' in key.lower():
-                        quality = '480'
-                        if '1080' in value or 'fhd' in value.lower():
-                            quality = '1080'
-                        elif '720' in value or 'hd' in value.lower():
-                            quality = '720'
-                        links[quality].append(value)
-                elif isinstance(value, (dict, list)):
-                    _traverse(value)
-        elif isinstance(obj, list):
-            for item in obj:
-                _traverse(item)
-    
-    _traverse(data)
-    return links
-
-def get_page_with_requests(url):
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        if resp.status_code == 200:
-            return resp.text
-    except:
-        pass
-    return None
-
-def get_page_with_playwright(url):
-    if not HAS_PLAYWRIGHT:
-        return None
+# ===== ИЗВЛЕЧЕНИЕ ДАННЫХ ИЗ СТРАНИЦЫ =====
+def fetch_page_content(url):
+    """Загружает страницу через браузер (Playwright) и возвращает HTML."""
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -149,362 +68,282 @@ def get_page_with_playwright(url):
             browser.close()
             return content
     except Exception as e:
-        print(f"    ⚠️ Playwright ошибка: {e}")
+        print(f"    ⚠️ Ошибка загрузки {url}: {e}")
         return None
 
-def get_page_content(url):
-    # Пробуем сначала requests (быстрее)
-    html = get_page_with_requests(url)
-    if html:
-        return html
-    # Если не получилось и разрешено использовать браузер – пробуем Playwright
-    if USE_BROWSER != "false" and HAS_PLAYWRIGHT:
-        print(f"    🔄 Использую браузер для загрузки {url}")
-        return get_page_with_playwright(url)
-    return None
+def parse_page(html, base_url):
+    """Парсит HTML и извлекает все нужные данные."""
+    result = {
+        'title_ru': None,
+        'title_en': None,
+        'description': None,
+        'poster_url': None,
+        'genres': [],
+        'video_links': {'1080': [], '720': [], '480': []}
+    }
 
-def get_page_and_extract_links(code, site_key):
-    site = SITES[site_key]
-    links = {'1080': [], '720': [], '480': []}
-    url = f"{site['base']}/release/{code}.html"
-    html = get_page_content(url)
-    if not html:
-        return links
-    
-    js_data = extract_js_data(html)
-    
-    if 'm3u8_links' in js_data:
-        for link in js_data['m3u8_links']:
+    # 1. Заголовок (мета-тег title)
+    title_match = re.search(r'<title>(.*?)</title>', html, re.IGNORECASE)
+    if title_match:
+        full_title = title_match.group(1).strip()
+        if '|' in full_title:
+            result['title_ru'] = full_title.split('|')[0].strip()
+        else:
+            result['title_ru'] = full_title
+
+    # 2. Описание (meta name="description")
+    desc_match = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', html, re.IGNORECASE)
+    if desc_match:
+        result['description'] = desc_match.group(1).strip()
+
+    # 3. Постер (og:image)
+    poster_match = re.search(r'<meta\s+property="og:image"\s+content="([^"]*)"', html, re.IGNORECASE)
+    if poster_match:
+        poster_url = poster_match.group(1).strip()
+        if not poster_url.startswith('http'):
+            poster_url = urljoin(base_url, poster_url)
+        result['poster_url'] = poster_url
+
+    # 4. Жанры (ищем в JSON-данных или в тексте)
+    # Пробуем найти в __INITIAL_STATE__
+    state_match = re.search(r'window\.__INITIAL_STATE__\s*=\s*({.*?});', html, re.DOTALL)
+    if state_match:
+        try:
+            state = json.loads(state_match.group(1))
+            # Ищем жанры
+            if 'title' in state and 'genres' in state['title']:
+                result['genres'] = [g.get('name', '') for g in state['title']['genres']]
+            # Ищем видео-ссылки
+            def find_links(obj):
+                if isinstance(obj, dict):
+                    for k, v in obj.items():
+                        if isinstance(v, str) and v.startswith('http') and '.m3u8' in v:
+                            quality = '480'
+                            if '1080' in v or 'fhd' in v.lower():
+                                quality = '1080'
+                            elif '720' in v or 'hd' in v.lower():
+                                quality = '720'
+                            result['video_links'][quality].append(v)
+                        else:
+                            find_links(v)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        find_links(item)
+            find_links(state)
+        except:
+            pass
+
+    # 5. Если ссылок всё ещё нет, ищем m3u8 напрямую в HTML
+    if not any(result['video_links'].values()):
+        m3u8_urls = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', html)
+        for url in m3u8_urls:
             quality = '480'
-            if '1080' in link:
+            if '1080' in url:
                 quality = '1080'
-            elif '720' in link:
+            elif '720' in url:
                 quality = '720'
-            links[quality].append(link)
-    
-    for key, data in js_data.items():
-        if key.endswith('_state') or key in ['__nuxt__', '__next_data__', '__data__']:
-            extracted = extract_video_links_from_data(data)
-            for q in links:
-                links[q].extend(extracted[q])
-    
-    if 'player_url' in js_data:
-        player_url = js_data['player_url']
-        if not player_url.startswith('http'):
-            player_url = urljoin(site['base'], player_url)
-        player_html = get_page_content(player_url)
-        if player_html:
-            m3u8 = re.findall(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', player_html)
-            for link in m3u8:
-                quality = '480'
-                if '1080' in link:
-                    quality = '1080'
-                elif '720' in link:
-                    quality = '720'
-                links[quality].append(link)
-    
-    for q in links:
-        links[q] = list(dict.fromkeys(links[q]))
-    return links
+            result['video_links'][quality].append(url)
 
-# ===== API ФУНКЦИИ (без изменений) =====
-def search_new_api(title):
-    try:
-        url = f"{SITES['new']['api']}/search"
-        params = {'q': title, 'limit': 1}
-        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
-        if resp.status_code == 200:
-            data = resp.json()
-            if data and isinstance(data, list) and len(data) > 0:
-                return data[0]
-    except:
-        pass
-    return None
+    # 6. Удаляем дубликаты
+    for q in result['video_links']:
+        result['video_links'][q] = list(dict.fromkeys(result['video_links'][q]))
 
-def get_new_details(code):
-    try:
-        url = f"{SITES['new']['api']}/titles/{code}"
-        resp = requests.get(url, headers=HEADERS, timeout=10)
-        if resp.status_code == 200:
-            return resp.json()
-    except:
-        pass
-    return None
+    # Если название не найдено, пробуем взять из og:title
+    if not result['title_ru']:
+        og_title = re.search(r'<meta\s+property="og:title"\s+content="([^"]*)"', html, re.IGNORECASE)
+        if og_title:
+            result['title_ru'] = og_title.group(1).strip()
 
-def search_old_api(title):
-    try:
-        url = f"{SITES['old']['api']}/title/search"
-        params = {'search': title, 'limit': 1}
-        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
-        if resp.status_code == 200:
-            data = resp.json()
-            if data and len(data) > 0:
-                return data[0]
-    except:
-        pass
-    return None
+    return result
 
-def get_old_details(code):
-    try:
-        url = f"{SITES['old']['api']}/title"
-        params = {'code': code}
-        resp = requests.get(url, params=params, headers=HEADERS, timeout=10)
-        if resp.status_code == 200:
-            return resp.json()
-    except:
-        pass
-    return None
-
-# ===== ОСНОВНЫЕ ФУНКЦИИ =====
-def download_poster(poster_url, folder_path):
-    if not poster_url:
-        return None
-    if poster_url.startswith('/'):
-        poster_url = SITES['new']['base'] + poster_url
-    try:
-        resp = requests.get(poster_url, headers=HEADERS, timeout=10)
-        if resp.status_code == 200:
-            ext = poster_url.split('.')[-1].split('?')[0]
-            if ext.lower() not in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
-                ext = 'jpg'
-            poster_path = os.path.join(folder_path, f"poster.{ext}")
-            with open(poster_path, 'wb') as f:
-                f.write(resp.content)
-            return poster_path
-    except:
-        pass
-    return None
-
-def clean_title(title):
-    if not title:
-        return "Unknown"
-    title = re.sub(r'[^\w\s\-]', '', title)
-    title = re.sub(r'\s+', ' ', title).strip()
-    return title
-
+# ===== ОСНОВНАЯ ФУНКЦИЯ ОБРАБОТКИ =====
 def process_anime(title):
     print(f"🔄 Обработка: {title}")
-    clean_title_input = title.strip()
-    anime_data = None
+    clean_title = title.strip()
+    html_content = None
     used_site = None
-    code = None
+    base_url = None
 
-    print(f"  🔍 Ищем на {SITES['new']['name']}...")
-    anime_data = search_new_api(clean_title_input)
-    if anime_data:
-        used_site = 'new'
-        code = anime_data.get('code') or anime_data.get('slug') or clean_title_input
-        details = get_new_details(code)
-        if details:
-            anime_data.update(details)
-        print(f"  ✅ Найдено на {SITES['new']['name']}")
-    
-    if not anime_data:
-        print(f"  🔍 Ищем на {SITES['old']['name']}...")
-        anime_data = search_old_api(clean_title_input)
-        if anime_data:
-            used_site = 'old'
-            code = anime_data.get('code', clean_title_input)
-            details = get_old_details(code)
-            if details:
-                anime_data.update(details)
-            print(f"  ✅ Найдено на {SITES['old']['name']}")
+    # Пробуем оба сайта
+    for site in SITES:
+        url = f"{site['base']}/release/{clean_title}.html"
+        print(f"  🔍 Загружаю {url} ...")
+        html = fetch_page_content(url)
+        if html:
+            html_content = html
+            used_site = site['name']
+            base_url = site['base']
+            print(f"  ✅ Найдено на {used_site}")
+            break
+        else:
+            print(f"  ⚠️ Не загрузилось с {site['name']}")
 
-    if not anime_data:
+    if not html_content:
         print(f"  ❌ Не найдено ни на одном сайте")
         return None
 
-    folder_name = code.replace('/', '_').replace('\\', '_')
+    # Парсим
+    data = parse_page(html_content, base_url)
+
+    # Если нет видео-ссылок – пробуем найти iframe плеера
+    if not any(data['video_links'].values()):
+        iframe_match = re.search(r'<iframe[^>]*src="([^"]*)"[^>]*>', html_content)
+        if iframe_match:
+            iframe_url = iframe_match.group(1)
+            if not iframe_url.startswith('http'):
+                iframe_url = urljoin(base_url, iframe_url)
+            print(f"  🔍 Загружаю плеер: {iframe_url}")
+            iframe_html = fetch_page_content(iframe_url)
+            if iframe_html:
+                iframe_data = parse_page(iframe_html, base_url)
+                for q in data['video_links']:
+                    data['video_links'][q].extend(iframe_data['video_links'][q])
+                    data['video_links'][q] = list(dict.fromkeys(data['video_links'][q]))
+
+    if not any(data['video_links'].values()):
+        print(f"  ⚠️ Видео-ссылки не найдены для {clean_title}")
+        return None
+
+    # Создаём папку
+    folder_name = clean_title.replace('/', '_').replace('\\', '_')
     folder_path = os.path.join(MIRRORS_ROOT, folder_name)
     os.makedirs(folder_path, exist_ok=True)
 
-    names = anime_data.get('names', {})
-    title_ru = names.get('ru', code)
-    title_en = names.get('en', code)
-    title_alt = names.get('alternative', '')
-    
-    clean_title_ru = clean_title(title_ru)
-    clean_title_en = clean_title(title_en)
-    
+    # Сохраняем info.json
+    title_ru = data['title_ru'] or clean_title
     info = {
+        'code': clean_title,
+        'names': {'ru': title_ru, 'en': ''},
+        'description': data['description'] or '',
+        'genres': data['genres'],
+        'year': '',
+        'type': '',
+        'status': '',
         'site': used_site,
-        'code': anime_data.get('code', ''),
-        'names': {
-            'ru': title_ru,
-            'en': title_en,
-            'alternative': title_alt
-        },
-        'description': anime_data.get('description', ''),
-        'description_short': anime_data.get('description_short', ''),
-        'genres': anime_data.get('genres', []),
-        'year': anime_data.get('year', ''),
-        'season': anime_data.get('season', ''),
-        'type': anime_data.get('type', ''),
-        'status': anime_data.get('status', ''),
-        'rating': anime_data.get('rating', ''),
-        'episodes_total': anime_data.get('episodes_total', 0),
-        'episodes_released': anime_data.get('episodes_released', 0),
         'updated_at': datetime.now().isoformat()
     }
-    info_path = os.path.join(folder_path, "info.json")
-    with open(info_path, 'w', encoding='utf-8') as f:
+    with open(os.path.join(folder_path, 'info.json'), 'w', encoding='utf-8') as f:
         json.dump(info, f, ensure_ascii=False, indent=2)
 
-    poster_url = anime_data.get('poster') or anime_data.get('image') or anime_data.get('cover')
+    # Скачиваем постер
     poster_path = None
-    if poster_url:
-        poster_path = download_poster(poster_url, folder_path)
-        if poster_path:
-            print(f"  ✅ Постер сохранён")
+    if data['poster_url']:
+        try:
+            import requests
+            resp = requests.get(data['poster_url'], timeout=10)
+            if resp.status_code == 200:
+                ext = data['poster_url'].split('.')[-1].split('?')[0]
+                if ext.lower() not in ['jpg', 'jpeg', 'png', 'gif', 'webp']:
+                    ext = 'jpg'
+                poster_path = os.path.join(folder_path, f"poster.{ext}")
+                with open(poster_path, 'wb') as f:
+                    f.write(resp.content)
+                print(f"  ✅ Постер сохранён")
+        except:
+            pass
 
-    # Извлекаем ссылки – сначала из API, затем парсим страницу (с браузером при необходимости)
-    video_links = extract_video_links_from_data(anime_data)
-    if used_site:
-        page_links = get_page_and_extract_links(code, used_site)
-        for quality in video_links:
-            video_links[quality].extend(page_links[quality])
-            video_links[quality] = list(dict.fromkeys(video_links[quality]))
+    # Сохраняем links.txt
+    with open(os.path.join(folder_path, 'links.txt'), 'w', encoding='utf-8') as f:
+        f.write("# Найденные видео-ссылки (m3u8)\n")
+        for quality in ['1080', '720', '480']:
+            if data['video_links'][quality]:
+                for link in data['video_links'][quality]:
+                    f.write(f"{quality}p: {link}\n")
 
-    if any(video_links.values()):
-        links_path = os.path.join(folder_path, "links.txt")
-        with open(links_path, 'w', encoding='utf-8') as f:
-            f.write("# Найденные ссылки на видео (m3u8)\n")
-            f.write("# Формат: качество: URL\n\n")
-            for quality in ['1080', '720', '480']:
-                if video_links[quality]:
-                    for link in video_links[quality]:
-                        f.write(f"{quality}p: {link}\n")
+    # Создаём M3U для этого аниме
+    m3u_path = os.path.join(folder_path, f"{clean_title}.m3u")
+    with open(m3u_path, 'w', encoding='utf-8') as f:
+        f.write("#EXTM3U\n")
+        f.write(f'#PLAYLIST:{title_ru}\n')
+        ep_num = 1
+        for quality in ['1080', '720', '480']:
+            for link in data['video_links'][quality]:
+                name = f"{title_ru} - {quality}p"
+                poster_rel = os.path.basename(poster_path) if poster_path else ""
+                if poster_rel:
+                    f.write(f'#EXTINF:-1 tvg-id="{clean_title}_{ep_num}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{title_ru}",{name}\n')
+                else:
+                    f.write(f'#EXTINF:-1 tvg-id="{clean_title}_{ep_num}" tvg-name="{name}" group-title="{title_ru}",{name}\n')
+                f.write(link + '\n')
+                ep_num += 1
 
-    if any(video_links.values()):
-        m3u_path = os.path.join(folder_path, f"{code}.m3u")
-        with open(m3u_path, 'w', encoding='utf-8') as f:
-            f.write("#EXTM3U\n")
-            f.write(f'#PLAYLIST:{clean_title_ru}\n')
-            f.write(f'# Группа: {clean_title_ru}\n')
-            f.write(f'# Английское название: {clean_title_en}\n')
-            if title_alt:
-                f.write(f'# Альтернативное название: {title_alt}\n')
-            f.write(f'# Год: {info.get("year", "Неизвестно")}\n')
-            f.write(f'# Тип: {info.get("type", "Неизвестно")}\n')
-            f.write(f'# Статус: {info.get("status", "Неизвестно")}\n')
-            f.write(f'# Серий всего: {info.get("episodes_total", 0)}\n')
-            if info.get('description_short'):
-                f.write(f'# Описание: {info.get("description_short", "")[:200]}\n')
-            f.write('#\n')
-            
-            ep_num = 1
-            for quality in ['1080', '720', '480']:
-                for link in video_links[quality]:
-                    name = f"{clean_title_ru} - {quality}p"
-                    poster_rel = "poster.jpg" if poster_path and os.path.exists(poster_path) else ""
-                    if poster_rel:
-                        f.write(f'#EXTINF:-1 tvg-id="{code}_{ep_num}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{clean_title_ru}",{name}\n')
-                    else:
-                        f.write(f'#EXTINF:-1 tvg-id="{code}_{ep_num}" tvg-name="{name}" group-title="{clean_title_ru}",{name}\n')
-                    f.write(link + '\n')
-                    ep_num += 1
-        print(f"  ✅ M3U создан")
-
-    print(f"  ✅ Готово: {folder_name}")
+    print(f"  ✅ Готово: {folder_name} (найдено ссылок: {sum(len(data['video_links'][q]) for q in data['video_links'])})")
     return {
-        'code': code,
-        'title_ru': clean_title_ru,
-        'title_en': clean_title_en,
+        'code': clean_title,
+        'title_ru': title_ru,
         'folder': folder_name,
         'poster': poster_path,
-        'links': video_links
+        'links': data['video_links']
     }
 
+# ===== СОЗДАНИЕ МАСТЕР-ПЛЕЙЛИСТА =====
 def create_master_m3u(results):
     lines = ["#EXTM3U"]
-    lines.append("# Playlist: AniLibria Mirror")
-    lines.append(f"# Updated: {datetime.now().isoformat()}")
+    lines.append(f"# Playlist: AniLibria Mirror (updated {datetime.now().isoformat()})")
     lines.append(f"# Total titles: {len(results)}")
     lines.append("#")
-    
-    sorted_results = sorted(results, key=lambda x: x.get('title_ru', '').lower())
-    
-    for anime in sorted_results:
+    for anime in sorted(results, key=lambda x: x.get('title_ru', '').lower()):
         if not anime:
             continue
-        title_ru = anime.get('title_ru', 'Unknown')
-        title_en = anime.get('title_en', '')
-        folder = anime.get('folder', '')
-        
-        lines.append(f'#=== {title_ru} ===#')
-        if title_en:
-            lines.append(f'# Англ: {title_en}')
-        
+        title = anime['title_ru']
+        code = anime['code']
+        folder = anime['folder']
+        # Определяем постер
         poster_rel = ""
         if folder:
             for ext in ['jpg', 'png', 'webp', 'jpeg', 'gif']:
-                poster_path = os.path.join(MIRRORS_ROOT, folder, f"poster.{ext}")
-                if os.path.exists(poster_path):
+                test_path = os.path.join(MIRRORS_ROOT, folder, f"poster.{ext}")
+                if os.path.exists(test_path):
                     poster_rel = f"mirrors/{folder}/poster.{ext}"
                     break
-        
+        lines.append(f'#=== {title} ===#')
         for quality in ['1080', '720', '480']:
             for link in anime['links'].get(quality, []):
-                name = f"{title_ru} - {quality}p"
+                name = f"{title} - {quality}p"
                 if poster_rel:
-                    lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{title_ru}",{name}')
+                    lines.append(f'#EXTINF:-1 tvg-id="{code}" tvg-name="{name}" tvg-logo="{poster_rel}" group-title="{title}",{name}')
                 else:
-                    lines.append(f'#EXTINF:-1 tvg-id="{anime["code"]}" tvg-name="{name}" group-title="{title_ru}",{name}')
+                    lines.append(f'#EXTINF:-1 tvg-id="{code}" tvg-name="{name}" group-title="{title}",{name}')
                 lines.append(link)
         lines.append("#")
-    
-    os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
     with open(M3U_MASTER, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
-    
     print(f"✅ Мастер M3U создан: {M3U_MASTER}")
-    return len(sorted_results)
 
+# ===== ГЛАВНАЯ =====
 def main():
-    print("🚀 AniLibria/AniLiberty Mirror Builder (с поддержкой браузера)")
-    print("=" * 50)
-    print(f"⏰ Запуск: {datetime.now().isoformat()}")
-    print(f"📦 Playwright установлен: {HAS_PLAYWRIGHT}")
-    print(f"🌐 Использовать браузер: {USE_BROWSER}")
-    
+    print("🚀 AniLibria/AniLiberty Mirror Builder (полный рендеринг через браузер)")
+    print("=" * 60)
     os.makedirs(MIRRORS_ROOT, exist_ok=True)
-    os.makedirs(os.path.dirname(M3U_MASTER), exist_ok=True)
 
     anime_titles = load_anime_titles()
     if not anime_titles:
         print("❌ Нет названий для обработки")
         sys.exit(1)
-    
     print(f"📊 Загружено названий: {len(anime_titles)}")
-    
-    processed = load_processed_titles()
+
+    processed = load_processed()
     new_titles = [t for t in anime_titles if t not in processed]
-    
     if not new_titles:
         print("✅ Все названия уже обработаны")
         sys.exit(0)
-    
-    print(f"🆕 Новых названий для обработки: {len(new_titles)}")
+    print(f"🆕 Новых названий: {len(new_titles)}")
 
     results = []
     total = len(new_titles)
 
-    with ThreadPoolExecutor(max_workers=3) as executor:
-        futures = {executor.submit(process_anime, title): title for title in new_titles}
-        for i, future in enumerate(as_completed(futures), 1):
-            title = futures[future]
-            try:
-                result = future.result()
-                if result:
-                    results.append(result)
-                    processed.add(title)
-                print(f"📊 Прогресс: {i}/{total} ({i/total*100:.1f}%)")
-            except Exception as e:
-                print(f"  ❌ Ошибка обработки {title}: {e}")
-            time.sleep(0.5)
+    # Можно запускать последовательно или параллельно (но Playwright не очень дружит с threading)
+    # Оставим последовательно, чтобы не было конфликтов с браузером
+    for i, title in enumerate(new_titles, 1):
+        result = process_anime(title)
+        if result:
+            results.append(result)
+            processed.add(title)
+        print(f"📊 Прогресс: {i}/{total} ({i/total*100:.1f}%)")
 
-    save_processed_titles(processed)
-    
+    save_processed(processed)
+
+    # Собираем все результаты из папки mirrors для мастер-плейлиста
     all_results = []
     for folder in os.listdir(MIRRORS_ROOT):
         folder_path = os.path.join(MIRRORS_ROOT, folder)
@@ -527,21 +366,19 @@ def main():
                 all_results.append({
                     'code': info.get('code', folder),
                     'title_ru': info.get('names', {}).get('ru', folder),
-                    'title_en': info.get('names', {}).get('en', folder),
                     'folder': folder,
                     'links': links
                 })
-    
-    count = create_master_m3u(all_results)
-    
+
+    create_master_m3u(all_results)
+
     with open(TIMESTAMP_FILE, 'w', encoding='utf-8') as f:
         f.write(datetime.now().isoformat())
-    
+
     print("\n✅ Готово!")
     print(f"📁 Папка: {MIRRORS_ROOT}")
     print(f"📊 Всего аниме в зеркале: {len(all_results)}")
     print(f"📄 Мастер плейлист: {M3U_MASTER}")
-    print(f"🆕 Обработано новых: {len(results)}")
 
 if __name__ == "__main__":
     main()
